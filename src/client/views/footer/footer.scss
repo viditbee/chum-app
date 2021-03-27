@@ -1,0 +1,73 @@
+.footer-container {
+  position: absolute;
+  z-index: 1;
+  text-align: center;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  .made-with {
+    display: inline-block;
+    line-height: 50px;
+    margin-right: 10px;
+    color: #9ea7ff;
+    font-size: 14px;
+  }
+
+  .ico-react {
+    background-image: url("../../assets/images/icons8-react-native-thin.svg");
+  }
+
+  .ico-node {
+    background-image: url("../../assets/images/icons8-node-js.svg");
+  }
+
+  .ico-mongo {
+    background-image: url("../../assets/images/icons8-mongodb.svg");
+  }
+
+  .ico-love {
+    background-image: url("../../assets/images/icons8-love.svg");
+  }
+
+  .ico-aws {
+    background-image: url("../../assets/images/icons8-amazon-web-services.svg");
+  }
+
+  .ico-bug {
+    background-image: url("../../assets/images/icons8-ladybird (2).svg");
+  }
+
+  .with{
+    display: inline-block;
+    line-height: 50px;
+    color: #9ea7ff;
+    font-size: 14px;
+    margin: 0 10px;
+  }
+
+  .ico-love, .ico-node, .ico-react, .ico-mongo, .ico-aws, .ico-bug{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 16px;
+    vertical-align: -10px;
+  }
+
+  .footer-pipe{
+    display: inline-block;
+    margin: 0 20px;
+    color: #9ea7ff;
+  }
+
+  .feedback-button{
+    display: inline-block;
+    color: #9ea7ff;
+
+    &:hover{
+      color: #d4d9ff;
+    }
+  }
+}

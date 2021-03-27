@@ -1,0 +1,52 @@
+.reg-teams-container {
+  color: #d4d9ff;
+  position: relative;
+  height: calc(100% - 270px);
+  z-index: 2;
+  margin: 0 auto;
+  margin-top: 50px;
+  overflow: auto;
+  width: calc(100% + 40px);
+  padding: 50px 240px;
+
+  .rt-no-registrations{
+    font-size: 17px;
+  }
+
+  .rt-header {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .rt-sub-header {
+    font-family: 'Lato', serif;
+  }
+
+  .rt-item-container {
+    margin: 40px 0;
+
+    .rt-item-header {
+      font-size: 19px;
+      margin-bottom: 10px;
+    }
+
+    .rt-item-body {
+
+      .rt-sub-item {
+        line-height: 18px;
+        span {
+          color: #9ea7ff;
+        }
+
+      }
+
+      .sec-sub-item-br {
+        height: 10px;
+      }
+    }
+
+    .rt-item-problem-id {
+      margin-top: 5px;
+    }
+  }
+}

@@ -1,0 +1,86 @@
+.about-gol-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+
+  .about-goal-dialog {
+    position: absolute;
+    top: 10%;
+    width: 110%;
+    left: -5%;
+    height: 80%;
+    overflow: auto;
+    padding: 50px 30%;
+    color: #d4d9ff;
+    background-color: rgba(6, 17, 101, .8);
+    box-shadow: 0 0 60px 60px rgba(6, 17, 101, .8);
+    border-radius: 10px;
+    z-index: 3;
+    font-family: 'Lato', sans-serif;
+
+    .about-para {
+
+    }
+
+    .about-header {
+      font-family: 'STM', sans-serif;
+      font-size: 20px;
+      margin-top: 50px;
+    }
+
+    .para-list {
+
+    }
+
+    .para-list-first {
+      margin-top: 25px;
+    }
+
+    .para-list-last {
+      margin-bottom: 25px;
+    }
+
+    .about-video-1 {
+      width: 100%;
+      border-radius: 4px;
+    }
+  }
+
+  .video-about {
+    color: #9ea7ff;
+    margin-bottom: 50px;
+  }
+
+  .about-gol-close{
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-image: url("./../../assets/images/icons8-multiply.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 3;
+    background-size: 30px;
+    opacity: .8;
+    cursor: pointer;
+
+    &:hover{
+      opacity: 1;
+    }
+  }
+
+  .about-gol-img{
+    background-image: url("./../../assets/images/gol.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 540px;
+    margin-top: 50px;
+    border-radius: 10px;
+  }
+}

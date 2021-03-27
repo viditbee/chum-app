@@ -1,0 +1,9 @@
+.game-of-life-container{
+  position: absolute;
+
+  .row {
+    width: 200%;
+    overflow: hidden;
+    display: flex;
+  }
+}

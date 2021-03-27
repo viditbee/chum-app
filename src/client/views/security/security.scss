@@ -1,0 +1,59 @@
+.security-container {
+  color: #d4d9ff;
+  position: relative;
+  height: calc(100% - 270px);
+  z-index: 2;
+  margin: 0 auto;
+  margin-top: 50px;
+  overflow: auto;
+  width: calc(100% + 40px);
+  padding: 50px 240px;
+
+  .sec-header {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .sec-sub-header {
+    font-family: 'Lato', serif;
+  }
+
+  .sec-item-container {
+    margin: 40px 0;
+
+    .sec-item-header {
+      font-size: 17px;
+      margin-bottom: 10px;
+    }
+
+    .sec-item-body {
+
+      .sec-sub-item {
+        line-height: 19px;
+        span {
+          color: #9ea7ff;
+        }
+
+      }
+
+      .sec-sub-item-br {
+        height: 10px;
+      }
+    }
+  }
+
+  .prevention-section-cont {
+    .psc-header {
+      font-size: 20px;
+      margin: 100px 0 20px 0;
+    }
+
+    .psc-item {
+      color: #9ea7ff;
+      line-height: 18px;
+      .sol {
+        color: #d4d9ff;
+      }
+    }
+  }
+}

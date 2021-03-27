@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptSettings">
+    <option name="languageLevel" value="JSX" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" />
+    <option name="showExcludedFiles" value="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" />
+    <option name="showLibraryContents" value="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" />
+  </component>
+</project>

@@ -1,0 +1,142 @@
+.form-cont {
+  z-index: 2;
+  position: absolute;
+  width: 480px;
+  padding: 50px 0;
+  background-color: rgba(6, 17, 101, .7);
+  left: calc(50% - 240px);
+  box-shadow: 0 0 60px 60px rgba(6, 17, 101, .7);
+  border-radius: 10px;
+
+  .form-header {
+    font-size: 20px;
+    color: #9ea7ff;
+    margin-bottom: 40px;
+    line-height: 60px;
+  }
+
+  .form-msg {
+    color: #d4d9ff;
+    margin-bottom: 50px;
+  }
+
+  .field-cont {
+    margin-bottom: 30px;
+
+    .field-label {
+      color: #9ea7ff;
+      margin-bottom: 5px;
+    }
+
+    .field-input {
+      margin-bottom: 10px;
+
+      input, select, textarea {
+        color: #d4d9ff;
+        background: rgba(255, 255, 255, .04);
+        border: none;
+        line-height: 30px;
+        outline: none;
+        width: 80%;
+        text-align: center;
+        border-radius: 4px;
+        height: 32px;
+        text-align-last: center;
+      }
+
+      textarea {
+        padding: 8px;
+        line-height: 20px;
+        height: 100px;
+      }
+
+      option {
+        color: #111;
+      }
+
+      input:-webkit-autofill,
+      input:-webkit-autofill:hover,
+      input:-webkit-autofill:focus,
+      input:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0 30px rgb(16, 26, 108) inset !important;
+      }
+
+      input:-webkit-autofill {
+        -webkit-text-fill-color: #d4d9ff !important;
+      }
+    }
+
+    .field-help {
+      color: #3e4ff5;
+      font-size: 14px;
+    }
+
+    .you-may-change{
+      color: #9ea7ff;
+      font-size: 14px;
+    }
+  }
+
+  .error-box {
+    color: red;
+  }
+
+  &.login {
+  }
+
+  .loading {
+    margin: 150px 0;
+  }
+}
+
+.team-info-cont {
+  color: #9ea7ff;
+
+  .greeting {
+    font-size: 20px;
+    margin: 40px 0;
+  }
+
+  .header {
+
+    span {
+      font-size: 17px;
+    }
+
+    .team-label {
+      display: block;
+      font-size: 32px;
+      margin: 20px 0;
+      color: #fe0074;
+    }
+  }
+
+  .team-members {
+    .team-member {
+      font-size: 17px;
+      color: #d4d9ff;
+      margin: 5px 0;
+    }
+  }
+
+  .team-challenge {
+    margin-top: 20px;
+    font-size: 17px;
+  }
+
+  .team-help{
+    margin-top: 70px;
+    font-size: 14px;
+    font-style: italic;
+  }
+}
+
+.team-builder-wrapper{
+  position: relative;
+  height: calc(100% - 270px);
+  z-index: 2;
+  margin: 50px auto 0;
+  overflow: auto;
+  width: calc(100% + 40px);
+  padding: 50px 240px;
+}
