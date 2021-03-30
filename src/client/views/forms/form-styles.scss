@@ -1,18 +1,45 @@
 .form-cont {
   z-index: 2;
-  position: absolute;
-  width: 480px;
-  padding: 50px 0;
-  background-color: rgba(6, 17, 101, .7);
-  left: calc(50% - 240px);
-  box-shadow: 0 0 60px 60px rgba(6, 17, 101, .7);
-  border-radius: 10px;
+  width: 800px;
+  background-color: #fff;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, .1);
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  min-height: 490px;
+
+  .vect-cont {
+    background-color: #1f4594;
+    background-image: url("../../assets/images/sign-up-new-scheme.svg");
+    background-repeat: no-repeat;
+    background-size: 300px;
+    background-position: center;
+    width: 300px;
+
+    &.sign-in{
+      background-image: url("../../assets/images/sign-in-new-scheme.svg");
+    }
+  }
+
+  .fields-cont {
+    width: calc(100% - 300px);
+    padding: 40px;
+    text-align: left;
+  }
 
   .form-header {
-    font-size: 20px;
-    color: #9ea7ff;
+    font-size: 24px;
+    color: #1c1b1a;
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-family: Dosis;
+  }
+
+  .form-sub-header {
+    font-size: 13px;
+    color: #1c1b1a;
+    opacity: .8;
     margin-bottom: 40px;
-    line-height: 60px;
   }
 
   .form-msg {
@@ -24,24 +51,25 @@
     margin-bottom: 30px;
 
     .field-label {
-      color: #9ea7ff;
+      color: #1c1b1a;
       margin-bottom: 5px;
+      font-size: 13px;
+      font-family: Dosis;
+      font-weight: 500;
     }
 
     .field-input {
       margin-bottom: 10px;
 
       input, select, textarea {
-        color: #d4d9ff;
-        background: rgba(255, 255, 255, .04);
-        border: none;
-        line-height: 30px;
+        color: #1c1b1a;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid #c2c5cc;
+        line-height: 36px;
         outline: none;
-        width: 80%;
-        text-align: center;
+        width: 100%;
         border-radius: 4px;
-        height: 32px;
-        text-align-last: center;
+        padding: 1px 15px;
       }
 
       textarea {
@@ -71,7 +99,7 @@
       font-size: 14px;
     }
 
-    .you-may-change{
+    .you-may-change {
       color: #9ea7ff;
       font-size: 14px;
     }
@@ -79,6 +107,8 @@
 
   .error-box {
     color: red;
+    margin-bottom: 20px;
+    font-size: 14px;
   }
 
   &.login {
@@ -87,56 +117,4 @@
   .loading {
     margin: 150px 0;
   }
-}
-
-.team-info-cont {
-  color: #9ea7ff;
-
-  .greeting {
-    font-size: 20px;
-    margin: 40px 0;
-  }
-
-  .header {
-
-    span {
-      font-size: 17px;
-    }
-
-    .team-label {
-      display: block;
-      font-size: 32px;
-      margin: 20px 0;
-      color: #fe0074;
-    }
-  }
-
-  .team-members {
-    .team-member {
-      font-size: 17px;
-      color: #d4d9ff;
-      margin: 5px 0;
-    }
-  }
-
-  .team-challenge {
-    margin-top: 20px;
-    font-size: 17px;
-  }
-
-  .team-help{
-    margin-top: 70px;
-    font-size: 14px;
-    font-style: italic;
-  }
-}
-
-.team-builder-wrapper{
-  position: relative;
-  height: calc(100% - 270px);
-  z-index: 2;
-  margin: 50px auto 0;
-  overflow: auto;
-  width: calc(100% + 40px);
-  padding: 50px 240px;
 }

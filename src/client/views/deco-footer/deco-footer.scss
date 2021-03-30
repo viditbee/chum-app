@@ -1,0 +1,95 @@
+.deco-footer-container {
+  position: absolute;
+  z-index: 1;
+  text-align: center;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+
+  .footer-art {
+    height: 80px;
+    width: 100px;
+    display: inline-block;
+    background-size: 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: .5;
+  }
+
+  .footer-art-1 {
+    background-image: url("../../assets/images/pastel/icons8-3d-glasses.svg");
+  }
+
+  .footer-art-2 {
+    background-image: url("../../assets/images/pastel/icons8-artificial-intelligence.svg");
+  }
+
+  .footer-art-3 {
+    background-image: url("../../assets/images/pastel/icons8-beach-ball.svg");
+  }
+
+  .footer-art-4 {
+    background-image: url("../../assets/images/pastel/icons8-holding-hands.svg");
+  }
+
+  .footer-art-5 {
+    background-image: url("../../assets/images/pastel/icons8-chat-room.svg");
+  }
+
+  .footer-art-6 {
+    background-image: url("../../assets/images/pastel/icons8-planner.svg");
+  }
+
+  .footer-art-7 {
+    background-image: url("../../assets/images/pastel/icons8-online-store.svg");
+  }
+
+  .footer-art-8 {
+    background-image: url("../../assets/images/pastel/icons8-game-controller.svg");
+  }
+
+  .footer-art-9 {
+    background-image: url("../../assets/images/pastel/icons8-camping-tent.svg");
+  }
+
+  .footer-art-10 {
+    background-image: url("../../assets/images/pastel/icons8-pot.svg");
+  }
+
+  .footer-art-11 {
+    background-image: url("../../assets/images/pastel/icons8-ferris-wheel.svg");
+  }
+
+  .footer-art-12 {
+    background-image: url("../../assets/images/pastel/icons8-party-balloons.svg");
+  }
+
+  .footer-art-13 {
+    background-image: url("../../assets/images/pastel/icons8-crowdfunding.svg");
+  }
+
+  .footer-art-14 {
+    background-image: url("../../assets/images/pastel/icons8-beach.svg");
+  }
+
+  .footer-art-15 {
+    background-image: url("../../assets/images/pastel/icons8-bonfire.svg");
+  }
+
+  .footer-art-16 {
+    background-image: url("../../assets/images/pastel/icons8-car-route.svg");
+  }
+
+  .footer-art-17 {
+    background-image: url("../../assets/images/pastel/icons8-guitar.svg");
+
+  }
+  .footer-art-18 {
+    background-image: url("../../assets/images/pastel/icons8-user-group.svg");
+  }
+
+  .footer-art-19 {
+    background-image: url("../../assets/images/pastel/icons8-tourist-backpack.svg");
+  }
+}

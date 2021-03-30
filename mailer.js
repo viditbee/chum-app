@@ -1,6 +1,6 @@
 const nodemailer = require("nodemailer");
 
-const getTransporter = (username, password) => {
+/*const getTransporter = (username, password) => {
   return nodemailer.createTransport({
     host: "smtp.office365.com",
     port: 587,
@@ -10,22 +10,24 @@ const getTransporter = (username, password) => {
       pass: password,
     },
   });
+};*/
+
+const getTransporter = (username, password) => {
+  return nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: username,
+      pass: password,
+    },
+  });
 };
 
-const sendMail = (transporter, from, to, subject, text, html) => {
+const sendMail = (transporter, from, to, subject, html) => {
   return transporter.sendMail({
     from: from,
     to: to,
     subject: subject,
-    text: text,
     html: html,
-    attachments: [
-      {
-        filename: 'mail-bg.png',
-        path: __dirname + '/mail-bg.png',
-        cid: 'mail-bg.png'
-      }
-    ]
   });
 };
 

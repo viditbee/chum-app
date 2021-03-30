@@ -1,37 +1,28 @@
 .button{
   height: 40px;
-  background-color: #fe0074;
+  background-color: #003899;
   border-radius: 4px;
-  color: #d4d9ff;
-  font-size: 14px;
+  color: #fff;
+  font-size: 16px;
   transition: background-color .3s ease-in;
-  text-transform: uppercase;
-  line-height: 40px;
+  line-height: 38px;
   z-index: 2;
   cursor: pointer;
+  padding: 0 20px;
+  display: inline-block;
+  font-family: Dosis;
 
   &:hover{
-    background-color: #ff3c93;
+    background-color: #003ba9;
     box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
   }
-}
 
-.register-now-button {
-  position: absolute;
-  width: 220px;
-  top: 800px;
-  left: calc(50% - 110px);
-}
+  &.disabled{
+    opacity: .5;
 
-.register-now-subline{
-  position: absolute;
-  width: 300px;
-  left: calc(50% - 150px);
-  color: #9ea7ff;
-  z-index: 2;
-}
-
-.login-form-button, .enter-now-button, .send-now-button{
-  width: 100px;
-  margin: 60px auto;
+    &:hover{
+      background-color: #003899;
+      box-shadow: none;
+    }
+  }
 }

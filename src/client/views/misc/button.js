@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Button({ onClick, text, className }) {
-  return <div className={className + " button"} onClick={() => {
-    onClick()
+function Button({ onClick, text, className, disabled }) {
+  return <div className={className + " button" + (disabled ? " disabled" : "")} onClick={() => {
+    !disabled && onClick()
   }}>{text}</div>;
 }
 

@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 import './form-styles.scss';
 import Button from "../misc/button";
-import { checkIfLoggedIn } from "../../utils/utils";
+import { requestSignup } from "../../interface/interface";
 
-function LoginForm({ loginSetter }) {
+function SignInForm() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  let history = useHistory();
 
   const emailChanged = (event) => {
     setEmail(event.target.value);
@@ -17,26 +20,21 @@ function LoginForm({ loginSetter }) {
     setPassword(event.target.value);
   };
 
-  const authenticationSuccess = (userInfo) => {
-    loginSetter(true, userInfo);
-  };
-
-  const reqLogin = async () => {
-    let res = await checkIfLoggedIn(email, password);
-    if (res && res.status === "yay") {
-      setError("");
-      authenticationSuccess(res);
-    } else if (res && res.status === "nay") {
-      setError("Are you sure you have copied the password correctly?");
+  const reqSignIn = async () => {
+    let res = await requestSignup(email, password);
+    if (res && res.status === "success") {
+      history.replace('/home')
     } else {
-      setError("Are you not a part of Contentserv family yet? We would love to work with you." +
-        " Come, join us! :)");
+      setError("Sorry! Email and password do not match. Please find the credentials in the" +
+        " welcome email and try again.");
     }
   };
 
-  return <div className="team-builder-wrapper">
-    <div className="form-cont login">
-      <div className="form-header">Sign in</div>
+  return <div className="form-cont sign-up">
+    <div className="vect-cont sign-in" />
+    <div className="fields-cont">
+      <div className="form-header">Welcome back!</div>
+      <div className="form-sub-header">Don't have an account? <Link to="/sign-up">Sign up</Link></div>
       <div className="field-cont">
         <div className="field-label">Email</div>
         <div className="field-input">
@@ -51,18 +49,17 @@ function LoginForm({ loginSetter }) {
                  onChange={(e) => passwordChanged(e)} />
         </div>
       </div>
-      {email && password ? <Button className="login-form-button" text="LOGIN" onClick={() => {
-        reqLogin()
-      }} /> : null}
       <div className="error-box">{error}</div>
+      <Button disabled={!email || !password} className="login-form-button" text="Sign in" onClick={() => {
+        reqSignIn()
+      }} />
     </div>
   </div>;
-
 }
 
-LoginForm.propTypes = {};
+SignInForm.propTypes = {};
 
-LoginForm.defaultProps = {};
+SignInForm.defaultProps = {};
 
-export default LoginForm;
+export default SignInForm;
 

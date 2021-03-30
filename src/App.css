@@ -2,7 +2,8 @@
 .App {
   height: inherit;
   text-align: center;
-  background: #061165;
+  background: #fff;
+  color: #000;
 }
 
 .App-logo {
