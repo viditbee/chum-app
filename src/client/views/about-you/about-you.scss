@@ -1,5 +1,6 @@
 .about-you-two-cont {
   .field-cont {
+    margin-bottom: 0 !important;
     .field-input {
       .interest-search {
 
@@ -8,49 +9,127 @@
   }
 
   .field-cant-find {
-
+    font-size: 13px;
+    text-decoration: underline;
+    cursor: pointer;
   }
 
   .interest-caps-cont {
+    overflow: auto;
+    margin-top: 30px;
+    max-height: 160px;
 
     .interest-capsule {
+      height: 36px;
+      line-height: 34px;
+      border: 1px solid #c2c5cc;
+      margin: 0 5px 5px 0;
+      display: inline-block;
+      padding: 0 15px;
+      border-radius: 50px;
+      cursor: pointer;
+      user-select: none;
 
       &.selected {
-
+        border-color: #1f4594;
+        box-shadow: 0px 0px 0px 2px inset #1f4594;
       }
     }
   }
 
   .sel-int-cont {
-    .sel-int-header {
-      .sel-int-emp {
+    margin: 30px 0;
 
+    .sel-int-abt {
+      font-family: Dosis;
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    .sel-int-otm {
+      font-family: Dosis;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    .sel-int-header {
+      overflow: hidden;
+      font-size: 13px;
+
+      .sel-int-emp {
+        width: calc(100% - 260px);
+        float: left;
+        height: 1px;
       }
       .sel-int-amateur {
-
+        width: 70px;
+        float: left;
       }
       .sel-int-pro {
-
+        width: 70px;
+        float: left;
+        text-align: right;
       }
       .sel-int-otm {
-
+        width: 120px;
+        float: left;
+        text-align: right;
       }
     }
     .sel-int-body {
 
       .sel-int-item-cont {
-        .sel-int-label {
-          .int-level-cont {
-            .int-level-circle {
-              &.selected {
+        overflow: hidden;
 
-              }
+        .sel-int-label {
+          float: left;
+          line-height: 40px;
+          width: calc(100% - 260px);
+        }
+
+        .int-level-cont {
+          float: left;
+          width: 140px;
+          display: flex;
+          justify-content: space-between;
+          height: 40px;
+          align-items: center;
+
+          .int-level-circle {
+            height: 20px;
+            width: 20px;
+            border-radius: 20px;
+            border: 1px solid #c2c5cc;
+            cursor: pointer;
+
+            &.selected {
+              border-color: #1f4594;
+              background: #1f4594;
             }
           }
+        }
 
-          .int-otm-cont {
-            &.selected {
+        .int-otm-cont {
+          width: 120px;
+          float: left;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          padding: 0 1px;
 
+          .int-otm-circle {
+            height: 20px;
+            width: 20px;
+            border-radius: 20px;
+            border: 1px solid #c2c5cc;
+            cursor: pointer;
+          }
+          &.selected {
+
+            .int-otm-circle {
+              border-color: #1f4594;
+              background: #1f4594;
             }
           }
         }
@@ -59,7 +138,7 @@
   }
 }
 
-.about-you-one-cont{
+.about-you-cont {
   .field-cont {
     margin-bottom: 30px;
 
@@ -78,11 +157,12 @@
         color: #1c1b1a;
         background: rgba(255, 255, 255, 0.04);
         border: 1px solid #c2c5cc;
-        line-height: 36px;
+        line-height: 34px;
         outline: none;
         width: 100%;
         border-radius: 4px;
-        padding: 1px 15px;
+        padding: 1px 10px;
+        height: 38px;
       }
 
       textarea {
@@ -105,16 +185,6 @@
       input:-webkit-autofill {
         -webkit-text-fill-color: #d4d9ff !important;
       }
-    }
-
-    .field-help {
-      color: #3e4ff5;
-      font-size: 14px;
-    }
-
-    .you-may-change {
-      color: #9ea7ff;
-      font-size: 14px;
     }
   }
 }

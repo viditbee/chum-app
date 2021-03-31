@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './about-you.scss';
 import Languages from "../../../facts/languages";
 import Locations from "../../../facts/locations";
 import Departments from "../../../facts/departments";
 
-function AboutYouOne({ defLocation, defDepartment, defLanguages, defAboutYou }) {
+function AboutYouOne({ defLocation, defDepartment, defLanguages, defAboutYou, validityChanged }) {
 
   const [location, setLocation] = useState(defLocation);
   const [department, setDepartment] = useState(defDepartment);
   const [languages, setLanguages] = useState(defLanguages);
   const [aboutYou, setAboutYou] = useState(defAboutYou);
+  const [isFormValid, setIsFormValid] = useState(false);
+
+  useEffect(() => {
+    validityChanged(location && department && languages.length && aboutYou);
+  }, [location, department, languages, aboutYou]);
 
   const locationChanged = (event) => {
     setLocation(event.target.value);
@@ -99,7 +104,7 @@ function AboutYouOne({ defLocation, defDepartment, defLanguages, defAboutYou }) 
   };
 
 
-  return <div className="about-you-one-cont">
+  return <div className="about-you-one-cont about-you-cont">
     <div className="field-cont">
       <div className="field-label">Location</div>
       <div className="field-input">

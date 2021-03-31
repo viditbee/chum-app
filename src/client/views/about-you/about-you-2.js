@@ -43,7 +43,20 @@ function AboutYouTwo({ defInterests }) {
   };
 
   const handleInterestClicked = (id) => {
-    setInterests([{ id, level: 3, otm: false }, ...interests]);
+    let selected = false;
+    const intDup = [];
+    for (let i = 0; i < interests.length; i += 1) {
+      if (interests[i].id === id) {
+        selected = true;
+      } else {
+        intDup.push(interests[i]);
+      }
+    }
+    if (selected) {
+      setInterests(intDup);
+    } else {
+      setInterests([{ id, level: 3, otm: false }, ...interests]);
+    }
   };
 
   const handleInterestLevelClicked = (id, level) => {
@@ -81,8 +94,12 @@ function AboutYouTwo({ defInterests }) {
 
   const getInterestCapules = () => {
     const caps = interestsMasterList.map((int) => {
-      const classNm = "interest-capsule " + (isInterestSelected(int.id) ? "selected " : "");
-      return <div className={classNm}>{int.label}</div>
+      if ((int.label || "").toLocaleLowerCase().indexOf(searchText.toLocaleLowerCase()) !== -1) {
+        const classNm = "interest-capsule " + (isInterestSelected(int.id) ? "selected " : "");
+        return <div className={classNm} onClick={() => {
+          handleInterestClicked(int.id)
+        }}>{int.label}</div>
+      }
     });
 
     return <div className="interest-caps-cont">{caps}</div>
@@ -111,7 +128,9 @@ function AboutYouTwo({ defInterests }) {
   const getIntOTMView = (id, otm) => {
     return <div className={"int-otm-cont " + (otm ? "selected" : "")} onClick={() => {
       handleInterestOTMToggled(id)
-    }} />
+    }}>
+      <div className="int-otm-circle" />
+    </div>
   };
 
   const getSelectedInterests = () => {
@@ -126,19 +145,24 @@ function AboutYouTwo({ defInterests }) {
     }
 
     return <div className="sel-int-cont">
-      <div className="sel-int-header">
-        <div className="sel-int-emp"/>
-        <div className="sel-int-amateur">Amateur</div>
-        <div className="sel-int-pro">Pro</div>
-        <div className="sel-int-otm">OTM?</div>
-      </div>
-      <div className="sel-int-body">
-        {listViews}
-      </div>
+      {interests.length ?
+        <>
+          <div className="sel-int-abt">Proficiency level</div>
+          <div className="sel-int-otm">OTM: Open to mentor</div>
+          <div className="sel-int-header">
+            <div className="sel-int-emp" />
+            <div className="sel-int-amateur">Amateur</div>
+            <div className="sel-int-pro">Pro</div>
+            <div className="sel-int-otm">OTM</div>
+          </div>
+          < div className="sel-int-body">
+            {listViews}
+          </div>
+        </> : null}
     </div>;
   };
 
-  return <div className="about-you-two-cont">
+  return <div className="about-you-two-cont about-you-cont">
     <div className="field-cont">
       <div className="field-input">
         <input className="interest-search" placeholder="Search/add interests" onChange={(e) => {
