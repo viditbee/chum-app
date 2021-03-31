@@ -8,6 +8,7 @@ import { checkIfLoggedIn } from "./client/utils/utils";
 import Home from "./client/pages/home/home";
 import SignUpPage from "./client/pages/signup/sign-up-page";
 import SignInPage from "./client/pages/signin/sign-in-page";
+import DevSecPage from "./client/pages/dev/dev-secret-page";
 
 function App() {
 
@@ -63,6 +64,9 @@ function App() {
           </Route>
           <Route exact path="/sign-in">
             <SignInPage/>
+          </Route>
+          <Route exact path="/dev">
+            <DevSecPage/>
           </Route>
           <Route path="/*">
             <Redirect to="/" />

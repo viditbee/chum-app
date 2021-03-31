@@ -1,7 +1,8 @@
 const Mongoose = require("mongoose");
-const schema = "hackathon";
-const url = `mongodb+srv://vidit:newPass4mongo@cluster0.gfxr2.mongodb.net/${schema}?retryWrites=true&w=majority`;
-const { userSchema } = require("./schemas");
+const database = "chumtest";
+const url = `mongodb+srv://vidit:newPass4atlas@cluster0.ts0zq.mongodb.net/${database}?retryWrites=true&w=majority`;
+
+const { userSchema, interestSchema } = require("./schemas");
 const MongoApis = {};
 const { decipher } = require('./encrypt');
 const SECRET_SALT_FOR_PASSWORD = "BEE";
@@ -62,6 +63,30 @@ Mongoose.connect(url, async function () {
         status: "invalid_email_id"
       }
     }
+  };
+
+  MongoApis.getAllInterests = async () => {
+    const InterestModel = Mongoose.model("interests", interestSchema);
+    const interests = await InterestModel.find({}).select(['id', 'label']).exec();
+
+    return {
+      status: "success",
+      response: interests
+    };
+  };
+
+  MongoApis.resetInterests = async (interests) => {
+    const InterestModel = Mongoose.model("interests", interestSchema);
+    try {
+      await InterestModel.collection.drop();
+    } catch (e) {
+      console.log("Drop failed");
+    }
+    await InterestModel.insertMany(interests);
+
+    return {
+      status: "success"
+    };
   };
 
   /*

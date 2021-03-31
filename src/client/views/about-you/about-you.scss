@@ -1,0 +1,120 @@
+.about-you-two-cont {
+  .field-cont {
+    .field-input {
+      .interest-search {
+
+      }
+    }
+  }
+
+  .field-cant-find {
+
+  }
+
+  .interest-caps-cont {
+
+    .interest-capsule {
+
+      &.selected {
+
+      }
+    }
+  }
+
+  .sel-int-cont {
+    .sel-int-header {
+      .sel-int-emp {
+
+      }
+      .sel-int-amateur {
+
+      }
+      .sel-int-pro {
+
+      }
+      .sel-int-otm {
+
+      }
+    }
+    .sel-int-body {
+
+      .sel-int-item-cont {
+        .sel-int-label {
+          .int-level-cont {
+            .int-level-circle {
+              &.selected {
+
+              }
+            }
+          }
+
+          .int-otm-cont {
+            &.selected {
+
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.about-you-one-cont{
+  .field-cont {
+    margin-bottom: 30px;
+
+    .field-label {
+      color: #1c1b1a;
+      margin-bottom: 5px;
+      font-size: 13px;
+      font-family: Dosis;
+      font-weight: 500;
+    }
+
+    .field-input {
+      margin-bottom: 10px;
+
+      input, select, textarea {
+        color: #1c1b1a;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid #c2c5cc;
+        line-height: 36px;
+        outline: none;
+        width: 100%;
+        border-radius: 4px;
+        padding: 1px 15px;
+      }
+
+      textarea {
+        padding: 8px;
+        line-height: 20px;
+        height: 100px;
+      }
+
+      option {
+        color: #111;
+      }
+
+      input:-webkit-autofill,
+      input:-webkit-autofill:hover,
+      input:-webkit-autofill:focus,
+      input:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0 30px rgb(16, 26, 108) inset !important;
+      }
+
+      input:-webkit-autofill {
+        -webkit-text-fill-color: #d4d9ff !important;
+      }
+    }
+
+    .field-help {
+      color: #3e4ff5;
+      font-size: 14px;
+    }
+
+    .you-may-change {
+      color: #9ea7ff;
+      font-size: 14px;
+    }
+  }
+}

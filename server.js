@@ -32,6 +32,37 @@ app.post("/service/signup", (req, res) => {
   });
 });
 
+app.get("/service/interests", (req, res) => {
+  MongoApis.getAllInterests().then((op) => {
+    res.status(200);
+    res.send(op);
+  });
+});
+
+
+
+
+
+
+
+/********************** DEVLOPERS ***********************/
+
+app.post("/secret/reset-interests", (req, res) => {
+  const { interests } = req.body;
+  console.log("iji");
+  MongoApis.resetInterests(interests).then((op) => {
+    res.status(200);
+    res.send(op);
+  });
+});
+
+/********************** DEVLOPERS ***********************/
+
+
+
+
+
+
 app.get("/*", (req, res) => {
   res.sendFile(__dirname + "/build/index.html");
 });

@@ -26,3 +26,11 @@ export const requestSignin = (username, password) => {
 export const requestSignup = (username, firstName, lastName) => {
   return postCall('/service/signup', { username, firstName, lastName });
 };
+
+export const getInterestsList = () => {
+  return getCall('/service/interests');
+};
+
+export const addNewInterest = (label) => {
+  return postCall('/service/interests/add', { label });
+};

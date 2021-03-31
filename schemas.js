@@ -19,11 +19,8 @@ module.exports = {
       unique: true
     }
   }),
-  teamSchema: new Mongoose.Schema({
+  interestSchema: new Mongoose.Schema({
     id: String,
-    createdOn: String,
-    name: String,
-    captain: String,
-    problemId: String
+    label: String
   })
 };

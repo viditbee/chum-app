@@ -2,81 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" id="9ca07a7c-e49e-43a2-858a-bb157cca794e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/client/assets/images/chum-logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/assets/images/chum-white.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/assets/images/cloud_1.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/assets/images/cloud_1_white.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/assets/images/cloud_2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/assets/images/cloud_2_white.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/assets/images/new_vec_1.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/assets/images/new_vec_2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/assets/images/new_vec_3.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/assets/images/pastel/icons8-3d-glasses.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/assets/images/pastel/icons8-artificial-intelligence.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/assets/images/pastel/icons8-beach-ball.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/assets/images/pastel/icons8-beach.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/assets/images/pastel/icons8-bonfire.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/assets/images/pastel/icons8-camping-tent.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/assets/images/pastel/icons8-car-route.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/assets/images/pastel/icons8-chat-room.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/assets/images/pastel/icons8-crowdfunding.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/assets/images/pastel/icons8-ferris-wheel.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/assets/images/pastel/icons8-game-controller.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/assets/images/pastel/icons8-guitar.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/assets/images/pastel/icons8-holding-hands.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/assets/images/pastel/icons8-online-store.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/assets/images/pastel/icons8-party-balloons.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/assets/images/pastel/icons8-planner.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/assets/images/pastel/icons8-pot.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/assets/images/pastel/icons8-tourist-backpack.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/assets/images/pastel/icons8-user-group.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/assets/images/sign-in-new-scheme.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/assets/images/sign-up-new-scheme.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/pages/home/about-info.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/pages/home/home.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/pages/home/home.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/pages/signin/sign-in-page.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/pages/signin/sign-in-page.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/pages/signup/sign-up-page.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/pages/signup/sign-up-page.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/styleguide/fonts/Dosis-Light.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/styleguide/fonts/Dosis-Medium.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/styleguide/fonts/Dosis-Regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/styleguide/fonts/Dosis-SemiBold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/styleguide/fonts/TitilliumWeb-Light.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/styleguide/fonts/TitilliumWeb-Regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/styleguide/fonts/TitilliumWeb-SemiBold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/views/about-you/about-you-1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/views/deco-footer/deco-footer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/views/deco-footer/deco-footer.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/views/forms/signup.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/client/interface/dev-interface.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/client/pages/dev/dev-secret-page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/client/pages/dev/dev-secret-page.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/client/views/about-you/about-you-2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/client/views/about-you/about-you.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/facts/departments.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/facts/interests.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/facts/languages.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/facts/locations.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/csv.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mail-htmls.js" beforeDir="false" afterPath="$PROJECT_DIR$/mail-htmls.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mail-manager.js" beforeDir="false" afterPath="$PROJECT_DIR$/mail-manager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mailer.js" beforeDir="false" afterPath="$PROJECT_DIR$/mailer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mongo.js" beforeDir="false" afterPath="$PROJECT_DIR$/mongo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/schemas.js" beforeDir="false" afterPath="$PROJECT_DIR$/schemas.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/assets/images/gol.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/interface/interface.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/interface/interface.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/styleguide/fonts/RobotoSlab-Bold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/styleguide/fonts/RobotoSlab-Regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/styleguide/fonts/ShareTechMono-Regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/styleguide/fonts/SourceCodePro-Bold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/styleguide/fonts/SourceCodePro-Medium.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/styleguide/typography.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/styleguide/typography.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/utils/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/utils/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/views/forms/feedback.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/views/forms/form-styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/views/forms/form-styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/views/forms/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/views/forms/signin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/views/forms/registration.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/views/misc/button.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/views/misc/button.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/views/misc/misc-styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/views/misc/misc-styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/views/about-you/about-you-1.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/views/about-you/about-you-1.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -88,17 +29,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$">
-        <entry file="file://$PROJECT_DIR$/src/client/views/about-you/about-you-1.js">
-          <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="16" column="4" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -113,10 +44,17 @@
       <find>useref</find>
       <find>Mongoose</find>
       <find>push</find>
+      <find>field-cont</find>
+      <find>selectedTeamMembers</find>
+      <find>availableEmps</find>
+      <find>hackathon</find>
     </findStrings>
+    <replaceStrings>
+      <replace>languages</replace>
+    </replaceStrings>
     <dirStrings>
-      <dir>$PROJECT_DIR$/src</dir>
       <dir>$PROJECT_DIR$/src/client/views</dir>
+      <dir>$PROJECT_DIR$/src</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -139,14 +77,10 @@
         <option value="$PROJECT_DIR$/src/client/assets/images/cloud_1_white.svg" />
         <option value="$PROJECT_DIR$/src/client/assets/images/cloud_2_white.svg" />
         <option value="$PROJECT_DIR$/src/client/views/home/home.scss" />
-        <option value="$PROJECT_DIR$/schemas.js" />
         <option value="$PROJECT_DIR$/utils.js" />
         <option value="$PROJECT_DIR$/mailer.js" />
-        <option value="$PROJECT_DIR$/mongo.js" />
         <option value="$PROJECT_DIR$/mail-htmls.js" />
         <option value="$PROJECT_DIR$/mail-manager.js" />
-        <option value="$PROJECT_DIR$/server.js" />
-        <option value="$PROJECT_DIR$/src/client/interface/interface.js" />
         <option value="$PROJECT_DIR$/src/client/pages/signup/sign-up-page.js" />
         <option value="$PROJECT_DIR$/src/client/utils/utils.js" />
         <option value="$PROJECT_DIR$/src/client/views/deco-footer/deco-footer.js" />
@@ -157,10 +91,25 @@
         <option value="$PROJECT_DIR$/src/client/views/forms/signup.js" />
         <option value="$PROJECT_DIR$/src/client/pages/signin/sign-in-page.scss" />
         <option value="$PROJECT_DIR$/src/client/pages/signin/sign-in-page.js" />
-        <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/client/pages/home/home.js" />
         <option value="$PROJECT_DIR$/src/client/views/forms/signin.js" />
         <option value="$PROJECT_DIR$/src/client/views/forms/form-styles.scss" />
+        <option value="$PROJECT_DIR$/src/facts/locations.js" />
+        <option value="$PROJECT_DIR$/src/facts/languages.js" />
+        <option value="$PROJECT_DIR$/src/facts/departments.js" />
+        <option value="$PROJECT_DIR$/src/client/views/about-you/about-you-1.js" />
+        <option value="$PROJECT_DIR$/src/facts/interests.js" />
+        <option value="$PROJECT_DIR$/src/client/interface/interface.js" />
+        <option value="$PROJECT_DIR$/src/client/views/about-you/about-you-2.js" />
+        <option value="$PROJECT_DIR$/src/client/views/about-you/about-you.scss" />
+        <option value="$PROJECT_DIR$/schemas.js" />
+        <option value="$PROJECT_DIR$/src/client/pages/dev/dev-secret-page.js" />
+        <option value="$PROJECT_DIR$/src/client/pages/dev/dev-secret-page.scss" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/client/interface/dev-interface.js" />
+        <option value="$PROJECT_DIR$/src/server/api-routes.js" />
+        <option value="$PROJECT_DIR$/server.js" />
+        <option value="$PROJECT_DIR$/mongo.js" />
       </list>
     </option>
   </component>
@@ -229,14 +178,7 @@
               <item name="chum-runtime" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chum-runtime" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chum-runtime" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="interface" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -260,11 +202,11 @@
       <recent name="$PROJECT_DIR$/src/client/styleguide/fonts" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/client/interface" />
       <recent name="$PROJECT_DIR$/src/client/views/about-you" />
+      <recent name="$PROJECT_DIR$/src/facts" />
       <recent name="$PROJECT_DIR$/src/client/pages/signin" />
       <recent name="$PROJECT_DIR$/src/client/assets/images" />
-      <recent name="$PROJECT_DIR$/src/client/assets/images/pastel" />
-      <recent name="$PROJECT_DIR$/src/client/views/deco-footer" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -293,16 +235,23 @@
       <workItem from="1616904873166" duration="9535000" />
       <workItem from="1616955461878" duration="5155000" />
       <workItem from="1617081425787" duration="368000" />
-      <workItem from="1617108093115" duration="5040000" />
+      <workItem from="1617108093115" duration="20626000" />
     </task>
+    <task id="LOCAL-00001" summary="WIP">
+      <created>1617131557788</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1617131557788</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26557000" />
+    <option name="totallyTimeSpent" value="42143000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="1175" extended-state="6" />
-    <editor active="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" />
     <layout>
       <window_info active="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" content_ui="combo" id="Project" order="0" visible="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" weight="0.24960506" />
       <window_info id="Structure" order="1" side_tool="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" weight="0.25" />
@@ -330,11 +279,11 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="WIP" />
+    <option name="LAST_COMMIT_MESSAGE" value="WIP" />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/csv.js" />
     <entry file="file://$PROJECT_DIR$/mail.html">
       <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor" />
     </entry>
@@ -392,13 +341,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/schemas.js">
-      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mail-htmls.js">
       <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
         <state>
@@ -426,27 +368,6 @@
       <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
         <state relative-caret-position="22">
           <caret line="25" column="23" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/interface/interface.js">
-      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mongo.js">
-      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="37" column="2" selection-start-line="37" selection-start-column="2" selection-end-line="37" selection-end-column="2" />
         </state>
       </provider>
     </entry>
@@ -521,30 +442,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/pages/signin/sign-in-page.js">
-      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#26#0" expanded="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/views/forms/signup.js">
       <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
         <state relative-caret-position="840">
           <caret line="45" column="80" selection-start-line="45" selection-start-column="80" selection-end-line="45" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
-        <state relative-caret-position="566">
-          <caret line="58" column="19" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="58" selection-start-column="19" selection-end-line="58" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#51#0" expanded="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -575,17 +476,149 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/views/forms/form-styles.scss">
+    <entry file="file://$PROJECT_DIR$/src/facts/languages.js">
+      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/facts/locations.js">
+      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/facts/departments.js">
       <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="27" column="3" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="3" />
+        <state relative-caret-position="798">
+          <caret line="38" column="14" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="38" selection-start-column="14" selection-end-line="38" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/facts/interests.js">
+      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="19" column="47" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/client/views/about-you/about-you-1.js">
       <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="16" column="4" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+        <state relative-caret-position="-1219">
+          <caret line="36" column="31" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#40#0" expanded="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/views/forms/form-styles.scss">
+      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
+        <state relative-caret-position="539">
+          <caret line="105" column="3" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="49" selection-end-line="106" />
+          <folding>
+            <element signature="e#945#2051#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/interface/interface.js">
+      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
+        <state relative-caret-position="756">
+          <caret line="36" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/schemas.js">
+      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="21" column="16" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/views/about-you/about-you.scss">
+      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
+        <state relative-caret-position="1512">
+          <caret line="72" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="72" selection-end-line="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/views/about-you/about-you-2.js">
+      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
+        <state relative-caret-position="3360">
+          <caret line="160" column="2" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="160" selection-start-column="2" selection-end-line="160" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#51#0" expanded="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/pages/signin/sign-in-page.js">
+      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="20" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-end-line="20" />
+          <folding>
+            <element signature="e#0#26#0" expanded="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/pages/dev/dev-secret-page.scss">
+      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="13" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/pages/dev/dev-secret-page.js">
+      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="19" column="26" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#26#0" expanded="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="66" column="18" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="66" selection-start-column="18" selection-end-line="66" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#51#0" expanded="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/api-routes.js">
+      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="28" column="27" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/interface/dev-interface.js">
+      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="19" column="5" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mongo.js">
+      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
+        <state relative-caret-position="534">
+          <caret line="88" column="6" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="88" selection-start-column="6" selection-end-line="88" selection-end-column="6" />
+          <folding>
+            <element signature="e#2565#8189#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="46" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="46" selection-end-line="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/setupProxy.js">
+      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
         </state>
       </provider>
     </entry>
