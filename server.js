@@ -5,6 +5,9 @@ const port = 80;
 const bodyParser = require('body-parser');
 const { MongoApis } = require('./mongo');
 
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
+
 const { decipher } = require('./encrypt');
 const SECRET_SALT_DATA_TRANSFER = "ANT";
 const decipherFunc = decipher(SECRET_SALT_DATA_TRANSFER);
@@ -43,8 +46,6 @@ app.get("/service/interests", (req, res) => {
 
 
 
-
-
 /********************** DEVLOPERS ***********************/
 
 app.post("/secret/reset-interests", (req, res) => {
@@ -61,12 +62,18 @@ app.post("/secret/reset-interests", (req, res) => {
 
 
 
-
-
 app.get("/*", (req, res) => {
   res.sendFile(__dirname + "/build/index.html");
 });
 
-app.listen(process.env.PORT || port, () => {
+io.on('connection', (socket) => {
+  console.log('a user connected');
+
+  socket.on("hello", (data) => {
+    console.log("HAHHAHAAHA", data);
+  });
+});
+
+http.listen(process.env.PORT || port, () => {
   console.log("Server listening on port " + port);
 });
