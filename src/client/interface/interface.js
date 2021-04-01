@@ -1,3 +1,7 @@
+const { cipher } = require('./../utils/encrypt');
+const SECRET_SALT_DATA_TRANSFER = "ANT";
+const cipherFunc = cipher(SECRET_SALT_DATA_TRANSFER);
+
 const getCall = async (url) => {
   const res = await fetch(url, {
     method: "GET",
@@ -19,7 +23,9 @@ const postCall = async (url, data) => {
   return res.json();
 };
 
-export const requestSignin = (username, password) => {
+export const requestSignin = (uName = "", pwd = "") => {
+  const username = cipherFunc(uName);
+  const password = cipherFunc(pwd);
   return postCall('/service/signin', { username, password });
 };
 
@@ -33,4 +39,8 @@ export const getInterestsList = () => {
 
 export const addNewInterest = (label) => {
   return postCall('/service/interests/add', { label });
+};
+
+export const updateUserBasicInfo = (basicInfo) => {
+  return postCall('/service/userBasicInfo', { basicInfo });
 };

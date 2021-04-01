@@ -4,33 +4,40 @@ import Languages from "../../../facts/languages";
 import Locations from "../../../facts/locations";
 import Departments from "../../../facts/departments";
 
-function AboutYouOne({ defLocation, defDepartment, defLanguages, defAboutYou, validityChanged }) {
+function AboutYouOne({ defLocation, defDepartment, defLanguages, defAboutYou, validityChanged, dataChanged }) {
 
   const [location, setLocation] = useState(defLocation);
   const [department, setDepartment] = useState(defDepartment);
   const [languages, setLanguages] = useState(defLanguages);
   const [aboutYou, setAboutYou] = useState(defAboutYou);
-  const [isFormValid, setIsFormValid] = useState(false);
 
   useEffect(() => {
     validityChanged(location && department && languages.length && aboutYou);
   }, [location, department, languages, aboutYou]);
 
   const locationChanged = (event) => {
-    setLocation(event.target.value);
+    const val = event.target.value;
+    dataChanged('location', val);
+    setLocation(val);
   };
 
   const departmentChanged = (event) => {
-    setDepartment(event.target.value);
+    const val = event.target.value;
+    dataChanged('department', val);
+    setDepartment(val);
   };
 
   const aboutYouChanged = (event) => {
-    setAboutYou(event.target.value);
+    const val = event.target.value;
+    dataChanged('aboutYou', val);
+    setAboutYou(val);
   };
 
   const languageAdded = (id) => {
     if (id) {
-      setLanguages([...languages, id]);
+      const val = [...languages, id];
+      dataChanged('languages', val);
+      setLanguages(val);
     }
   };
 
@@ -43,6 +50,7 @@ function AboutYouOne({ defLocation, defDepartment, defLanguages, defAboutYou, va
     } else {
       res = languages.filter(empId => empId !== from);
     }
+    dataChanged('languages', res);
     setLanguages(res);
   };
 

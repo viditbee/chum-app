@@ -2,7 +2,7 @@ const Mongoose = require("mongoose");
 const database = "chumtest";
 const url = `mongodb+srv://vidit:newPass4atlas@cluster0.ts0zq.mongodb.net/${database}?retryWrites=true&w=majority`;
 
-const { userSchema, interestSchema } = require("./schemas");
+const { userSchema, interestSchema, basicInfoSchema } = require("./schemas");
 const MongoApis = {};
 const { decipher } = require('./encrypt');
 const SECRET_SALT_FOR_PASSWORD = "BEE";
@@ -21,9 +21,13 @@ Mongoose.connect(url, async function () {
       if (decipherFunc(password) === username) {
         return {
           status: "success",
-          id: user.id,
-          firstName: user.firstName,
-          lastName: user.lastName,
+          response: {
+            id: user.id,
+            emailId: user.emailId,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            gotStarted: user.gotStarted
+          }
         };
       }
       return {
@@ -86,6 +90,48 @@ Mongoose.connect(url, async function () {
 
     return {
       status: "success"
+    };
+  };
+
+  MongoApis.addInterest = async (label) => {
+    const InterestModel = Mongoose.model("interests", interestSchema);
+    const id = "cust_" + Math.floor(Math.random() * 100000);
+
+    const newInterest = new InterestModel({
+      id,
+      label
+    });
+
+    const response = await newInterest.save();
+
+    return {
+      status: "success",
+      response: {
+        id: response.id,
+        label: response.label
+      }
+    };
+  };
+
+  MongoApis.updateUserBasicInfo = async ({ userId, location, department, languages, aboutYou, interests }) => {
+    const BasicInfoModel = Mongoose.model("userbasicinfos", basicInfoSchema);
+    const UserModel = Mongoose.model("users", userSchema);
+
+    const basicInfo = {
+      userId,
+      location,
+      department,
+      languages,
+      aboutYou,
+      interests
+    };
+
+    await BasicInfoModel.updateOne({ userId }, basicInfo, { upsert: true }).exec();
+    await UserModel.updateOne({ id: userId }, { gotStarted: true }, { upsert: true }).exec();
+
+    return {
+      status: "success",
+      response: basicInfo
     };
   };
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './about-you.scss';
 import { getInterestsList, addNewInterest } from "../../interface/interface";
 
-function AboutYouTwo({ defInterests }) {
+function AboutYouTwo({ defInterests, dataChanged }) {
 
   const [interests, setInterests] = useState(defInterests);
   const [interestsMasterList, setInterestsMasterList] = useState([]);
@@ -52,11 +52,14 @@ function AboutYouTwo({ defInterests }) {
         intDup.push(interests[i]);
       }
     }
+    let intToSet = [];
     if (selected) {
-      setInterests(intDup);
+      intToSet = intDup;
     } else {
-      setInterests([{ id, level: 3, otm: false }, ...interests]);
+      intToSet = [{ id, level: 3, otm: false }, ...interests];
     }
+    dataChanged(intToSet);
+    setInterests(intToSet);
   };
 
   const handleInterestLevelClicked = (id, level) => {
@@ -67,6 +70,7 @@ function AboutYouTwo({ defInterests }) {
         break;
       }
     }
+    dataChanged(intDup);
     setInterests(intDup);
   };
 
@@ -78,6 +82,7 @@ function AboutYouTwo({ defInterests }) {
         break;
       }
     }
+    dataChanged(intDup);
     setInterests(intDup);
   };
 
@@ -172,7 +177,7 @@ function AboutYouTwo({ defInterests }) {
     </div>
     {searchText.length > 2 ?
       <div className="field-cant-find"
-           onClick={() => handleAddTextClicked()}>{`Can't find what you're looking for? Add ${searchText} to the list.`}</div> : null}
+           onClick={() => handleAddTextClicked()}>Can't find what you're looking for? <u>Add '<b>{searchText}</b>' to the list.</u></div> : null}
     {getInterestCapules()}
     {getSelectedInterests()}
   </div>;

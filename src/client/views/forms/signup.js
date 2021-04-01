@@ -34,7 +34,7 @@ function SignUpForm() {
     } else if (res && res.status === "user_already_registered") {
       setError("You are already registered! Please check your inbox for credentials.");
     } else {
-      setError("You have entered an invalid email id. Chum is open only for Contentserv" +
+      setError("Please enter a valid email id. Chum is open only for Contentserv" +
         " employees.");
     }
   };
@@ -43,7 +43,8 @@ function SignUpForm() {
     <div className="vect-cont" />
     <div className="fields-cont">
       <div className="form-header">Sign up to Chum.</div>
-      <div className="form-sub-header">Already have an account? <Link to="/sign-in">Sign in</Link></div>
+      <div className="form-sub-header">Already have an account? <Link to="/sign-in">Sign in</Link>
+      </div>
       <div className="field-cont">
         <div className="field-label">Email</div>
         <div className="field-input">
@@ -66,9 +67,10 @@ function SignUpForm() {
         </div>
       </div>
       <div className="error-box">{error}</div>
-      <Button disabled={!email || !firstName} className="login-form-button" text="Sign up" onClick={() => {
-        reqSignUp()
-      }} />
+      <Button disabled={!email || !firstName} className="login-form-button" text="Sign up"
+              onClick={() => {
+                reqSignUp()
+              }} />
     </div>
   </div>;
 }

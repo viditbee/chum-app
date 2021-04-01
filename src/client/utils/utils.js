@@ -1,8 +1,15 @@
 import { getFromLocalStorage, setInLocalStorage } from "./local-storage-manager";
-// import { requestLogin } from "../interface/interface";
+import { requestSignin } from "../interface/interface";
 
-export const manageSuccessfulLogin = (id, username, password) => {
-  setInLocalStorage("userInfo", JSON.stringify({id, username, password}));
+const { cipher, decipher } = require('./../utils/encrypt');
+const SECRET_SALT_DATA_TRANSFER = "ANT";
+const cipherFunc = cipher(SECRET_SALT_DATA_TRANSFER);
+const decipherFunc = decipher(SECRET_SALT_DATA_TRANSFER);
+
+export const manageSuccessfulLogin = (id, uName, pwd) => {
+  const username = cipherFunc(uName);
+  const password = cipherFunc(pwd);
+  setInLocalStorage("userInfo", JSON.stringify({ id, username, password }));
 };
 
 export const manageSuccessfulLogout = () => {
@@ -12,7 +19,12 @@ export const manageSuccessfulLogout = () => {
 export const getUserInfo = () => {
   const userInfo = getFromLocalStorage("userInfo");
   try {
-    return JSON.parse(userInfo);
+    let { id, username, password } = JSON.parse(userInfo);
+    return {
+      id,
+      username: decipherFunc(username),
+      password: decipherFunc(password),
+    }
   } catch (e) {
     return null;
   }
@@ -22,9 +34,9 @@ export const checkIfLoggedIn = async (username, password) => {
   let user;
   let pass;
 
-  if(!username && !password) {
+  if (!username && !password) {
     const userInfoFromLS = getUserInfo();
-    if(userInfoFromLS) {
+    if (userInfoFromLS) {
       user = userInfoFromLS.username;
       pass = userInfoFromLS.password;
     }
@@ -32,29 +44,11 @@ export const checkIfLoggedIn = async (username, password) => {
     user = username;
     pass = password;
   }
-  // let res = await requestLogin(user, pass);
-  // if(res){
-  //   const id = res.id;
-  //   const status = res.status;
-  //   const firstName = res.firstName;
-  //   const lastName = res.lastName;
-  //   const teamId = res.teamId;
-  //   const hakuna = res.hakuna;
-  //
-  //
-  //   if (status === "yay") {
-  //     manageSuccessfulLogin(id, user, pass);
-  //   } else {
-  //     manageSuccessfulLogout();
-  //   }
-  //   return {
-  //     id,
-  //     status,
-  //     firstName,
-  //     lastName,
-  //     teamId,
-  //     hakuna
-  //   };
-  // }
-  return null;
+  let { status, response } = await requestSignin(user, pass);
+  if (status === "success") {
+    manageSuccessfulLogin(response.id, user, pass);
+  } else {
+    manageSuccessfulLogout();
+  }
+  return { status, response };
 };

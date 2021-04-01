@@ -18,8 +18,8 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 app.post("/service/signin", (req, res) => {
   const { username, password } = req.body;
-  const decryptedUsername = decipherFunc(username);
-  const decryptedPassword = decipherFunc(password);
+  const decryptedUsername = decipherFunc(username || "temp");
+  const decryptedPassword = decipherFunc(password || "temp");
 
   MongoApis.authenticateUser(decryptedUsername, decryptedPassword).then((op) => {
     res.status(200);
@@ -37,6 +37,23 @@ app.post("/service/signup", (req, res) => {
 
 app.get("/service/interests", (req, res) => {
   MongoApis.getAllInterests().then((op) => {
+    res.status(200);
+    res.send(op);
+  });
+});
+
+app.post("/service/interests/add", (req, res) => {
+  const { label } = req.body;
+  MongoApis.addInterest(label).then((op) => {
+    res.status(200);
+    res.send(op);
+  });
+});
+
+
+app.post("/service/userBasicInfo", (req, res) => {
+  const { basicInfo } = req.body;
+  MongoApis.updateUserBasicInfo(basicInfo).then((op) => {
     res.status(200);
     res.send(op);
   });

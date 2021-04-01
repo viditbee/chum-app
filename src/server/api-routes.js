@@ -25,7 +25,7 @@ module.exports = (app) => {
   });
 
   app.use(
-    ['/service', '/secret'],
+    ['/service', '/secret', '/socket.io'],
     createProxyMiddleware({
       target: 'http://localhost:80',
       changeOrigin: true,

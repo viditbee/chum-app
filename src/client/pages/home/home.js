@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { AboutInfo } from "./about-info";
 import './home.scss';
 import Button from "../../views/misc/button";
+// import { Socket } from "../../interface/socket";
 
 function Home() {
   const className = `home-container`;
@@ -44,6 +45,7 @@ function Home() {
 
   const handleGetStartedClicked = () => {
     history.push('/sign-up')
+    // Socket.emit("hello", { a: "b", c: [] });
   };
 
   return <div className={className} onScroll={(e) => {

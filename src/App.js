@@ -16,37 +16,34 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
 
-  const setUserInfoFromResponse = (res) => {
-    setUserInfo({
-      id: res.id,
-      firstName: res.firstName,
-      lastName: res.lastName,
-      teamId: res.teamId,
-      organiser: res.hakuna === "tamata"
-    });
-  };
-
   useEffect(() => {
     async function check() {
-      let res = await checkIfLoggedIn();
-      if (res.status === "yay") {
+      let { status, response } = await checkIfLoggedIn();
+      if (status === "success") {
+        setUserInfo(response);
         setLoggedIn(true);
-        setUserInfoFromResponse(res);
       } else {
-        setLoggedIn(false);
         setUserInfo(null);
+        setLoggedIn(false);
       }
     }
 
-    // check();
+    check();
   }, []);
+
+  const setLoggedInIndirect = (val, userInfo) => {
+    setLoggedIn(val);
+    setUserInfo(userInfo);
+  };
 
   const getRedirects = () => {
     const redirects = [];
     if (loggedIn) {
-      redirects.push(<Redirect key="loginToRegister" exact from="/login" to="/register" />)
-    } else {
-      redirects.push(<Redirect key="registerToLogin" exact from="/register" to="/login" />)
+      if (!userInfo.gotStarted) {
+        redirects.push(<Redirect key="homeToGetStarted" exact from="/home" to="/get-started" />)
+      }
+      redirects.push(<Redirect key="loginToRegister" exact from="/sign-in" to="/home" />);
+      redirects.push(<Redirect key="loginToRegister" exact from="/sign-up" to="/home" />);
     }
 
     return redirects;
@@ -58,19 +55,19 @@ function App() {
         <Switch>
           {getRedirects()}
           <Route exact path="/">
-            <Home/>
+            <Home userInfo={userInfo} />
           </Route>
           <Route exact path="/sign-up">
-            <SignUpPage/>
+            <SignUpPage />
           </Route>
           <Route exact path="/sign-in">
-            <SignInPage/>
+            <SignInPage loginSetter={setLoggedInIndirect} />
           </Route>
           <Route exact path="/get-started">
-            <AboutYouPage/>
+            <AboutYouPage userInfo={userInfo}/>
           </Route>
           <Route exact path="/dev">
-            <DevSecPage/>
+            <DevSecPage />
           </Route>
           <Route path="/*">
             <Redirect to="/" />

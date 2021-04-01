@@ -4,18 +4,26 @@ import DecoFooter from "../../views/deco-footer/deco-footer";
 import AboutYouOne from "../../views/about-you/about-you-1";
 import AboutYouTwo from "../../views/about-you/about-you-2";
 import Button from "../../views/misc/button";
+import { updateUserBasicInfo } from "../../interface/interface";
 
-function AboutYouPage() {
+function AboutYouPage({ userInfo }) {
 
   const [activeStep, setActiveStep] = useState("1");
   const [buttonActive, setButtonActive] = useState(false);
+  const [stepOneData, setStepOneData] = useState({});
+  const [stepTwoData, setStepTwoData] = useState([]);
 
-  const handleButtonClicked = () => {
+  const handleButtonClicked = async () => {
     if (activeStep === "1") {
       setActiveStep("2");
     } else {
-      alert("Ho gaya");
+      const updatedInfo = await updateUserBasicInfo({ ...stepOneData, interests: stepTwoData, userId: userInfo.id });
+      console.log(updatedInfo);
     }
+  };
+
+  const handleStepOneDataChanged = (key, val) => {
+    setStepOneData({ ...stepOneData, [key]: val });
   };
 
   const handlePrevButtonClicked = () => {
@@ -34,13 +42,26 @@ function AboutYouPage() {
 
     if (activeStep === "1") {
       headerText = "This information helps your chums know about you.";
-      formView = <AboutYouOne validityChanged={(val) => {
-        handleFormValidityChanged(val)
-      }} />;
+      formView = <AboutYouOne
+        dataChanged={(key, val) => {
+          handleStepOneDataChanged(key, val)
+        }}
+        validityChanged={(val) => {
+          handleFormValidityChanged(val)
+        }}
+        defLocation={stepOneData.location || ""}
+        defDepartment={stepOneData.department || ""}
+        defLanguages={stepOneData.languages || []}
+        defAboutYou={stepOneData.aboutYou || ""} />;
       buttonText = "Next";
     } else {
       headerText = "Tell us about things you enjoy doing, or eager to learn about.";
-      formView = <AboutYouTwo />;
+      formView = <AboutYouTwo
+        dataChanged={(data) => {
+          setStepTwoData(data)
+        }}
+        defInterests={stepTwoData}
+      />;
       buttonText = "Finish";
       prevButtonView = <div className="prev-button" onClick={() => {
         handlePrevButtonClicked()
