@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import './form-styles.scss';
 import Button from "../misc/button";
 import { requestSignup } from "../../interface/interface";
+import Paths from './../../../facts/paths';
 
 function SignUpForm() {
 
@@ -30,7 +31,7 @@ function SignUpForm() {
     if (res && res.status === "success") {
       setError("");
       alert("You have been registered successfully. Please check your inbox for credentials.");
-      history.replace('/sign-in')
+      history.replace(Paths.signIn)
     } else if (res && res.status === "user_already_registered") {
       setError("You are already registered! Please check your inbox for credentials.");
     } else {

@@ -1,12 +1,14 @@
 import React, { useRef } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { AboutInfo } from "./about-info";
 import './home.scss';
 import Button from "../../views/misc/button";
+import Paths from "./../../../facts/paths";
+
 // import { Socket } from "../../interface/socket";
 
-function Home() {
+function Home({ userInfo }) {
   const className = `home-container`;
   const clouds = useRef(null);
   const history = useHistory();
@@ -44,8 +46,14 @@ function Home() {
   };
 
   const handleGetStartedClicked = () => {
-    history.push('/sign-up')
+    history.push(Paths.signUp)
     // Socket.emit("hello", { a: "b", c: [] });
+  };
+
+  const getButtonView = () => {
+    const text = userInfo ? "Take me home" : "Get started";
+    const link = userInfo ? Paths.home : Paths.signIn;
+    return <Link to={link}><Button onClick={() => {}} className="get-started-button" text={text} /></Link>
   };
 
   return <div className={className} onScroll={(e) => {
@@ -58,9 +66,7 @@ function Home() {
       more about your work-mates? Chum lets you discover people around you, connect, engage,
       and have fun.
     </div>
-    <Button className="get-started-button" onClick={() => {
-      handleGetStartedClicked()
-    }} text="Get Started" />
+    {getButtonView()}
     <div className="home-info-separator" />
     {getAboutView()}
   </div>;

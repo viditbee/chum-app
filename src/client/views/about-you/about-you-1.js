@@ -80,9 +80,9 @@ function AboutYouOne({ defLocation, defDepartment, defLanguages, defAboutYou, va
     const views = [];
 
     for (let i = 0; i < languages.length; i += 1) {
-      views.push(<div className="field-input">{getLanguageDropdown(languages[i], i)}</div>);
+      views.push(<div key={i} className="field-input">{getLanguageDropdown(languages[i], i)}</div>);
     }
-    views.push(<div className="field-input">{getLanguageDropdown("")}</div>);
+    views.push(<div key="empty" className="field-input">{getLanguageDropdown("")}</div>);
 
     return <div className="team-list">{views}</div>;
   };

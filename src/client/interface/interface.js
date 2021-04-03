@@ -44,3 +44,16 @@ export const addNewInterest = (label) => {
 export const updateUserBasicInfo = (basicInfo) => {
   return postCall('/service/userBasicInfo', { basicInfo });
 };
+
+export const getFollowInfo = (userId) => {
+  return getCall('/service/followInfo/' + userId);
+};
+
+export const getUserBasicInfo = (userId) => {
+  return getCall('/service/userBasicInfo/' + userId);
+};
+
+export const getSubscribedChannels = (userId) => {
+  return getCall('/service/subscribedChannels/' + userId);
+};
+

@@ -1,24 +1,31 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import './about-you-page.scss';
 import DecoFooter from "../../views/deco-footer/deco-footer";
 import AboutYouOne from "../../views/about-you/about-you-1";
 import AboutYouTwo from "../../views/about-you/about-you-2";
 import Button from "../../views/misc/button";
 import { updateUserBasicInfo } from "../../interface/interface";
+import Paths from './../../../facts/paths';
 
-function AboutYouPage({ userInfo }) {
+function AboutYouPage({ userInfo, gotStartedSetter }) {
 
   const [activeStep, setActiveStep] = useState("1");
   const [buttonActive, setButtonActive] = useState(false);
   const [stepOneData, setStepOneData] = useState({});
   const [stepTwoData, setStepTwoData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const history = useHistory();
 
   const handleButtonClicked = async () => {
     if (activeStep === "1") {
       setActiveStep("2");
     } else {
-      const updatedInfo = await updateUserBasicInfo({ ...stepOneData, interests: stepTwoData, userId: userInfo.id });
-      console.log(updatedInfo);
+      setLoading(true);
+      await updateUserBasicInfo({ ...stepOneData, interests: stepTwoData, userId: userInfo.id });
+      setLoading(false);
+      gotStartedSetter(true);
+      history.replace(Paths.home);
     }
   };
 
@@ -73,14 +80,17 @@ function AboutYouPage({ userInfo }) {
         <div className="getting-started">Getting started</div>
         <div className="step-info">{`Step ${activeStep}/2`}</div>
         <div className="float-paper">
-          <div className="header-text">{headerText}</div>
-          {formView}
-          <div className="button-cont">
-            {prevButtonView}
-            <Button disabled={!buttonActive} onClick={() => {
-              handleButtonClicked()
-            }} text={buttonText} />
-          </div>
+          {loading ? <div className="loading">Getting you to your chums...</div> :
+            <>
+              <div className="header-text">{headerText}</div>
+              {formView}
+              <div className="button-cont">
+                {prevButtonView}
+                <Button disabled={!buttonActive} onClick={() => {
+                  handleButtonClicked()
+                }} text={buttonText} />
+              </div>
+            </>}
         </div>
       </div>
     </div>

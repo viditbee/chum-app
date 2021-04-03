@@ -59,6 +59,28 @@ app.post("/service/userBasicInfo", (req, res) => {
   });
 });
 
+app.get("/service/followInfo/:userId", (req, res) => {
+  MongoApis.getFollowInfo(req.params.userId).then((op) => {
+    res.status(200);
+    res.send(op);
+  });
+});
+
+
+app.get("/service/userBasicInfo/:userId", (req, res) => {
+  MongoApis.getUserBasicInfo(req.params.userId).then((op) => {
+    res.status(200);
+    res.send(op);
+  });
+});
+
+
+app.get("/service/subscribedChannels/:userId", (req, res) => {
+  MongoApis.getSubscribedChannels(req.params.userId).then((op) => {
+    res.status(200);
+    res.send(op);
+  });
+});
 
 
 

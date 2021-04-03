@@ -2,7 +2,7 @@ const Mongoose = require("mongoose");
 const database = "chumtest";
 const url = `mongodb+srv://vidit:newPass4atlas@cluster0.ts0zq.mongodb.net/${database}?retryWrites=true&w=majority`;
 
-const { userSchema, interestSchema, basicInfoSchema } = require("./schemas");
+const { userSchema, interestSchema, basicInfoSchema, followInfoSchema, channelInfoSchema, channelPostsSchema, lendAHandSchema } = require("./schemas");
 const MongoApis = {};
 const { decipher } = require('./encrypt');
 const SECRET_SALT_FOR_PASSWORD = "BEE";
@@ -41,7 +41,7 @@ Mongoose.connect(url, async function () {
   };
 
   MongoApis.registerUser = async (username, firstName, lastName) => {
-    if (validateEmail(username) && username.indexOf("@contentserv.com") !== -1) {
+    if (validateEmail(username)/* && username.indexOf("@contentserv.com") !== -1*/) {
       const UserModel = Mongoose.model("users", userSchema);
       const user = await UserModel.findOne({ 'emailId': username });
       if (!user) {
@@ -134,6 +134,58 @@ Mongoose.connect(url, async function () {
       response: basicInfo
     };
   };
+
+  MongoApis.getSubscribedChannels = async (userId) => {
+    const ChannelInfoModel = Mongoose.model("channelinfos", channelInfoSchema);
+    const subscribedChannels = await ChannelInfoModel.find({ followedBy: { $in: [userId] } }).select(['id', 'label']);
+
+    return {
+      status: "success",
+      response: subscribedChannels || []
+    };
+  };
+
+  MongoApis.getUserBasicInfo = async (userId) => {
+    const BasicInfoModel = Mongoose.model("userbasicinfos", basicInfoSchema);
+    const basicInfo = await BasicInfoModel.findOne({ userId });
+
+    if (basicInfo) {
+      return {
+        status: "success",
+        response: basicInfo
+      };
+    }
+    return {
+      status: "failure"
+    }
+  };
+
+
+  MongoApis.getFollowInfo = async (userId) => {
+    const FollowInfoModel = Mongoose.model("followinfos", followInfoSchema);
+    const UserModel = Mongoose.model("users", userSchema);
+    const user = await UserModel.findOne({ id: userId });
+
+    if (user) {
+      const followedByInfo = await FollowInfoModel.find({ userId }).select('followedBy');
+      const followerOfInfo = await FollowInfoModel.find({ followedBy: userId }).select('userId');
+
+      const folByRes = followedByInfo.reduce((acc, item) => [...acc, item.followedBy], []);
+      const folOfRes = followerOfInfo.reduce((acc, item) => [...acc, item.userId], []);
+
+      return {
+        status: "success",
+        response: {
+          followedBy: folByRes,
+          followerOf: folOfRes,
+        }
+      }
+    }
+    return {
+      status: "user_not_found"
+    }
+  };
+
 
   /*
     MongoApis.getAllAvailableEmployees = async () => {

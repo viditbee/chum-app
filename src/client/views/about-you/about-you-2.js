@@ -101,7 +101,7 @@ function AboutYouTwo({ defInterests, dataChanged }) {
     const caps = interestsMasterList.map((int) => {
       if ((int.label || "").toLocaleLowerCase().indexOf(searchText.toLocaleLowerCase()) !== -1) {
         const classNm = "interest-capsule " + (isInterestSelected(int.id) ? "selected " : "");
-        return <div className={classNm} onClick={() => {
+        return <div key={int.id} className={classNm} onClick={() => {
           handleInterestClicked(int.id)
         }}>{int.label}</div>
       }

@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import './form-styles.scss';
 import Button from "../misc/button";
 import { checkIfLoggedIn } from "../../utils/utils";
+import Paths from './../../../facts/paths';
 
 function SignInForm({ loginSetter }) {
 
@@ -23,8 +24,8 @@ function SignInForm({ loginSetter }) {
   const reqSignIn = async () => {
     let { status, response } = await checkIfLoggedIn(email, password);
     if (status === "success") {
-      history.replace('/home');
       loginSetter(true, response);
+      history.replace(Paths.home);
     } else if(status === "user_not_found") {
       setError("We couldn't identify you. Please create an account for signing in.");
       loginSetter(false);

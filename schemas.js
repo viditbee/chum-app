@@ -44,5 +44,48 @@ module.exports = {
       type: Array,
       default: []
     }
+  }),
+  followInfoSchema: new Mongoose.Schema({
+    userId: String,
+    followedBy: String
+  }),
+  channelInfoSchema: new Mongoose.Schema({
+    id: String,
+    label: String,
+    createdBy: String,
+    createdOn: String,
+    followedBy: {
+      type: Array,
+      default: []
+    }
+  }),
+  channelPostsSchema: new Mongoose.Schema({
+    id: String,
+    createdOn: String,
+    createdBy: String,
+    channelId: String,
+    text: String,
+    comments: {
+      type: Array,
+      default: []
+    },
+    likedBy: {
+      type: Array,
+      default: []
+    }
+  }),
+  lendAHandSchema: new Mongoose.Schema({
+    id: String,
+    createdOn: String,
+    createdBy: String,
+    text: String,
+    comments: {
+      type: Array,
+      default: []
+    },
+    likedBy: {
+      type: Array,
+      default: []
+    },
   })
 };
