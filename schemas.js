@@ -53,15 +53,15 @@ module.exports = {
     id: String,
     label: String,
     createdBy: String,
-    createdOn: String,
+    createdOn: Date,
     followedBy: {
       type: Array,
       default: []
     }
   }),
-  channelPostsSchema: new Mongoose.Schema({
+  postsSchema: new Mongoose.Schema({
     id: String,
-    createdOn: String,
+    createdOn: Date,
     createdBy: String,
     channelId: String,
     text: String,
@@ -76,7 +76,7 @@ module.exports = {
   }),
   lendAHandSchema: new Mongoose.Schema({
     id: String,
-    createdOn: String,
+    createdOn: Date,
     createdBy: String,
     text: String,
     comments: {

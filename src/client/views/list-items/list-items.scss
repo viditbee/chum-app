@@ -1,0 +1,95 @@
+.list-item-cont {
+  margin: 20px;
+  overflow: hidden;
+  position: relative;
+
+  .list-item-image {
+    height: 55px;
+    width: 55px;
+    border-radius: 50px;
+    float: left;
+    background: #d8f0ff;
+    color: #1f4594;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 53px;
+  }
+
+  .list-item-text-section {
+    float: left;
+    padding-left: 20px;
+    width: calc(100% - 55px);
+
+    .list-item-title {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 28px;
+    }
+
+    .list-item-sub-item-cont {
+
+    }
+
+    .user-item-interest-cont {
+      display: inline-block;
+      margin-right: 10px;
+      color: #7c7c7c;
+      font-weight: 500;
+      position: relative;
+      line-height: 20px;
+
+      .uii-wrap {
+        float: left;
+        position: relative;
+      }
+
+      .uii-text {
+        float: left;
+      }
+
+      .uii-level-bar {
+        position: absolute;
+        bottom: 0;
+        border-bottom: 1px solid #1F4594;
+      }
+
+      .otm-icon {
+        background-image: url("./../../assets/images/icons8-guru.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 10px;
+        height: 16px;
+        width: 12px;
+        float: left;
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .uii-follow-button {
+    background-image: url("./../../assets/images/icons8-add-user-male.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    top: 3px;
+    background-size: 16px;
+    right: 0;
+    opacity: 0;
+    transition: opacity .2s;
+    cursor: pointer;
+
+    &.following {
+      background-image: url("./../../assets/images/icons8-checked-user-male.svg");
+      opacity: .5;
+    }
+  }
+
+  &:hover{
+    .uii-follow-button{
+      opacity: .5;
+    }
+  }
+}

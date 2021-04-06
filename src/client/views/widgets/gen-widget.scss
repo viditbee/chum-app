@@ -1,0 +1,17 @@
+.widget-cont {
+  background: #fff;
+  border-radius: 10px;
+  margin: 20px;
+  text-align: left;
+  height: calc(50% - 50px);
+
+  .widget-header {
+    font-size: 20px;
+    font-weight: 600;
+    padding: 18px 20px 8px 20px;
+  }
+
+  .widget-body {
+    overflow: auto;
+  }
+}

@@ -57,3 +57,35 @@ export const getSubscribedChannels = (userId) => {
   return getCall('/service/subscribedChannels/' + userId);
 };
 
+export const followUser = (userId, followedBy) => {
+  return postCall('/service/followUser', { userId, followedBy });
+};
+
+export const unFollowUser = (userId, followedBy) => {
+  return postCall('/service/unFollowUser', { userId, followedBy });
+};
+
+export const getUsersToFollow = (userId) => {
+  return getCall('/service/usersToFollow/' + userId);
+};
+
+export const addFeed = (userId, post, channelId) => {
+  return postCall('/service/addFeed', { userId, post, channelId });
+};
+
+export const getAllUsers = () => {
+  return getCall('/service/allUsers');
+};
+
+export const getAllChannels = () => {
+  return getCall('/service/allChannels');
+};
+
+export const getFeeds = (userId, channelId) => {
+  return postCall('/service/getFeeds', { userId, channelId });
+};
+
+export const likeFeed = (userId, feedId) => {
+  return postCall('/service/likeFeed', { userId, feedId });
+};
+

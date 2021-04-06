@@ -1,13 +1,13 @@
 const Mongoose = require("mongoose");
 const database = "chumtest";
 const url = `mongodb+srv://vidit:newPass4atlas@cluster0.ts0zq.mongodb.net/${database}?retryWrites=true&w=majority`;
-
-const { userSchema, interestSchema, basicInfoSchema, followInfoSchema, channelInfoSchema, channelPostsSchema, lendAHandSchema } = require("./schemas");
+const { userSchema, interestSchema, basicInfoSchema, followInfoSchema, channelInfoSchema, postsSchema, lendAHandSchema } = require("./schemas");
 const MongoApis = {};
 const { decipher } = require('./encrypt');
 const SECRET_SALT_FOR_PASSWORD = "BEE";
 const { sendSignupSuccessMail } = require('./mail-manager');
 const { validateEmail } = require('./utils');
+const DefChannels = require('./src/facts/def-channels');
 
 Mongoose.connect(url, async function () {
 
@@ -46,7 +46,7 @@ Mongoose.connect(url, async function () {
       const user = await UserModel.findOne({ 'emailId': username });
       if (!user) {
         let userRep = new UserModel({
-          id: Math.floor(Math.random() * 1000000) + "",
+          id: Math.floor(Math.random() * 100000000) + "",
           createdOn: new Date().getTime() + "",
           emailId: username,
           firstName: firstName,
@@ -95,7 +95,7 @@ Mongoose.connect(url, async function () {
 
   MongoApis.addInterest = async (label) => {
     const InterestModel = Mongoose.model("interests", interestSchema);
-    const id = "cust_" + Math.floor(Math.random() * 100000);
+    const id = "cust_" + Math.floor(Math.random() * 10000000);
 
     const newInterest = new InterestModel({
       id,
@@ -186,6 +186,193 @@ Mongoose.connect(url, async function () {
     }
   };
 
+  MongoApis.followUser = async (userId, followedBy) => {
+    const FollowInfoModel = Mongoose.model("followinfos", followInfoSchema);
+    const followRep = new FollowInfoModel({
+      userId, followedBy
+    });
+    await followRep.save();
+
+    return {
+      status: "success"
+    }
+  };
+
+  MongoApis.unFollowUser = async (userId, followedBy) => {
+    const FollowInfoModel = Mongoose.model("followinfos", followInfoSchema);
+    await FollowInfoModel.deleteOne({ userId, followedBy });
+
+    return {
+      status: "success"
+    }
+  };
+
+  MongoApis.getUsersToFollow = async (id, includeFollowed) => {
+    const BasicInfoModel = Mongoose.model("userbasicinfos", basicInfoSchema);
+    const UserModel = Mongoose.model("users", userSchema);
+    const FollowInfoModel = Mongoose.model("followinfos", followInfoSchema);
+
+    try {
+      let res = [];
+      const followerOfInfo = await FollowInfoModel.find({ followedBy: id }).select('userId');
+      const followerOfIds = followerOfInfo.reduce((acc, item) => [...acc, item.userId], []);
+      console.log("A", followerOfIds);
+      const usersToFollow = await UserModel.find({
+        gotStarted: true,
+        id: { $nin: includeFollowed ? [id] : [...followerOfIds, id] }
+      }).select(['id', 'firstName', 'lastName']);
+      const usersToFollowIds = usersToFollow.reduce((acc, item) => [...acc, item.id], []);
+      console.log("B", usersToFollowIds);
+      const usersToFollowBasicInfo = await BasicInfoModel.find({ userId: { $in: usersToFollowIds } }).select(['userId', 'location', 'interests']);
+
+      const userBasicInfo = await BasicInfoModel.findOne({ userId: id }).select(['userId', 'location', 'interests']);
+      const userInterestIds = userBasicInfo.interests ? userBasicInfo.interests.reduce((acc, item) => [...acc, item.id], []) : [];
+      const scoreUserMap = {};
+      console.log("C", usersToFollowBasicInfo);
+
+      for (let i = 0; i < usersToFollowBasicInfo.length; i += 1) {
+        const { userId, interests, location } = usersToFollowBasicInfo[i];
+        let userOb = null;
+        let intMatches = 0;
+
+        for (let k = 0; k < usersToFollow.length; k += 1) {
+          if (usersToFollow[k].id === userId) {
+            userOb = usersToFollow[k];
+            break;
+          }
+        }
+
+        for (let j = 0; j < interests.length; j += 1) {
+          if (userInterestIds.indexOf(interests[j].id) !== -1) {
+            intMatches++;
+          }
+        }
+
+        const key = intMatches + "";
+        scoreUserMap[key] = scoreUserMap[key] || [];
+
+        const obToPush = {
+          userId,
+          interests,
+          location,
+          firstName: userOb.firstName,
+          lastName: userOb.lastName,
+          following: followerOfIds.indexOf(userId) !== -1
+        };
+
+        if (location === userBasicInfo.location) {
+          scoreUserMap[key].unshift(obToPush);
+        } else {
+          scoreUserMap[key].push(obToPush);
+        }
+      }
+      const sorted = Object.keys(scoreUserMap).sort((x, y) => +x < +y ? 1 : -1);
+
+      console.log(scoreUserMap);
+      for (let m = 0; m < sorted.length; m += 1) {
+        res = [...res, ...scoreUserMap[sorted[m]]]
+      }
+
+      return {
+        status: "success",
+        response: res
+      }
+    } catch (e) {
+      console.log(e);
+      return {
+        status: "failure"
+      }
+    }
+  };
+
+  MongoApis.addFeed = async (userId, post, channelId) => {
+    const PostModel = Mongoose.model("posts", postsSchema);
+    const postRep = new PostModel({
+      id: Math.floor(Math.random() * 10000000),
+      createdOn: new Date(),
+      createdBy: userId,
+      text: post,
+      channelId: channelId
+    });
+    const savedInst = await postRep.save();
+
+    return {
+      status: "success",
+      response: savedInst
+    }
+  };
+
+  MongoApis.getAllUsers = async () => {
+    const UserModel = Mongoose.model("users", userSchema);
+    const allUsers = await UserModel.find({}).select(['id', 'firstName', 'lastName']);
+
+    return {
+      status: "success",
+      response: allUsers
+    }
+  };
+
+  MongoApis.getAllChannels = async () => {
+    const ChannelModel = Mongoose.model("channelinfos", channelInfoSchema);
+    const allChannels = await ChannelModel.find({}).select(['id', 'label', 'createdBy', 'createdOn', 'followedBy']);
+
+    return {
+      status: "success",
+      response: allChannels
+    }
+  };
+
+  MongoApis.getFeeds = async (userId, channelId) => {
+    const PostModel = Mongoose.model("posts", postsSchema);
+    const ChannelModel = Mongoose.model("channelinfos", channelInfoSchema);
+    const FollowInfoModel = Mongoose.model("followinfos", followInfoSchema);
+    let folOfRes = [];
+    let folChanRes = [];
+
+    if (!channelId) {
+      const followedChannels = await ChannelModel.find({ followedBy: userId }).select('id');
+      folChanRes = followedChannels.reduce((acc, item) => [...acc, item.id], []);
+      folChanRes.push(DefChannels.lend);
+
+      const followerOfInfo = await FollowInfoModel.find({ followedBy: userId }).select('userId');
+      folOfRes = followerOfInfo.reduce((acc, item) => [...acc, item.userId], []);
+      folOfRes.push(userId);
+    } else {
+      folOfRes = ['admin'];
+      folChanRes = [channelId];
+    }
+
+    const posts = await PostModel
+      .find({ $or: [{ createdBy: { $in: folOfRes } }, { channelId: { $in: folChanRes } }] })
+      .sort({ createdOn: 'desc' })
+      .select(['id', 'createdOn', 'createdBy', 'channelId', 'text', 'comments', 'likedBy']);
+
+    return {
+      status: "success",
+      response: posts
+    }
+  };
+
+  MongoApis.likeFeed = async (userId, feedId) => {
+    const PostModel = Mongoose.model("posts", postsSchema);
+    let post = await PostModel.findOne({ id: feedId });
+    let stat = false;
+
+    if(post){
+      if(post.likedBy.indexOf(userId) !== -1){
+        post.likedBy.splice(post.likedBy.indexOf(userId), 1);
+      } else {
+        post.likedBy.push(userId);
+        stat = true;
+      }
+      await post.save();
+    }
+
+    return {
+      status: "success",
+      response: stat
+    }
+  };
 
   /*
     MongoApis.getAllAvailableEmployees = async () => {

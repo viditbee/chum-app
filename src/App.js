@@ -13,6 +13,9 @@ import DevSecPage from "./client/pages/dev/dev-secret-page";
 import AboutYouPage from "./client/pages/about-you/about-you-page";
 import Paths from "./facts/paths";
 import UserHomePage from "./client/pages/user-home/user-home-page";
+import { getAllUsers, getAllChannels } from "./client/interface/interface";
+import AboutMePage from "./client/pages/about-me/about-me-page";
+import LendAHandPage from "./client/pages/lend-a-hand/lend-a-hand-page";
 
 
 class DebugRouter extends Router {
@@ -22,7 +25,7 @@ class DebugRouter extends Router {
     this.history.listen((location, action) => {
       console.log(
         `The current URL is ${location.pathname}${location.search}${location.hash}`
-      )
+      );
       console.log(`The last navigation action was ${action}`, JSON.stringify(this.history, null, 2));
     });
   }
@@ -33,6 +36,8 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
   const [userInfoLoaded, setUserInfoLoaded] = useState(false);
+  const [userMasterData, setUserMasterData] = useState({});
+  const [channelMasterData, setChannelMasterData] = useState({});
 
   useEffect(() => {
     async function check() {
@@ -40,6 +45,8 @@ function App() {
       if (status === "success") {
         setUserInfo(response);
         setLoggedIn(true);
+        await fetchAllUsers();
+        await fetchAllChannels();
       } else {
         setUserInfo(null);
         setLoggedIn(false);
@@ -50,15 +57,46 @@ function App() {
     check();
   }, []);
 
+  const getChannelLabelMap = (channels) => {
+    return channels.reduce((acc, item) => ({ ...acc, [item.id]: item.label }), {});
+  };
+
+  const getUserLabelMap = (users) => {
+    return users.reduce((acc, item) => ({ ...acc, [item.id]: item.firstName + " " + item.lastName }), {});
+  };
+
+  const fetchAllUsers = async () => {
+    const { status, response } = await getAllUsers();
+    if(status === "success") {
+      setUserMasterData({
+        users: response,
+        userLabels: getUserLabelMap(response)
+      });
+    }
+  };
+
+  const fetchAllChannels = async () => {
+    const { status, response } = await getAllChannels();
+    if(status === "success") {
+      setChannelMasterData({
+        channels: response,
+        channelLabels: getChannelLabelMap(response)
+      });
+    }
+  };
+
   const setGotStartedIndirect = (val) => {
     const userInfoDup = { ...userInfo };
     userInfoDup.gotStarted = val;
     setUserInfo(userInfoDup);
   };
 
-  const setLoggedInIndirect = (val, userInfo) => {
+  const setLoggedInIndirect = async (val, userInfo) => {
     setUserInfo(userInfo);
     setLoggedIn(val);
+    if (val) {
+      await fetchAllUsers()
+    }
   };
 
   const setLoggedOutIndirect = () => {
@@ -127,7 +165,15 @@ function App() {
               <AboutYouPage gotStartedSetter={setGotStartedIndirect} userInfo={userInfo} />
             </Route>
             <Route exact path={Paths.home}>
-              <UserHomePage userInfo={userInfo} logoutSetter={setLoggedOutIndirect} />
+              <UserHomePage userInfo={userInfo} userMasterData={userMasterData} channelMasterData={channelMasterData}
+                            logoutSetter={setLoggedOutIndirect} />
+            </Route>
+            <Route exact path={Paths.lendAHand}>
+              <LendAHandPage userInfo={userInfo} userMasterData={userMasterData} channelMasterData={channelMasterData}
+                            logoutSetter={setLoggedOutIndirect} />
+            </Route>
+            <Route exact path={Paths.aboutMe}>
+              <AboutMePage userInfo={userInfo} logoutSetter={setLoggedOutIndirect} />
             </Route>
             <Route exact path={Paths.dev}>
               <DevSecPage />
@@ -140,7 +186,7 @@ function App() {
       </div>
     );
   } else {
-    return <div className="app-loading">Loading...</div>
+    return <div className="app-loading">Please wait. <p>Chum is brewing awesomeness for you!</p></div>
   }
 }
 

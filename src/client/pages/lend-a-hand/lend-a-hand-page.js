@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import './user-home-page.scss';
+import './lend-a-hand-page.scss';
 import LeftPanel from "../../views/left-panel/left-panel";
 import RightPanel from "../../views/right-panel/right-panel";
 import AddAFeed from "../../views/add-a-feed/add-a-feed";
 import FeedItem from "../../views/feed-item/feed-item";
 import { getFeeds } from "../../interface/interface";
+import DefChannels from "../../../facts/def-channels";
 
-function UserHomePage({ userInfo, logoutSetter, userMasterData, channelMasterData }) {
+function LendAHandPage({ userInfo, logoutSetter, userMasterData, channelMasterData }) {
 
   const [feeds, setFeeds] = useState({});
   const [dataLoaded, setDataLoaded] = useState(false);
@@ -15,7 +16,7 @@ function UserHomePage({ userInfo, logoutSetter, userMasterData, channelMasterDat
   useEffect(() => {
     async function fetchData() {
       const userId = userInfo.id;
-      let { status: bSt, response: bRs } = await getFeeds(userId);
+      let { status: bSt, response: bRs } = await getFeeds(userId, DefChannels.lend);
 
       if (bSt === "success") {
         setFeeds(bRs);
@@ -47,9 +48,9 @@ function UserHomePage({ userInfo, logoutSetter, userMasterData, channelMasterDat
   const getView = () => {
     return <div className="page-specific-view-cont">
       {(!dataLoaded || loading) ? <div className="page-loading">Loading...</div> : null}
-      <div className="gen-page-header">Feeds</div>
+      <div className="gen-page-header">Postings</div>
       <div className="gen-page-body">
-        {dataLoaded ? <AddAFeed userInfo={userInfo} onFeedAdded={(feed) => {
+        {dataLoaded ? <AddAFeed userInfo={userInfo} channel={{id: DefChannels.lend}} onFeedAdded={(feed) => {
           handleOnFeedAdded(feed)
         }} /> : null}
         {getFeedViews()}
@@ -57,16 +58,16 @@ function UserHomePage({ userInfo, logoutSetter, userMasterData, channelMasterDat
     </div>
   };
 
-  return <div className="user-home-page gen-page">
+  return <div className="lend-a-hand-page gen-page">
     <LeftPanel userInfo={userInfo} logoutSetter={logoutSetter} />
     {getView()}
     <RightPanel userInfo={userInfo} />
   </div>;
 }
 
-UserHomePage.propTypes = {};
+LendAHandPage.propTypes = {};
 
-UserHomePage.defaultProps = {};
+LendAHandPage.defaultProps = {};
 
-export default UserHomePage;
+export default LendAHandPage;
 

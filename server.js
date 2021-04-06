@@ -59,6 +59,30 @@ app.post("/service/userBasicInfo", (req, res) => {
   });
 });
 
+app.post("/service/followUser", (req, res) => {
+  const { userId, followedBy } = req.body;
+  MongoApis.followUser(userId, followedBy).then((op) => {
+    res.status(200);
+    res.send(op);
+  });
+});
+
+app.post("/service/unFollowUser", (req, res) => {
+  const { userId, followedBy } = req.body;
+  MongoApis.unFollowUser(userId, followedBy).then((op) => {
+    res.status(200);
+    res.send(op);
+  });
+});
+
+app.post("/service/addFeed", (req, res) => {
+  const { userId, post, channelId } = req.body;
+  MongoApis.addFeed(userId, post, channelId).then((op) => {
+    res.status(200);
+    res.send(op);
+  });
+});
+
 app.get("/service/followInfo/:userId", (req, res) => {
   MongoApis.getFollowInfo(req.params.userId).then((op) => {
     res.status(200);
@@ -82,6 +106,43 @@ app.get("/service/subscribedChannels/:userId", (req, res) => {
   });
 });
 
+app.get("/service/usersToFollow/:userId", (req, res) => {
+  MongoApis.getUsersToFollow(req.params.userId).then((op) => {
+    res.status(200);
+    res.send(op);
+  });
+});
+
+app.get("/service/allUsers", (req, res) => {
+  MongoApis.getAllUsers().then((op) => {
+    res.status(200);
+    res.send(op);
+  });
+});
+
+app.get("/service/allChannels", (req, res) => {
+  MongoApis.getAllChannels().then((op) => {
+    res.status(200);
+    res.send(op);
+  });
+});
+
+app.post("/service/getFeeds", (req, res) => {
+  const { userId, channelId } = req.body;
+  MongoApis.getFeeds(userId, channelId).then((op) => {
+    res.status(200);
+    res.send(op);
+  });
+});
+
+
+app.post("/service/likeFeed", (req, res) => {
+  const { userId, feedId } = req.body;
+  MongoApis.likeFeed(userId, feedId).then((op) => {
+    res.status(200);
+    res.send(op);
+  });
+});
 
 
 
