@@ -74,9 +74,12 @@ function LeftPanel({ userInfo, logoutSetter }) {
     const channelItemViews = [];
     for (let i = 0; i < channels.length; i += 1) {
       let { id, label } = channels[i];
-      channelItemViews.push(<div onClick={() => {
+      channelItemViews.push(<div key={id} onClick={() => {
         handleChannelItemClicked(id)
-      }} className="channel-item">{label}</div>);
+      }} className="channel-item">
+        <div className="channel-item-icon"/>
+        <div className="channel-item-label">{label}</div>
+      </div>);
     }
 
     return <div className="channel-list-cont">{channelItemViews}</div>

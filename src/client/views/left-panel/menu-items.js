@@ -9,7 +9,7 @@ export const MenuItems = [
   },
   {
     id: 'aboutMe',
-    label: 'About Me',
+    label: 'About You',
     className: 'menu-about-me',
     path: Paths.aboutMe
   },

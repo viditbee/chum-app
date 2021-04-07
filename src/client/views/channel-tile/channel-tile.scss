@@ -1,0 +1,64 @@
+.channel-tile-cont {
+  display: flex;
+  width: 500px;
+  float: left;
+  height: 220px;
+
+  .channel-tile-image {
+    height: 150px;
+    width: 150px;
+    background-image: url("../../assets/images/icons8-omnichannel.svg");
+    background-repeat: no-repeat;
+    background-size: 150px;
+    background-position: center;
+  }
+
+  .channel-tile-text-section {
+    width: 300px;
+    font-family: Dosis;
+    padding: 20px;
+    position: relative;
+
+    .channel-tile-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 14px;
+      width: calc(100% - 100px);
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    .channel-tile-description {
+      max-height: 97px;
+      overflow: hidden;
+    }
+
+    .channel-tile-followed-by {
+      margin-top: 10px;
+      color: #7c7c7c;
+    }
+
+    .channel-follow-button {
+      font-weight: 500;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      line-height: 30px;
+      color: #ff286c;
+
+
+      &.followed {
+        &:hover {
+          span {
+            display: none;
+          }
+          &:before {
+            content: 'Unsubscribe';
+          }
+        }
+      }
+    }
+  }
+}

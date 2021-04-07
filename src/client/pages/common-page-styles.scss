@@ -7,6 +7,7 @@
   .left-panel-container {
     width: 350px;
     flex: none;
+    overflow: hidden;
   }
 
   .page-specific-view-cont {
@@ -30,6 +31,7 @@
     font-size: 20px;
     font-weight: 600;
     padding: 18px 20px 8px 20px;
+    font-family: Dosis;
   }
 
   .gen-page-body{

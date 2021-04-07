@@ -57,11 +57,7 @@ function UserHomePage({ userInfo, logoutSetter, userMasterData, channelMasterDat
     </div>
   };
 
-  return <div className="user-home-page gen-page">
-    <LeftPanel userInfo={userInfo} logoutSetter={logoutSetter} />
-    {getView()}
-    <RightPanel userInfo={userInfo} />
-  </div>;
+  return getView();
 }
 
 UserHomePage.propTypes = {};

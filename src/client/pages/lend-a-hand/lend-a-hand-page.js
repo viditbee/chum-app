@@ -58,11 +58,7 @@ function LendAHandPage({ userInfo, logoutSetter, userMasterData, channelMasterDa
     </div>
   };
 
-  return <div className="lend-a-hand-page gen-page">
-    <LeftPanel userInfo={userInfo} logoutSetter={logoutSetter} />
-    {getView()}
-    <RightPanel userInfo={userInfo} />
-  </div>;
+  return getView();
 }
 
 LendAHandPage.propTypes = {};

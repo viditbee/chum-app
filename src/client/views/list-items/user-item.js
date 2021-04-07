@@ -26,7 +26,7 @@ function UserItem({ loggedInUserInfo, userInfo, following, interestLabels }) {
       const interest = interests[i];
       const label = interestLabels[interest.id] || interest.id;
       const otmView = interest.otm ? <div className="otm-icon" /> : null;
-      intViews.push(<div className="user-item-interest-cont">
+      intViews.push(<div key={interest.id} className="user-item-interest-cont">
         <div className="uii-wrap">
           <div className="uii-text">{label}</div>
           <div className="uii-level-bar" style={{ width: interest.level / .05 + "%" }} />

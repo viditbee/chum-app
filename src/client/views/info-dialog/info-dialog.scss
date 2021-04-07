@@ -1,0 +1,86 @@
+.dialog-onion {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(255,255,255,.5);
+  display: flex;
+  z-index: 3;
+  align-items: center;
+
+  .dialog-cont {
+    font-family: Dosis;
+    z-index: 4;
+    width: 500px;
+    background-color: #fff;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, .1);
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    min-height: 490px;
+    margin: auto;
+    padding: 40px;
+    flex-direction: column;
+
+    .dialog-closer {
+
+    }
+
+    .dialog-header {
+      font-size: 24px;
+      color: #1c1b1a;
+      font-weight: 600;
+      margin-bottom: 40px;
+    }
+
+    .dialog-body {
+
+      .dialog-field-cont {
+        margin-bottom: 30px;
+
+        .dialog-field-label {
+          color: #1c1b1a;
+          margin-bottom: 5px;
+          font-size: 13px;
+          font-weight: 500;
+        }
+
+        .dialog-field-input {
+          margin-bottom: 10px;
+
+          input, select, textarea {
+            color: #1c1b1a;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid #c2c5cc;
+            line-height: 34px;
+            outline: none;
+            width: 100%;
+            border-radius: 4px;
+            padding: 1px 10px;
+            font-family: Titillium;
+          }
+
+          textarea {
+            padding: 8px;
+            line-height: 20px;
+            height: 100px;
+            font-family: Titillium;
+            resize: vertical;
+          }
+
+        }
+      }
+    }
+
+    .error-box {
+      color: red;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .dialog-footer {
+
+    }
+  }
+}

@@ -135,10 +135,25 @@ app.post("/service/getFeeds", (req, res) => {
   });
 });
 
-
 app.post("/service/likeFeed", (req, res) => {
   const { userId, feedId } = req.body;
   MongoApis.likeFeed(userId, feedId).then((op) => {
+    res.status(200);
+    res.send(op);
+  });
+});
+
+app.post("/service/followChannel", (req, res) => {
+  const { userId, channelId } = req.body;
+  MongoApis.followChannel(userId, channelId).then((op) => {
+    res.status(200);
+    res.send(op);
+  });
+});
+
+app.post("/service/createChannel", (req, res) => {
+  const { userId, label, description } = req.body;
+  MongoApis.createChannel(userId, label, description).then((op) => {
     res.status(200);
     res.send(op);
   });

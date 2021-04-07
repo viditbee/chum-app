@@ -35,7 +35,7 @@ function UserList({ loggedInUserInfo }) {
     const listView = [];
     for(let i=0; i<userList.length; i+=1){
       const user = userList[i];
-      listView.push(<UserItem loggedInUserInfo={loggedInUserInfo} userInfo={user} interestLabels={interestsLabelMap} />)
+      listView.push(<UserItem key={user.userId} loggedInUserInfo={loggedInUserInfo} userInfo={user} interestLabels={interestsLabelMap} />)
     }
 
     return listView;

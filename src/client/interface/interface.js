@@ -89,3 +89,11 @@ export const likeFeed = (userId, feedId) => {
   return postCall('/service/likeFeed', { userId, feedId });
 };
 
+export const followChannel = (userId, channelId) => {
+  return postCall('/service/followChannel', { userId, channelId });
+};
+
+export const createChannel = (userId, label, description) => {
+  return postCall('/service/createChannel', { userId, label, description });
+};
+

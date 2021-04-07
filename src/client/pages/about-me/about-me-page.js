@@ -79,11 +79,7 @@ function AboutMePage({ userInfo, logoutSetter }) {
     </div>
   };
 
-  return <div className="about-me-page gen-page">
-    <LeftPanel userInfo={userInfo} logoutSetter={logoutSetter} />
-    {getView()}
-    <RightPanel userInfo={userInfo} />
-  </div>;
+  return getView();
 }
 
 AboutMePage.propTypes = {};

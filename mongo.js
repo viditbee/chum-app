@@ -314,7 +314,7 @@ Mongoose.connect(url, async function () {
 
   MongoApis.getAllChannels = async () => {
     const ChannelModel = Mongoose.model("channelinfos", channelInfoSchema);
-    const allChannels = await ChannelModel.find({}).select(['id', 'label', 'createdBy', 'createdOn', 'followedBy']);
+    const allChannels = await ChannelModel.find({}).select(['id', 'label', 'description', 'createdBy', 'createdOn', 'followedBy']);
 
     return {
       status: "success",
@@ -358,8 +358,8 @@ Mongoose.connect(url, async function () {
     let post = await PostModel.findOne({ id: feedId });
     let stat = false;
 
-    if(post){
-      if(post.likedBy.indexOf(userId) !== -1){
+    if (post) {
+      if (post.likedBy.indexOf(userId) !== -1) {
         post.likedBy.splice(post.likedBy.indexOf(userId), 1);
       } else {
         post.likedBy.push(userId);
@@ -372,6 +372,46 @@ Mongoose.connect(url, async function () {
       status: "success",
       response: stat
     }
+  };
+
+  MongoApis.followChannel = async (userId, channelId) => {
+    const ChannelModel = Mongoose.model("channelinfos", channelInfoSchema);
+    let channel = await ChannelModel.findOne({ id: channelId });
+    let stat = false;
+
+    if (channel) {
+      if (channel.followedBy.indexOf(userId) !== -1) {
+        channel.followedBy.splice(channel.followedBy.indexOf(userId), 1);
+      } else {
+        channel.followedBy.push(userId);
+        stat = true;
+      }
+      await channel.save();
+    }
+
+    return {
+      status: "success",
+      response: stat
+    }
+  };
+
+  MongoApis.createChannel = async (userId, label, description) => {
+    const ChannelModel = Mongoose.model("channelinfos", channelInfoSchema);
+    let channelRes = new ChannelModel({
+      id: Math.floor(Math.random() * 10000000),
+      createdOn: new Date(),
+      createdBy: userId,
+      label,
+      description,
+      followedBy: [userId]
+    });
+
+    const savedInst = await channelRes.save();
+
+    return {
+      status: "success",
+      response: savedInst
+    };
   };
 
   /*

@@ -54,6 +54,7 @@ module.exports = {
     label: String,
     createdBy: String,
     createdOn: Date,
+    description: String,
     followedBy: {
       type: Array,
       default: []

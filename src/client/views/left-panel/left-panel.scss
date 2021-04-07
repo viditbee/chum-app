@@ -52,6 +52,9 @@
 
   .lp-menu-cont {
     margin-top: 50px;
+    height: calc(100% - 510px);
+    overflow: auto;
+    width: calc(100% + 30px);
 
     .menu-item {
       line-height: 50px;
@@ -107,7 +110,10 @@
       }
 
       .mi-label {
-
+        width: 200px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
       }
     }
 
@@ -116,7 +122,29 @@
       .channel-list-cont {
 
         .channel-item {
+          font-size: 18px;
+          font-weight: 500;
+          line-height: 40px;
+          padding: 0 20px 0 44px;
+          overflow: hidden;
 
+          .channel-item-icon {
+            height: 40px;
+            width: 50px;
+            background-size: 20px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-image: url("./../../assets/images/icons8-omnichannel-bw.svg");
+            float: left;
+          }
+
+          .channel-item-label {
+            float: left;
+            width: 220px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
         }
       }
     }
@@ -145,7 +173,7 @@
 
     }
 
-    &:before{
+    &:before {
       content: '';
       position: absolute;
       width: 300px;

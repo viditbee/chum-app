@@ -16,6 +16,9 @@ import UserHomePage from "./client/pages/user-home/user-home-page";
 import { getAllUsers, getAllChannels } from "./client/interface/interface";
 import AboutMePage from "./client/pages/about-me/about-me-page";
 import LendAHandPage from "./client/pages/lend-a-hand/lend-a-hand-page";
+import ChannelsPage from "./client/pages/channels/channels-page";
+import LeftPanel from "./client/views/left-panel/left-panel";
+import RightPanel from "./client/views/right-panel/right-panel";
 
 
 class DebugRouter extends Router {
@@ -62,12 +65,15 @@ function App() {
   };
 
   const getUserLabelMap = (users) => {
-    return users.reduce((acc, item) => ({ ...acc, [item.id]: item.firstName + " " + item.lastName }), {});
+    return users.reduce((acc, item) => ({
+      ...acc,
+      [item.id]: item.firstName + " " + item.lastName
+    }), {});
   };
 
   const fetchAllUsers = async () => {
     const { status, response } = await getAllUsers();
-    if(status === "success") {
+    if (status === "success") {
       setUserMasterData({
         users: response,
         userLabels: getUserLabelMap(response)
@@ -77,7 +83,7 @@ function App() {
 
   const fetchAllChannels = async () => {
     const { status, response } = await getAllChannels();
-    if(status === "success") {
+    if (status === "success") {
       setChannelMasterData({
         channels: response,
         channelLabels: getChannelLabelMap(response)
@@ -165,15 +171,37 @@ function App() {
               <AboutYouPage gotStartedSetter={setGotStartedIndirect} userInfo={userInfo} />
             </Route>
             <Route exact path={Paths.home}>
-              <UserHomePage userInfo={userInfo} userMasterData={userMasterData} channelMasterData={channelMasterData}
-                            logoutSetter={setLoggedOutIndirect} />
+              <div className="gen-page user-home-page">
+                <LeftPanel userInfo={userInfo} logoutSetter={setLoggedOutIndirect} />
+                <UserHomePage userInfo={userInfo} userMasterData={userMasterData}
+                              channelMasterData={channelMasterData}
+                              logoutSetter={setLoggedOutIndirect} />
+                <RightPanel userInfo={userInfo} />
+              </div>
             </Route>
             <Route exact path={Paths.lendAHand}>
-              <LendAHandPage userInfo={userInfo} userMasterData={userMasterData} channelMasterData={channelMasterData}
-                            logoutSetter={setLoggedOutIndirect} />
+              <div className="gen-page lend-a-hand-page">
+                <LeftPanel userInfo={userInfo} logoutSetter={setLoggedOutIndirect} />
+                <LendAHandPage userInfo={userInfo} userMasterData={userMasterData}
+                               channelMasterData={channelMasterData}
+                               logoutSetter={setLoggedOutIndirect} />
+                <RightPanel userInfo={userInfo} />
+              </div>
+            </Route>
+            <Route exact path={Paths.channels}>
+              <div className="gen-page channels-page">
+                <LeftPanel userInfo={userInfo} logoutSetter={setLoggedOutIndirect} />
+                <ChannelsPage userInfo={userInfo} userMasterData={userMasterData}
+                              logoutSetter={setLoggedOutIndirect} />
+                <RightPanel userInfo={userInfo} />
+              </div>
             </Route>
             <Route exact path={Paths.aboutMe}>
-              <AboutMePage userInfo={userInfo} logoutSetter={setLoggedOutIndirect} />
+              <div className="gen-page about-me-page">
+                <LeftPanel userInfo={userInfo} logoutSetter={setLoggedOutIndirect} />
+                <AboutMePage userInfo={userInfo} logoutSetter={setLoggedOutIndirect} />
+                <RightPanel userInfo={userInfo} />
+              </div>
             </Route>
             <Route exact path={Paths.dev}>
               <DevSecPage />
@@ -186,7 +214,8 @@ function App() {
       </div>
     );
   } else {
-    return <div className="app-loading">Please wait. <p>Chum is brewing awesomeness for you!</p></div>
+    return <div className="app-loading">Please wait. <p>Chum is brewing awesomeness for you!</p>
+    </div>
   }
 }
 
