@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './about-me-page.scss';
-import LeftPanel from "../../views/left-panel/left-panel";
-import RightPanel from "../../views/right-panel/right-panel";
 import {
   getUserBasicInfo,
   updateUserBasicInfo
@@ -48,23 +46,22 @@ function AboutMePage({ userInfo, logoutSetter }) {
     setDataChanged(true);
   };
 
-  const getView = () => {
-    return <div className="page-specific-view-cont">
-      {(!dataLoaded || loading) ? <div className="page-loading">Loading...</div> : null}
-      <div className="gen-page-header">About me</div>
-      <div className="gen-page-body">
-        {dataLoaded ? <><AboutYouOne
-          dataChanged={(key, val) => {
-            handleStepOneDataChanged(key, val)
-          }}
-          validityChanged={(val) => {
-            handleFormValidityChanged(val)
-          }}
-          defLocation={basicInfo.location || ""}
-          defDepartment={basicInfo.department || ""}
-          defLanguages={basicInfo.languages || []}
-          defAboutYou={basicInfo.aboutYou || ""} />
-          <div className="int-header">Interests</div>
+  return <div className="page-specific-view-cont">
+    {(!dataLoaded || loading) ? <div className="page-loading">Loading...</div> : null}
+    <div className="gen-page-header">About me</div>
+    <div className="gen-page-body">
+      {dataLoaded ? <><AboutYouOne
+        dataChanged={(key, val) => {
+          handleStepOneDataChanged(key, val)
+        }}
+        validityChanged={(val) => {
+          handleFormValidityChanged(val)
+        }}
+        defLocation={basicInfo.location || ""}
+        defDepartment={basicInfo.department || ""}
+        defLanguages={basicInfo.languages || []}
+        defAboutYou={basicInfo.aboutYou || ""} />
+        <div className="int-header">Interests</div>
         <AboutYouTwo
           dataChanged={(data) => {
             setBasicInfo({ ...basicInfo, interests: data });
@@ -72,14 +69,11 @@ function AboutMePage({ userInfo, logoutSetter }) {
           }}
           defInterests={basicInfo.interests}
         /></> : null}
-        {dataChanged ? <Button disabled={!buttonActive} onClick={() => {
-          handleButtonClicked()
-        }} text="Save" /> : null}
-      </div>
+      {dataChanged ? <Button disabled={!buttonActive} onClick={() => {
+        handleButtonClicked()
+      }} text="Save" /> : null}
     </div>
-  };
-
-  return getView();
+  </div>;
 }
 
 AboutMePage.propTypes = {};

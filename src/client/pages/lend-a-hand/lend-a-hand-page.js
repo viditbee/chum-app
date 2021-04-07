@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './lend-a-hand-page.scss';
-import LeftPanel from "../../views/left-panel/left-panel";
-import RightPanel from "../../views/right-panel/right-panel";
 import AddAFeed from "../../views/add-a-feed/add-a-feed";
 import FeedItem from "../../views/feed-item/feed-item";
 import { getFeeds } from "../../interface/interface";
@@ -45,20 +43,17 @@ function LendAHandPage({ userInfo, logoutSetter, userMasterData, channelMasterDa
     return <div className="feed-wrapper">{feedViews}</div>
   };
 
-  const getView = () => {
-    return <div className="page-specific-view-cont">
-      {(!dataLoaded || loading) ? <div className="page-loading">Loading...</div> : null}
-      <div className="gen-page-header">Postings</div>
-      <div className="gen-page-body">
-        {dataLoaded ? <AddAFeed userInfo={userInfo} channel={{id: DefChannels.lend}} onFeedAdded={(feed) => {
+  return <div className="page-specific-view-cont">
+    {(!dataLoaded || loading) ? <div className="page-loading">Loading...</div> : null}
+    <div className="gen-page-header">Postings</div>
+    <div className="gen-page-body">
+      {dataLoaded ?
+        <AddAFeed userInfo={userInfo} channel={{ id: DefChannels.lend }} onFeedAdded={(feed) => {
           handleOnFeedAdded(feed)
         }} /> : null}
-        {getFeedViews()}
-      </div>
+      {getFeedViews()}
     </div>
-  };
-
-  return getView();
+  </div>;
 }
 
 LendAHandPage.propTypes = {};

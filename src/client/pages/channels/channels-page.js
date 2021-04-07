@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import './channels-page.scss';
-import LeftPanel from "../../views/left-panel/left-panel";
-import RightPanel from "../../views/right-panel/right-panel";
 import { getAllChannels } from "../../interface/interface";
 import SearchChannel from "../../views/search-channel/search-channel";
 import ChannelTile from "../../views/channel-tile/channel-tile";
 
-function ChannelsPage({ userInfo, logoutSetter, userMasterData }) {
+function ChannelsPage({ userInfo, logoutSetter, userMasterData, selectedChannelId }) {
 
   const [channels, setChannels] = useState([]);
   const [dataLoaded, setDataLoaded] = useState(false);
   const [searchText, setSearchText] = useState("");
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -53,22 +50,18 @@ function ChannelsPage({ userInfo, logoutSetter, userMasterData }) {
     setSearchText(text.toLocaleLowerCase());
   };
 
-  const getView = () => {
-    return <div className="page-specific-view-cont">
-      {(!dataLoaded || loading) ? <div className="page-loading">Loading...</div> : null}
-      <div className="gen-page-header">Channels</div>
-      <div className="gen-page-body">
-        {dataLoaded ? <SearchChannel onTextChanged={(txt) => {
-          handleSearchTextChanged(txt)
-        }} userInfo={userInfo} onChannelAdded={(channel) => {
-          handleChannelAdded(channel)
-        }} /> : null}
-        {getChannelTiles()}
-      </div>
+  return <div className="page-specific-view-cont">
+    {(!dataLoaded) ? <div className="page-loading">Loading...</div> : null}
+    <div className="gen-page-header">Channels</div>
+    <div className="gen-page-body">
+      {dataLoaded ? <SearchChannel onTextChanged={(txt) => {
+        handleSearchTextChanged(txt)
+      }} userInfo={userInfo} onChannelAdded={(channel) => {
+        handleChannelAdded(channel)
+      }} /> : null}
+      {getChannelTiles()}
     </div>
-  };
-
-  return getView()
+  </div>
 }
 
 ChannelsPage.propTypes = {};
