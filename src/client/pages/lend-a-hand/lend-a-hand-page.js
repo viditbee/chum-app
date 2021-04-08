@@ -5,11 +5,10 @@ import FeedItem from "../../views/feed-item/feed-item";
 import { getFeeds } from "../../interface/interface";
 import DefChannels from "../../../facts/def-channels";
 
-function LendAHandPage({ userInfo, logoutSetter, userMasterData, channelMasterData }) {
+function LendAHandPage({ userInfo, userMasterData, channelMasterData }) {
 
   const [feeds, setFeeds] = useState({});
   const [dataLoaded, setDataLoaded] = useState(false);
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -44,7 +43,7 @@ function LendAHandPage({ userInfo, logoutSetter, userMasterData, channelMasterDa
   };
 
   return <div className="page-specific-view-cont">
-    {(!dataLoaded || loading) ? <div className="page-loading">Loading...</div> : null}
+    {(!dataLoaded) ? <div className="page-loading">Loading...</div> : null}
     <div className="gen-page-header">Postings</div>
     <div className="gen-page-body">
       {dataLoaded ?

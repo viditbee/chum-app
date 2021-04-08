@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import './left-panel.scss';
 import { MenuItems } from './menu-items';
 import { useLocation, Link } from 'react-router-dom';
@@ -11,11 +10,11 @@ import {
 import Paths from './../../../facts/paths';
 import { manageSuccessfulLogout } from "../../utils/utils";
 
-function LeftPanel({ userInfo, logoutSetter }) {
+function LeftPanel({ userInfo, logoutSetter, channelIdSetter, followStaler }) {
 
   const selectedItemURL = useLocation().pathname;
   const [dataLoaded, setDataLoaded] = useState(false);
-  const [followInfo, setFollowInfo] = useState({});
+  const [followInfo, setFollowInfo] = useState(null);
   const [basicInfo, setBasicInfo] = useState({});
   const [channels, setChannels] = useState([]);
 
@@ -41,8 +40,22 @@ function LeftPanel({ userInfo, logoutSetter }) {
     userInfo && fetchData();
   }, []);
 
-  const handleChannelItemClicked = (id) => {
+  useEffect(() => {
+    async function fetchData() {
+      const userId = userInfo.id;
+      let { status: fSt, response: fRs } = await getFollowInfo(userId);
 
+      if (fSt === "success") {
+        setFollowInfo(fRs);
+      }
+      setDataLoaded(true);
+    }
+
+    userInfo && followInfo && fetchData();
+  }, [followStaler]);
+
+  const handleChannelItemClicked = (id) => {
+    channelIdSetter(id);
   };
 
   const getUserProfileView = () => {
@@ -74,12 +87,14 @@ function LeftPanel({ userInfo, logoutSetter }) {
     const channelItemViews = [];
     for (let i = 0; i < channels.length; i += 1) {
       let { id, label } = channels[i];
-      channelItemViews.push(<div key={id} onClick={() => {
+      channelItemViews.push(<Link to={Paths.channels}>
+        <div key={id} onClick={() => {
         handleChannelItemClicked(id)
       }} className="channel-item">
         <div className="channel-item-icon"/>
         <div className="channel-item-label">{label}</div>
-      </div>);
+      </div>
+      </Link>);
     }
 
     return <div className="channel-list-cont">{channelItemViews}</div>
@@ -91,7 +106,7 @@ function LeftPanel({ userInfo, logoutSetter }) {
       const { id, label, className, path } = MenuItems[i];
       const isSelected = selectedItemURL === path;
       menuItemViews.push(<Link to={path} key={id}>
-        <div key={id}
+        <div key={id} onClick={() => channelIdSetter("")}
              className={`menu-item ${className} ${isSelected ? "selected" : ""}`}>
           <div className="mi-icon" />
           <div className="mi-label">{label}</div>

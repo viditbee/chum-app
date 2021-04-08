@@ -22,9 +22,24 @@
     margin: auto;
     padding: 40px;
     flex-direction: column;
+    position: relative;
 
     .dialog-closer {
+      height: 30px;
+      width: 30px;
+      background-image: url("../../assets/images/icons8-multiply-black.svg");
+      background-repeat: no-repeat;
+      background-size: 20px;
+      background-position: center;
+      position: absolute;
+      right: 40px;
+      top: 43px;
+      opacity: .5;
+      cursor: pointer;
 
+      &:hover{
+        opacity: 1;
+      }
     }
 
     .dialog-header {

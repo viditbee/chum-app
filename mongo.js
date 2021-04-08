@@ -1,7 +1,7 @@
 const Mongoose = require("mongoose");
 const database = "chumtest";
 const url = `mongodb+srv://vidit:newPass4atlas@cluster0.ts0zq.mongodb.net/${database}?retryWrites=true&w=majority`;
-const { userSchema, interestSchema, basicInfoSchema, followInfoSchema, channelInfoSchema, postsSchema, lendAHandSchema } = require("./schemas");
+const { userSchema, interestSchema, basicInfoSchema, followInfoSchema, channelInfoSchema, postsSchema, eventInfoSchema } = require("./schemas");
 const MongoApis = {};
 const { decipher } = require('./encrypt');
 const SECRET_SALT_FOR_PASSWORD = "BEE";
@@ -322,6 +322,16 @@ Mongoose.connect(url, async function () {
     }
   };
 
+  MongoApis.getAllEvents = async () => {
+    const EventModel = Mongoose.model("eventinfos", eventInfoSchema);
+    const allEvents = await EventModel.find({}).select(['id', 'label', 'description', 'createdBy', 'createdOn', 'followedBy', 'from', 'to']);
+
+    return {
+      status: "success",
+      response: allEvents
+    }
+  };
+
   MongoApis.getFeeds = async (userId, channelId) => {
     const PostModel = Mongoose.model("posts", postsSchema);
     const ChannelModel = Mongoose.model("channelinfos", channelInfoSchema);
@@ -407,6 +417,48 @@ Mongoose.connect(url, async function () {
     });
 
     const savedInst = await channelRes.save();
+
+    return {
+      status: "success",
+      response: savedInst
+    };
+  };
+
+  MongoApis.followEvent = async (userId, eventId) => {
+    const EventModel = Mongoose.model("eventinfos", eventInfoSchema);
+    let event = await EventModel.findOne({ id: eventId });
+    let stat = false;
+
+    if (event) {
+      if (event.followedBy.indexOf(userId) !== -1) {
+        event.followedBy.splice(event.followedBy.indexOf(userId), 1);
+      } else {
+        event.followedBy.push(userId);
+        stat = true;
+      }
+      await event.save();
+    }
+
+    return {
+      status: "success",
+      response: stat
+    }
+  };
+
+  MongoApis.createEvent = async (userId, label, description, from, to = null) => {
+    const EventModel = Mongoose.model("eventinfos", eventInfoSchema);
+    let eventRes = new EventModel({
+      id: Math.floor(Math.random() * 10000000),
+      createdOn: new Date(),
+      createdBy: userId,
+      label,
+      description,
+      followedBy: [userId],
+      from,
+      to
+    });
+
+    const savedInst = await eventRes.save();
 
     return {
       status: "success",

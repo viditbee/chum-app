@@ -75,18 +75,17 @@ module.exports = {
       default: []
     }
   }),
-  lendAHandSchema: new Mongoose.Schema({
+  eventInfoSchema: new Mongoose.Schema({
     id: String,
-    createdOn: Date,
+    label: String,
     createdBy: String,
-    text: String,
-    comments: {
+    createdOn: Date,
+    from: Date,
+    to: Date,
+    description: String,
+    followedBy: {
       type: Array,
       default: []
-    },
-    likedBy: {
-      type: Array,
-      default: []
-    },
+    }
   })
 };

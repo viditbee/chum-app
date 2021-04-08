@@ -5,7 +5,7 @@ import './user-list.scss';
 import { getInterestsList, getUsersToFollow } from "../../interface/interface";
 import UserItem from "../list-items/user-item";
 
-function UserList({ loggedInUserInfo }) {
+function UserList({ loggedInUserInfo, resetFollowStaler }) {
 
   const [userList, setUserList] = useState([]);
   const [interestsMasterList, setInterestsMasterList] = useState([]);
@@ -35,7 +35,7 @@ function UserList({ loggedInUserInfo }) {
     const listView = [];
     for(let i=0; i<userList.length; i+=1){
       const user = userList[i];
-      listView.push(<UserItem key={user.userId} loggedInUserInfo={loggedInUserInfo} userInfo={user} interestLabels={interestsLabelMap} />)
+      listView.push(<UserItem resetFollowStaler={resetFollowStaler} key={user.userId} loggedInUserInfo={loggedInUserInfo} userInfo={user} interestLabels={interestsLabelMap} />)
     }
 
     return listView;

@@ -8,7 +8,7 @@ import AboutYouOne from "../../views/about-you/about-you-1";
 import AboutYouTwo from "../../views/about-you/about-you-2";
 import Button from "../../views/misc/button";
 
-function AboutMePage({ userInfo, logoutSetter }) {
+function AboutMePage({ userInfo }) {
 
   const [basicInfo, setBasicInfo] = useState({});
   const [dataLoaded, setDataLoaded] = useState(false);

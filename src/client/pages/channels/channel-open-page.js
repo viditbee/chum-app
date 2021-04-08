@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import './user-home-page.scss';
+import './channel-open-page.scss';
 import AddAFeed from "../../views/add-a-feed/add-a-feed";
 import FeedItem from "../../views/feed-item/feed-item";
 import { getFeeds } from "../../interface/interface";
 
-function UserHomePage({ userInfo, userMasterData, channelMasterData }) {
+function ChannelOpenPage({ userInfo, userMasterData, channelMasterData, channelId }) {
 
   const [feeds, setFeeds] = useState({});
   const [dataLoaded, setDataLoaded] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
+      setDataLoaded(false);
       const userId = userInfo.id;
-      let { status: bSt, response: bRs } = await getFeeds(userId);
+      let { status: bSt, response: bRs } = await getFeeds(userId, channelId);
 
       if (bSt === "success") {
         setFeeds(bRs);
@@ -21,7 +22,7 @@ function UserHomePage({ userInfo, userMasterData, channelMasterData }) {
     }
 
     userInfo && fetchData();
-  }, []);
+  }, [channelId]);
 
   const handleOnFeedAdded = (feed) => {
     setFeeds([feed, ...feeds]);
@@ -31,7 +32,6 @@ function UserHomePage({ userInfo, userMasterData, channelMasterData }) {
     const feedViews = [];
     for (let i = 0; i < feeds.length; i += 1) {
       feedViews.push(<FeedItem
-        showWherePosted={true}
         userInfo={userInfo}
         feedInfo={feeds[i]}
         channelLabels={channelMasterData.channelLabels}
@@ -42,11 +42,11 @@ function UserHomePage({ userInfo, userMasterData, channelMasterData }) {
     return <div className="feed-wrapper">{feedViews}</div>
   };
 
-  return <div className="page-specific-view-cont">
+  return <div className="page-specific-view-cont channel-open-page">
     {(!dataLoaded) ? <div className="page-loading">Loading...</div> : null}
-    <div className="gen-page-header">Feeds</div>
+    <div className="gen-page-header">Channel: {channelMasterData.channelLabels[channelId]}</div>
     <div className="gen-page-body">
-      {dataLoaded ? <AddAFeed userInfo={userInfo} onFeedAdded={(feed) => {
+      {dataLoaded ? <AddAFeed userInfo={userInfo} channelId={channelId} onFeedAdded={(feed) => {
         handleOnFeedAdded(feed)
       }} /> : null}
       {getFeedViews()}
@@ -54,9 +54,9 @@ function UserHomePage({ userInfo, userMasterData, channelMasterData }) {
   </div>;
 }
 
-UserHomePage.propTypes = {};
+ChannelOpenPage.propTypes = {};
 
-UserHomePage.defaultProps = {};
+ChannelOpenPage.defaultProps = {};
 
-export default UserHomePage;
+export default ChannelOpenPage;
 

@@ -4,12 +4,12 @@ import Button from "../misc/button";
 import { addFeed } from "../../interface/interface";
 import DefChannels from '../../../facts/def-channels';
 
-function AddAFeed({ userInfo, channel, onFeedAdded }) {
+function AddAFeed({ userInfo, channelId, onFeedAdded }) {
 
   const [text, setText] = useState("");
 
   const handleButtonClicked = async () => {
-    const {status, response} = await addFeed(userInfo.id, text, channel.id);
+    const {status, response} = await addFeed(userInfo.id, text, channelId);
     if(status === "success"){
       onFeedAdded(response);
       setText("");

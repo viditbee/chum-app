@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './info-dialog.scss';
 import Button from "../misc/button";
 
-function ChannelInfoDialog({ defLabel, onSave }) {
+function ChannelInfoDialog({ defLabel, onSave, handleCloseClicked }) {
 
   const [label, setLabel] = useState(defLabel);
   const [description, setDescription] = useState("");
@@ -21,7 +21,9 @@ function ChannelInfoDialog({ defLabel, onSave }) {
 
   return <div className="dialog-onion">
     <div className="dialog-cont">
-      <div className="dialog-closer" />
+      <div className="dialog-closer" onClick={() => {
+        handleCloseClicked()
+      }} />
       <div className="dialog-header">About channel</div>
       <div className="dialog-body">
         <div className="dialog-field-cont">

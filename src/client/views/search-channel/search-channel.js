@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './search-channel.scss';
 import Button from "../misc/button";
 import { createChannel } from "../../interface/interface";
-import DefChannels from '../../../facts/def-channels';
 import ChannelInfoDialog from "../info-dialog/channel-info-dialog";
 
 function SearchChannel({ userInfo, onChannelAdded, onTextChanged }) {
@@ -30,15 +29,21 @@ function SearchChannel({ userInfo, onChannelAdded, onTextChanged }) {
   };
 
   const getDialog = () => {
-    return <ChannelInfoDialog defLabel={text} onSave={(label, description) => {
-      onSave(label, description)
-    }} />
+    return <ChannelInfoDialog
+      defLabel={text}
+      onSave={(label, description) => {
+        onSave(label, description)
+      }}
+      handleCloseClicked={() => {
+        setDialogOpen(false)
+      }}
+    />
   };
 
   const getButtonView = () => {
     return <Button onClick={() => {
       handleButtonClicked()
-    }} disabled={!text.trim()} text="Create" />
+    }} text="Create" />
   };
 
   return <div className="search-channel-cont">
@@ -51,9 +56,7 @@ function SearchChannel({ userInfo, onChannelAdded, onTextChanged }) {
 
 SearchChannel.propTypes = {};
 
-SearchChannel.defaultProps = {
-  channel: DefChannels.post
-};
+SearchChannel.defaultProps = {};
 
 export default SearchChannel;
 

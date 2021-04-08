@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './list-items.scss';
 import { followUser } from "../../interface/interface";
 
-function UserItem({ loggedInUserInfo, userInfo, following, interestLabels }) {
+function UserItem({ resetFollowStaler, loggedInUserInfo, userInfo, following, interestLabels }) {
   const className = 'user-item-cont list-item-cont';
   const { userId, firstName, lastName } = userInfo;
 
@@ -14,6 +14,7 @@ function UserItem({ loggedInUserInfo, userInfo, following, interestLabels }) {
       const res = await followUser(userId, loggedInUserInfo.id);
       if (res.status === "success") {
         setIsFollowing(true);
+        resetFollowStaler();
       }
     }
   };

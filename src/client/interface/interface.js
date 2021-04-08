@@ -97,3 +97,15 @@ export const createChannel = (userId, label, description) => {
   return postCall('/service/createChannel', { userId, label, description });
 };
 
+export const followEvent = (userId, eventId) => {
+  return postCall('/service/followEvent', { userId, eventId });
+};
+
+export const createEvent = (userId, label, description, from, to) => {
+  return postCall('/service/createEvent', { userId, label, description, from, to });
+};
+
+export const getAllEvents = () => {
+  return getCall('/service/allEvents');
+};
+

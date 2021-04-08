@@ -3,8 +3,9 @@ import './channels-page.scss';
 import { getAllChannels } from "../../interface/interface";
 import SearchChannel from "../../views/search-channel/search-channel";
 import ChannelTile from "../../views/channel-tile/channel-tile";
+import ChannelOpenPage from "./channel-open-page";
 
-function ChannelsPage({ userInfo, logoutSetter, userMasterData, selectedChannelId }) {
+function ChannelsPage({ userInfo, channelMasterData, userMasterData, selectedChannelId, channelIdSetter }) {
 
   const [channels, setChannels] = useState([]);
   const [dataLoaded, setDataLoaded] = useState(false);
@@ -12,16 +13,19 @@ function ChannelsPage({ userInfo, logoutSetter, userMasterData, selectedChannelI
 
   useEffect(() => {
     async function fetchData() {
-      let { status: bSt, response: bRs } = await getAllChannels();
+      if(!selectedChannelId){
+        let { status: bSt, response: bRs } = await getAllChannels();
 
-      if (bSt === "success") {
-        setChannels(bRs);
+        if (bSt === "success") {
+          setChannels(bRs);
+        }
       }
+
       setDataLoaded(true);
     }
 
     userInfo && fetchData();
-  }, []);
+  }, [selectedChannelId]);
 
   const handleChannelAdded = (channel) => {
     setSearchText("");
@@ -39,8 +43,13 @@ function ChannelsPage({ userInfo, logoutSetter, userMasterData, selectedChannelI
           userInfo={userInfo}
           channelInfo={channels[i]}
           userLabels={userMasterData.userLabels}
+          channelIdSetter={channelIdSetter}
         />)
       }
+    }
+
+    if(!channelTileViews.length){
+      channelTileViews.push(<div key="nothing-found" className="nothing-found"/>)
     }
 
     return <div className="tile-wrapper">{channelTileViews}</div>
@@ -50,18 +59,26 @@ function ChannelsPage({ userInfo, logoutSetter, userMasterData, selectedChannelI
     setSearchText(text.toLocaleLowerCase());
   };
 
-  return <div className="page-specific-view-cont">
-    {(!dataLoaded) ? <div className="page-loading">Loading...</div> : null}
-    <div className="gen-page-header">Channels</div>
-    <div className="gen-page-body">
-      {dataLoaded ? <SearchChannel onTextChanged={(txt) => {
-        handleSearchTextChanged(txt)
-      }} userInfo={userInfo} onChannelAdded={(channel) => {
-        handleChannelAdded(channel)
-      }} /> : null}
-      {getChannelTiles()}
-    </div>
-  </div>
+  const getView = () => {
+    if(selectedChannelId){
+      return <ChannelOpenPage channelId={selectedChannelId} userInfo={userInfo} channelMasterData={channelMasterData} userMasterData={userMasterData}/>
+    } else {
+      return <div className="page-specific-view-cont">
+        {(!dataLoaded) ? <div className="page-loading">Loading...</div> : null}
+        <div className="gen-page-header">Channels</div>
+        <div className="gen-page-body">
+          {dataLoaded ? <SearchChannel onTextChanged={(txt) => {
+            handleSearchTextChanged(txt)
+          }} userInfo={userInfo} onChannelAdded={(channel) => {
+            handleChannelAdded(channel)
+          }} /> : null}
+          {getChannelTiles()}
+        </div>
+      </div>
+    }
+  };
+
+  return getView();
 }
 
 ChannelsPage.propTypes = {};
@@ -69,6 +86,3 @@ ChannelsPage.propTypes = {};
 ChannelsPage.defaultProps = {};
 
 export default ChannelsPage;
-
-
-//'id', 'label', 'description', 'createdBy', 'createdOn', 'followedBy'

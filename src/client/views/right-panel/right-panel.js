@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import './right-panel.scss';
 import UserList from './../widgets/user-list';
 
-function RightPanel({ userInfo }) {
+function RightPanel({ userInfo, resetFollowStaler }) {
 
   return <div className="right-panel-container">
-    <UserList loggedInUserInfo={userInfo} />
+    <UserList resetFollowStaler={resetFollowStaler} loggedInUserInfo={userInfo} />
   </div>;
 }
 

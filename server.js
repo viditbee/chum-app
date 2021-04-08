@@ -127,6 +127,13 @@ app.get("/service/allChannels", (req, res) => {
   });
 });
 
+app.get("/service/allEvents", (req, res) => {
+  MongoApis.getAllEvents().then((op) => {
+    res.status(200);
+    res.send(op);
+  });
+});
+
 app.post("/service/getFeeds", (req, res) => {
   const { userId, channelId } = req.body;
   MongoApis.getFeeds(userId, channelId).then((op) => {
@@ -154,6 +161,22 @@ app.post("/service/followChannel", (req, res) => {
 app.post("/service/createChannel", (req, res) => {
   const { userId, label, description } = req.body;
   MongoApis.createChannel(userId, label, description).then((op) => {
+    res.status(200);
+    res.send(op);
+  });
+});
+
+app.post("/service/followEvent", (req, res) => {
+  const { userId, eventId } = req.body;
+  MongoApis.followEvent(userId, eventId).then((op) => {
+    res.status(200);
+    res.send(op);
+  });
+});
+
+app.post("/service/createEvent", (req, res) => {
+  const { userId, label, description, from, to } = req.body;
+  MongoApis.createEvent(userId, label, description, from, to).then((op) => {
     res.status(200);
     res.send(op);
   });
