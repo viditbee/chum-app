@@ -27,6 +27,18 @@ export const initiateDisconnection = () => {
   return true;
 };
 
+export const createRoom = (label) => {
+  Socket.emit("create_room", label);
+};
+
+export const joinRoom = (label) => {
+  Socket.emit("join_room", label);
+};
+
+export const leaveRoom = (label) => {
+  Socket.emit("leave_room", label);
+};
+
 Socket.on("connect", () => {
   connectionCallback.current();
   console.log(Socket.id);

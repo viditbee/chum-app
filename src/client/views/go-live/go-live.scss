@@ -1,4 +1,18 @@
 .user-mini-list-cont, .room-list-cont {
+  position: relative;
+
+  .rl-add {
+    background-image: url("./../../assets/images/icons8-plus-math.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    background-size: 20px;
+    cursor: pointer;
+    right: 20px;
+    top: 21px;
+  }
 
   .uml-header, .rl-header {
     font-size: 20px;
@@ -14,6 +28,8 @@
     .uml-item-cont, .rl-item-cont {
       overflow: hidden;
       padding: 0 20px;
+      margin-bottom: 15px;
+      position: relative;
 
       .item-image {
         height: 40px;
@@ -31,14 +47,65 @@
       .item-text {
         float: left;
         padding-left: 12px;
-        width: calc(100% - 55px);
+        width: calc(100% - 70px);
         font-size: 18px;
         font-weight: 500;
         line-height: 38px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .item-cnt {
+        height: 20px;
+        width: 20px;
+        border-radius: 20px;
+        background: #1f4594;
+        position: absolute;
+        color: #fff;
+        font-weight: 500;
+        right: 55px;
+        top: 10px;
+        text-align: center;
+        font-size: 12px;
+        line-height: 20px;
+      }
+
+      .item-join {
+        background-image: url("./../../assets/images/icons8-plus-math.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 20px;
+        width: 20px;
+        position: absolute;
+        background-size: 20px;
+        cursor: pointer;
+        right: 20px;
+        top: 10px;
+        opacity: 0;
+        transition: opacity .2s;
+      }
+
+      .item-joined {
+        background-image: url("./../../assets/images/icons8-connection-status-on.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 20px;
+        width: 20px;
+        position: absolute;
+        background-size: 20px;
+        right: 20px;
+        top: 10px;
+      }
+
+      &:hover {
+        .item-join {
+          opacity: 1;
+        }
       }
     }
 
-    .nothing-found{
+    .nothing-found {
       font-size: 16px;
       padding: 0 20px;
     }
@@ -76,7 +143,7 @@
       flex: auto;
     }
 
-    .gl-close-btn{
+    .gl-close-btn {
       background-image: url("./../../assets/images/icons8-multiply-black.svg");
       background-repeat: no-repeat;
       background-position: center;
