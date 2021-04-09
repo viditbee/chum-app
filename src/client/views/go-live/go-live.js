@@ -37,14 +37,14 @@ function GoLive({ userInfo, goLiveClosed }) {
   const userJoinedARoom = ({ roomId, userLabel }) => {
     const oldList = roomUserMap[roomId] ? [...roomUserMap[roomId]] : [];
     oldList.push(userLabel);
-    setRoomUserMap({...roomUserMap, [roomId]: oldList})
+    setRoomUserMap({ ...roomUserMap, [roomId]: oldList })
   };
 
   const userLeftARoom = ({ roomId, userLabel }) => {
     const oldList = roomUserMap[roomId] ? [...roomUserMap[roomId]] : [];
-    if(oldList.indexOf(userLabel) !== -1){
+    if (oldList.indexOf(userLabel) !== -1) {
       oldList.splice(oldList.indexOf(userLabel), 1);
-      setRoomUserMap({...roomUserMap, [roomId]: oldList})
+      setRoomUserMap({ ...roomUserMap, [roomId]: oldList })
     }
   };
 
@@ -65,16 +65,19 @@ function GoLive({ userInfo, goLiveClosed }) {
 
   const filterAndSetRooms = (rooms) => {
     const res = [];
-    for (let i = 0; i < rooms.length; i += 1) {
-      let split = rooms[i].split(SPLITTER);
+    const userRes = {};
+    for (let key in rooms) {
+      let split = key.split(SPLITTER);
       if (split.length > 1) {
         res.push({
-          id: rooms[i],
+          id: key,
           label: split[0]
         });
+        userRes[key] = rooms[key];
       }
     }
     setOnlineRooms(res);
+    setRoomUserMap(userRes);
   };
 
   const addRoom = (label) => {

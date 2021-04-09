@@ -23,6 +23,7 @@ const initiate = (http) => {
     const users = [];
     const rooms = {};
     for (let [id, socket] of io.of("/").sockets) {
+      let labelStr = socket.firstName + " " + socket.lastName;
       users.push({
         socketId: id,
         userId: socket.userId,
@@ -31,12 +32,13 @@ const initiate = (http) => {
         timestamp: socket.timestamp
       });
 
-      socket.adapter.rooms.forEach(function (value, key) {
-        rooms[key] = true;
-      })
+      for (let item of socket.rooms){
+        rooms[item] = rooms[item] ? [...rooms[item], labelStr] : [labelStr];
+      }
     }
+
     socket.emit("users", users);
-    socket.emit("rooms", Object.keys(rooms));
+    socket.emit("rooms", rooms);
   });
 
   //notifying existing users

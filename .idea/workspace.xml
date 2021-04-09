@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" id="9ca07a7c-e49e-43a2-858a-bb157cca794e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/client/assets/images/icons8-connection-status-on.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/assets/images/icons8-plus-math.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/socket.js" beforeDir="false" afterPath="$PROJECT_DIR$/socket.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/interface/socket.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/interface/socket.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/views/go-live/go-live.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/views/go-live/go-live.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/views/go-live/go-live.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/views/go-live/go-live.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/views/go-live/room-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/views/go-live/room-list.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/client/views/go-live/go-live.js">
           <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
-            <state relative-caret-position="686">
-              <caret line="208" column="5" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="208" selection-start-column="5" selection-end-line="208" selection-end-column="5" />
+            <state relative-caret-position="148">
+              <caret line="68" column="28" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="68" selection-start-column="28" selection-end-line="68" selection-end-column="28" />
               <folding>
                 <element signature="e#0#51#0" expanded="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" />
               </folding>
@@ -64,11 +59,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$">
         <entry file="file://$PROJECT_DIR$/socket.js">
           <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
-            <state relative-caret-position="631">
-              <caret line="74" column="39" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="74" selection-start-column="39" selection-end-line="74" selection-end-column="39" />
+            <state relative-caret-position="280">
+              <caret line="38" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="38" selection-end-line="38" />
             </state>
           </provider>
         </entry>
@@ -97,7 +92,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>list-item-sub-item-cont</find>
       <find>setReferenceData</find>
       <find>feed-wrapper</find>
       <find>service/allChannels</find>
@@ -127,6 +121,7 @@
       <find>onlineRooms</find>
       <find>consol</find>
       <find>leaveRoom</find>
+      <find>setRoomUserMap</find>
     </findStrings>
     <replaceStrings>
       <replace>languages</replace>
@@ -198,9 +193,9 @@
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/client/interface/socket.js" />
         <option value="$PROJECT_DIR$/src/client/views/go-live/go-live.scss" />
-        <option value="$PROJECT_DIR$/socket.js" />
         <option value="$PROJECT_DIR$/src/client/views/go-live/room-list.js" />
         <option value="$PROJECT_DIR$/src/client/views/go-live/go-live.js" />
+        <option value="$PROJECT_DIR$/socket.js" />
       </list>
     </option>
   </component>
@@ -358,7 +353,7 @@
       <workItem from="1616955461878" duration="5155000" />
       <workItem from="1617081425787" duration="368000" />
       <workItem from="1617108093115" duration="37524000" />
-      <workItem from="1617268093148" duration="128140000" />
+      <workItem from="1617268093148" duration="131175000" />
     </task>
     <task id="LOCAL-00001" summary="WIP">
       <created>1617131557788</created>
@@ -437,11 +432,18 @@
       <option name="project" value="LOCAL" />
       <updated>1617957160822</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="WIP">
+      <created>1617970751324</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1617970751324</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="187181000" />
+    <option name="totallyTimeSpent" value="190216000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -470,7 +472,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" />
-      <window_info active="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" anchor="bottom" id="Terminal" order="10" visible="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" weight="0.20398483" />
+      <window_info active="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" anchor="bottom" id="Terminal" order="10" visible="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" weight="0.4544592" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -486,18 +488,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="WIP" />
     <option name="LAST_COMMIT_MESSAGE" value="WIP" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" type="javascript">
-          <url>file://$PROJECT_DIR$/socket.js</url>
-          <line>48</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/client/views/search-event/search-event.scss">
@@ -872,13 +862,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/socket.js">
-      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
-        <state relative-caret-position="631">
-          <caret line="74" column="39" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="74" selection-start-column="39" selection-end-line="74" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/views/go-live/room-list.js">
       <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
         <state relative-caret-position="693">
@@ -891,11 +874,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/client/views/go-live/go-live.js">
       <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
-        <state relative-caret-position="686">
-          <caret line="208" column="5" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="208" selection-start-column="5" selection-end-line="208" selection-end-column="5" />
+        <state relative-caret-position="148">
+          <caret line="68" column="28" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="68" selection-start-column="28" selection-end-line="68" selection-end-column="28" />
           <folding>
             <element signature="e#0#51#0" expanded="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/socket.js">
+      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="38" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="38" selection-end-line="38" />
         </state>
       </provider>
     </entry>
