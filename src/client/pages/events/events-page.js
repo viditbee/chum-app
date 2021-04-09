@@ -22,7 +22,7 @@ function EventsPage({ userInfo, userMasterData }) {
     }
 
     userInfo && fetchData();
-  }, []);
+  }, [userInfo]);
 
   const handleEventAdded = (event) => {
     setSearchText("");

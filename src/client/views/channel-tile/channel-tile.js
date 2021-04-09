@@ -14,9 +14,9 @@ function ChannelTile({ userInfo, channelInfo, userLabels, channelIdSetter }) {
       }
     }
     setChannel(channelInfo);
-  }, [channelInfo]);
+  }, [channelInfo, userInfo]);
 
-  const { id, label, createdBy, createdOn, description, followedBy } = channel;
+  const { id, label, description, followedBy } = channel;
 
   const handleFollowClicked = async (e) => {
     e.stopPropagation();

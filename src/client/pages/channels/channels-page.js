@@ -25,7 +25,7 @@ function ChannelsPage({ userInfo, channelMasterData, userMasterData, selectedCha
     }
 
     userInfo && fetchData();
-  }, [selectedChannelId]);
+  }, [selectedChannelId, userInfo]);
 
   const handleChannelAdded = (channel) => {
     setSearchText("");

@@ -4,13 +4,13 @@ const app = express();
 const port = 80;
 const bodyParser = require('body-parser');
 const { MongoApis } = require('./mongo');
-
-const http = require('http').Server(app);
-const io = require('socket.io')(http);
-
 const { decipher } = require('./encrypt');
 const SECRET_SALT_DATA_TRANSFER = "ANT";
 const decipherFunc = decipher(SECRET_SALT_DATA_TRANSFER);
+const http = require('http').Server(app);
+
+const { initiate } = require('./socket');
+initiate(http);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -183,12 +183,10 @@ app.post("/service/createEvent", (req, res) => {
 });
 
 
-
 /********************** DEVLOPERS ***********************/
 
 app.post("/secret/reset-interests", (req, res) => {
   const { interests } = req.body;
-  console.log("iji");
   MongoApis.resetInterests(interests).then((op) => {
     res.status(200);
     res.send(op);
@@ -198,18 +196,8 @@ app.post("/secret/reset-interests", (req, res) => {
 /********************** DEVLOPERS ***********************/
 
 
-
-
 app.get("/*", (req, res) => {
   res.sendFile(__dirname + "/build/index.html");
-});
-
-io.on('connection', (socket) => {
-  console.log('a user connected');
-
-  socket.on("hello", (data) => {
-    console.log("HAHHAHAAHA", data);
-  });
 });
 
 http.listen(process.env.PORT || port, () => {

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import './gen-widget.scss';
 import './user-list.scss';
 import { getInterestsList, getUsersToFollow } from "../../interface/interface";
@@ -8,7 +7,7 @@ import UserItem from "../list-items/user-item";
 function UserList({ loggedInUserInfo, resetFollowStaler }) {
 
   const [userList, setUserList] = useState([]);
-  const [interestsMasterList, setInterestsMasterList] = useState([]);
+  // const [interestsMasterList, setInterestsMasterList] = useState([]);
   const [interestsLabelMap, setInterestsLabelMap] = useState({});
 
   useEffect(() => {
@@ -20,7 +19,7 @@ function UserList({ loggedInUserInfo, resetFollowStaler }) {
       }
       if (iSt === "success") {
         setLabelsMap(iRs);
-        setInterestsMasterList(iRs);
+        // setInterestsMasterList(iRs);
       }
     }
 

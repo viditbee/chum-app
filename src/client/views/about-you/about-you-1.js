@@ -13,7 +13,7 @@ function AboutYouOne({ defLocation, defDepartment, defLanguages, defAboutYou, va
 
   useEffect(() => {
     validityChanged(location && department && languages.length && aboutYou);
-  }, [location, department, languages, aboutYou]);
+  }, [location, department, languages, aboutYou, validityChanged]);
 
   const locationChanged = (event) => {
     const val = event.target.value;

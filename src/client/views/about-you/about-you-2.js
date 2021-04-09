@@ -8,7 +8,7 @@ function AboutYouTwo({ defInterests, dataChanged }) {
   const [interestsMasterList, setInterestsMasterList] = useState([]);
   const [interestsLabelMap, setInterestsLabelMap] = useState({});
   const [searchText, setSearchText] = useState("");
-  const [dataLoaded, setDataLoaded] = useState(false);
+  // const [dataLoaded, setDataLoaded] = useState(false);
 
   useEffect(() => {
     async function getInfo() {
@@ -17,7 +17,7 @@ function AboutYouTwo({ defInterests, dataChanged }) {
         setLabelsMap(response);
         setInterestsMasterList(response);
       }
-      setDataLoaded(true);
+      // setDataLoaded(true);
     }
 
     getInfo();
@@ -98,12 +98,13 @@ function AboutYouTwo({ defInterests, dataChanged }) {
   };
 
   const getInterestCapules = () => {
-    const caps = interestsMasterList.map((int) => {
+    const caps = [];
+    interestsMasterList.forEach((int) => {
       if ((int.label || "").toLocaleLowerCase().indexOf(searchText.toLocaleLowerCase()) !== -1) {
         const classNm = "interest-capsule " + (isInterestSelected(int.id) ? "selected " : "");
-        return <div key={int.id} className={classNm} onClick={() => {
+        caps.push(<div key={int.id} className={classNm} onClick={() => {
           handleInterestClicked(int.id)
-        }}>{int.label}</div>
+        }}>{int.label}</div>)
       }
     });
 
@@ -177,7 +178,8 @@ function AboutYouTwo({ defInterests, dataChanged }) {
     </div>
     {searchText.length > 2 ?
       <div className="field-cant-find"
-           onClick={() => handleAddTextClicked()}>Can't find what you're looking for? <u>Add '<b>{searchText}</b>' to the list.</u></div> : null}
+           onClick={() => handleAddTextClicked()}>Can't find what you're looking for? <u>Add
+        '<b>{searchText}</b>' to the list.</u></div> : null}
     {getInterestCapules()}
     {getSelectedInterests()}
   </div>;

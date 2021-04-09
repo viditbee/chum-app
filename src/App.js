@@ -20,19 +20,21 @@ import ChannelsPage from "./client/pages/channels/channels-page";
 import LeftPanel from "./client/views/left-panel/left-panel";
 import RightPanel from "./client/views/right-panel/right-panel";
 import EventsPage from "./client/pages/events/events-page";
+import RightBar from "./client/views/right-bar/right-bar";
+import GoLive from "./client/views/go-live/go-live";
 
 
 class DebugRouter extends Router {
-  constructor(props) {
-    super(props);
-    console.log('initial history is: ', JSON.stringify(this.history, null, 2))
-    this.history.listen((location, action) => {
-      console.log(
-        `The current URL is ${location.pathname}${location.search}${location.hash}`
-      );
-      console.log(`The last navigation action was ${action}`, JSON.stringify(this.history, null, 2));
-    });
-  }
+  // constructor(props) {
+  //   super(props);
+  // console.log('initial history is: ', JSON.stringify(this.history, null, 2))
+  // this.history.listen((location, action) => {
+  //   console.log(
+  //     `The current URL is ${location.pathname}${location.search}${location.hash}`
+  //   );
+  //   console.log(`The last navigation action was ${action}`, JSON.stringify(this.history, null, 2));
+  // });
+  // }
 }
 
 function App() {
@@ -44,6 +46,7 @@ function App() {
   const [channelMasterData, setChannelMasterData] = useState({});
   const [selectedChannelId, setSelectedChannelId] = useState("");
   const [followStaler, setFollowStaler] = useState(Math.random());
+  const [goLiveActive, setGoLiveActive] = useState(false);
 
   useEffect(() => {
     async function check() {
@@ -62,6 +65,14 @@ function App() {
 
     check();
   }, []);
+
+  const goLiveClicked = () => {
+    setGoLiveActive(true);
+  };
+
+  const goLiveClosed = () => {
+    setGoLiveActive(false);
+  };
 
   const resetFollowStaler = () => {
     setFollowStaler(Math.random());
@@ -182,43 +193,72 @@ function App() {
               <AboutYouPage gotStartedSetter={setGotStartedIndirect} userInfo={userInfo} />
             </Route>
             <Route exact path={Paths.home}>
-              <div className="gen-page user-home-page">
-                <LeftPanel followStaler={followStaler} userInfo={userInfo} logoutSetter={setLoggedOutIndirect} channelIdSetter={channelIdSetter} />
-                <UserHomePage userInfo={userInfo} userMasterData={userMasterData}
-                              channelMasterData={channelMasterData} />
-                <RightPanel resetFollowStaler={resetFollowStaler} userInfo={userInfo} />
+              <div className={`gen-page user-home-page ${goLiveActive ? "blurred" : ""}`}>
+                <LeftPanel followStaler={followStaler} userInfo={userInfo}
+                           logoutSetter={setLoggedOutIndirect} channelIdSetter={channelIdSetter} />
+                <div className="app-right-wrapper">
+                  <RightBar goLiveClicked={goLiveClicked} />
+                  <div className="app-right-con-wrapper">
+                    <UserHomePage userInfo={userInfo} userMasterData={userMasterData}
+                                  channelMasterData={channelMasterData} />
+                    <RightPanel resetFollowStaler={resetFollowStaler} userInfo={userInfo} />
+                  </div>
+                </div>
               </div>
             </Route>
             <Route exact path={Paths.lendAHand}>
-              <div className="gen-page lend-a-hand-page">
-                <LeftPanel followStaler={followStaler} userInfo={userInfo} logoutSetter={setLoggedOutIndirect} channelIdSetter={channelIdSetter}/>
-                <LendAHandPage userInfo={userInfo} userMasterData={userMasterData}
-                               channelMasterData={channelMasterData} />
-                <RightPanel resetFollowStaler={resetFollowStaler} userInfo={userInfo} />
+              <div className={`gen-page lend-a-hand-page ${goLiveActive ? "blurred" : ""}`}>
+                <LeftPanel followStaler={followStaler} userInfo={userInfo}
+                           logoutSetter={setLoggedOutIndirect} channelIdSetter={channelIdSetter} />
+                <div className="app-right-wrapper">
+                  <RightBar goLiveClicked={goLiveClicked} />
+                  <div className="app-right-con-wrapper">
+                    <LendAHandPage userInfo={userInfo} userMasterData={userMasterData}
+                                   channelMasterData={channelMasterData} />
+                    <RightPanel resetFollowStaler={resetFollowStaler} userInfo={userInfo} />
+                  </div>
+                </div>
               </div>
             </Route>
             <Route exact path={Paths.channels}>
-              <div className="gen-page channels-page">
-                <LeftPanel followStaler={followStaler} userInfo={userInfo} logoutSetter={setLoggedOutIndirect} channelIdSetter={channelIdSetter}/>
-                <ChannelsPage userInfo={userInfo} userMasterData={userMasterData}
-                              channelMasterData={channelMasterData}
-                              selectedChannelId={selectedChannelId}
-                              channelIdSetter={channelIdSetter} />
-                <RightPanel resetFollowStaler={resetFollowStaler} userInfo={userInfo} />
+              <div className={`gen-page channels-page ${goLiveActive ? "blurred" : ""}`}>
+                <LeftPanel followStaler={followStaler} userInfo={userInfo}
+                           logoutSetter={setLoggedOutIndirect} channelIdSetter={channelIdSetter} />
+                <div className="app-right-wrapper">
+                  <RightBar goLiveClicked={goLiveClicked} />
+                  <div className="app-right-con-wrapper"><ChannelsPage userInfo={userInfo}
+                                                                       userMasterData={userMasterData}
+                                                                       channelMasterData={channelMasterData}
+                                                                       selectedChannelId={selectedChannelId}
+                                                                       channelIdSetter={channelIdSetter} />
+                    <RightPanel resetFollowStaler={resetFollowStaler} userInfo={userInfo} />
+                  </div>
+                </div>
               </div>
             </Route>
             <Route exact path={Paths.aboutMe}>
-              <div className="gen-page about-me-page">
-                <LeftPanel followStaler={followStaler} userInfo={userInfo} logoutSetter={setLoggedOutIndirect} channelIdSetter={channelIdSetter}/>
-                <AboutMePage userInfo={userInfo} />
-                <RightPanel resetFollowStaler={resetFollowStaler} userInfo={userInfo} />
+              <div className={`gen-page about-me-page ${goLiveActive ? "blurred" : ""}`}>
+                <LeftPanel followStaler={followStaler} userInfo={userInfo}
+                           logoutSetter={setLoggedOutIndirect} channelIdSetter={channelIdSetter} />
+                <div className="app-right-wrapper">
+                  <RightBar goLiveClicked={goLiveClicked} />
+                  <div className="app-right-con-wrapper"><AboutMePage userInfo={userInfo} />
+                    <RightPanel resetFollowStaler={resetFollowStaler} userInfo={userInfo} />
+                  </div>
+                </div>
               </div>
             </Route>
             <Route exact path={Paths.events}>
-              <div className="gen-page events-page">
-                <LeftPanel followStaler={followStaler} userInfo={userInfo} logoutSetter={setLoggedOutIndirect} channelIdSetter={channelIdSetter}/>
-                <EventsPage userInfo={userInfo} userMasterData={userMasterData} />
-                <RightPanel resetFollowStaler={resetFollowStaler} userInfo={userInfo} />
+              <div className={`gen-page events-page ${goLiveActive ? "blurred" : ""}`}>
+                <LeftPanel followStaler={followStaler} userInfo={userInfo}
+                           logoutSetter={setLoggedOutIndirect} channelIdSetter={channelIdSetter} />
+                <div className="app-right-wrapper">
+                  <RightBar goLiveClicked={goLiveClicked} />
+                  <div className="app-right-con-wrapper"><EventsPage userInfo={userInfo}
+                                                                     userMasterData={userMasterData} />
+                    <RightPanel resetFollowStaler={resetFollowStaler} userInfo={userInfo} />
+                  </div>
+                </div>
               </div>
             </Route>
             <Route exact path={Paths.dev}>
@@ -229,6 +269,7 @@ function App() {
             </Route>
           </Switch>
         </DebugRouter>
+        {goLiveActive ? <GoLive userInfo={userInfo} goLiveClosed={goLiveClosed} /> : null}
       </div>
     );
   } else {

@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import Interests from "../../facts/interests";
 
 const getCall = async (url) => {

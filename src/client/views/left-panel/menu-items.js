@@ -15,7 +15,7 @@ export const MenuItems = [
   },
   {
     id: 'myChums',
-    label: 'My Chums',
+    label: 'Your Chums',
     className: 'menu-my-chums',
     path: Paths.myChums
   },

@@ -216,19 +216,16 @@ Mongoose.connect(url, async function () {
       let res = [];
       const followerOfInfo = await FollowInfoModel.find({ followedBy: id }).select('userId');
       const followerOfIds = followerOfInfo.reduce((acc, item) => [...acc, item.userId], []);
-      console.log("A", followerOfIds);
       const usersToFollow = await UserModel.find({
         gotStarted: true,
         id: { $nin: includeFollowed ? [id] : [...followerOfIds, id] }
       }).select(['id', 'firstName', 'lastName']);
       const usersToFollowIds = usersToFollow.reduce((acc, item) => [...acc, item.id], []);
-      console.log("B", usersToFollowIds);
       const usersToFollowBasicInfo = await BasicInfoModel.find({ userId: { $in: usersToFollowIds } }).select(['userId', 'location', 'interests']);
 
       const userBasicInfo = await BasicInfoModel.findOne({ userId: id }).select(['userId', 'location', 'interests']);
       const userInterestIds = userBasicInfo.interests ? userBasicInfo.interests.reduce((acc, item) => [...acc, item.id], []) : [];
       const scoreUserMap = {};
-      console.log("C", usersToFollowBasicInfo);
 
       for (let i = 0; i < usersToFollowBasicInfo.length; i += 1) {
         const { userId, interests, location } = usersToFollowBasicInfo[i];
@@ -268,7 +265,6 @@ Mongoose.connect(url, async function () {
       }
       const sorted = Object.keys(scoreUserMap).sort((x, y) => +x < +y ? 1 : -1);
 
-      console.log(scoreUserMap);
       for (let m = 0; m < sorted.length; m += 1) {
         res = [...res, ...scoreUserMap[sorted[m]]]
       }

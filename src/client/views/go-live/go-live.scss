@@ -1,0 +1,92 @@
+.user-mini-list-cont, .room-list-cont {
+
+  .uml-header, .rl-header {
+    font-size: 20px;
+    font-weight: 600;
+    padding: 18px 20px 8px 20px;
+  }
+
+  .uml-list-cont, .rl-list-cont {
+    max-height: 400px;
+    overflow: auto;
+    margin: 20px 0;
+
+    .uml-item-cont, .rl-item-cont {
+      overflow: hidden;
+      padding: 0 20px;
+
+      .item-image {
+        height: 40px;
+        width: 40px;
+        border-radius: 40px;
+        float: left;
+        background: #d8f0ff;
+        color: #1f4594;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 38px;
+      }
+
+      .item-text {
+        float: left;
+        padding-left: 12px;
+        width: calc(100% - 55px);
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 38px;
+      }
+    }
+
+    .nothing-found{
+      font-size: 16px;
+      padding: 0 20px;
+    }
+  }
+}
+
+.go-live-onion {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, .5);
+  font-family: Dosis;
+
+  .go-live-dialog {
+    background: #fff;
+    top: 30px;
+    left: 30px;
+    right: 30px;
+    bottom: 30px;
+    position: absolute;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, .1);
+    display: flex;
+    overflow: hidden;
+
+    .gl-left-panel {
+      width: 300px;
+      background: #f6f8ff;
+      text-align: left;
+    }
+
+    .gl-right-panel {
+      flex: auto;
+    }
+
+    .gl-close-btn{
+      background-image: url("./../../assets/images/icons8-multiply-black.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 30px;
+      width: 30px;
+      position: absolute;
+      background-size: 26px;
+      cursor: pointer;
+      right: 20px;
+      top: 20px;
+    }
+  }
+}

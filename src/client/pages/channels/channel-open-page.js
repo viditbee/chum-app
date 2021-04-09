@@ -22,7 +22,7 @@ function ChannelOpenPage({ userInfo, userMasterData, channelMasterData, channelI
     }
 
     userInfo && fetchData();
-  }, [channelId]);
+  }, [channelId, userInfo]);
 
   const handleOnFeedAdded = (feed) => {
     setFeeds([feed, ...feeds]);

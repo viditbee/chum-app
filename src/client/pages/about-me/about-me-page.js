@@ -28,7 +28,7 @@ function AboutMePage({ userInfo }) {
     }
 
     userInfo && fetchData();
-  }, []);
+  }, [userInfo]);
 
   const handleButtonClicked = async () => {
     setLoading(true);

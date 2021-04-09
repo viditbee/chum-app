@@ -14,9 +14,9 @@ function EventTile({ userInfo, eventInfo, userLabels }) {
       }
     }
     setEvent(eventInfo);
-  }, [eventInfo]);
+  }, [eventInfo, userInfo]);
 
-  const { id, label, createdBy, createdOn, description, followedBy, from, to } = event;
+  const { id, label, description, followedBy, from, to } = event;
 
   const handleFollowClicked = async (e) => {
     e.stopPropagation();

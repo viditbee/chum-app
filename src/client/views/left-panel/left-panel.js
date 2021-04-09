@@ -38,7 +38,7 @@ function LeftPanel({ userInfo, logoutSetter, channelIdSetter, followStaler }) {
     }
 
     userInfo && fetchData();
-  }, []);
+  }, [userInfo]);
 
   useEffect(() => {
     async function fetchData() {

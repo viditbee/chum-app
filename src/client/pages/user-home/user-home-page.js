@@ -21,7 +21,7 @@ function UserHomePage({ userInfo, userMasterData, channelMasterData }) {
     }
 
     userInfo && fetchData();
-  }, []);
+  }, [userInfo]);
 
   const handleOnFeedAdded = (feed) => {
     setFeeds([feed, ...feeds]);

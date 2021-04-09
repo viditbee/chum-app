@@ -4,10 +4,23 @@
   justify-content: space-between;
   text-align: left;
 
+  &.blurred {
+    filter: blur(5px);
+  }
+
   .left-panel-container {
     width: 350px;
     flex: none;
     overflow: hidden;
+  }
+
+  .app-right-wrapper {
+    flex: auto;
+  }
+
+  .app-right-con-wrapper {
+    display: flex;
+    height: calc(100% - 70px);
   }
 
   .page-specific-view-cont {
@@ -16,13 +29,13 @@
     background: #fff;
     border-radius: 10px;
 
-    .page-loading{
+    .page-loading {
       height: 100%;
       width: 100%;
       position: absolute;
       top: 0;
       left: 0;
-      background-color: rgba(255,255,255,.5);
+      background-color: rgba(255, 255, 255, .5);
       font-family: "Dosis", sans-serif;
       font-size: 25px;
       font-weight: 600;
@@ -32,14 +45,14 @@
     }
   }
 
-  .gen-page-header{
+  .gen-page-header {
     font-size: 20px;
     font-weight: 600;
     padding: 18px 20px 8px 20px;
     font-family: Dosis;
   }
 
-  .gen-page-body{
+  .gen-page-body {
     padding: 20px;
     overflow: auto;
     height: calc(100% - 57px);
