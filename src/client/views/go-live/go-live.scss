@@ -141,6 +141,31 @@
 
     .gl-right-panel {
       flex: auto;
+
+      .canvas-toolbar{
+        padding: 20px;
+        text-align: left;
+
+        .button{
+          margin-right: 10px;
+        }
+      }
+
+      &.room-joined{
+        cursor: url("../../assets/images/icons8-pencil-30.png"), auto;
+      }
+
+      & > div{
+        border: none !important;
+      }
+
+      .rp-room-not-joined{
+        font-size: 20px;
+        font-weight: 600;
+        margin: 30% auto;
+        height: 100%;
+        text-align: center;
+      }
     }
 
     .gl-close-btn {

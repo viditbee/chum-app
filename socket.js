@@ -1,5 +1,7 @@
 const initiate = (http) => {
-  const io = require('socket.io')(http);
+  const io = require('socket.io')(http, {
+    maxHttpBufferSize: 1e8
+  });
 
   const idLabelMap = {};
 
@@ -32,7 +34,7 @@ const initiate = (http) => {
         timestamp: socket.timestamp
       });
 
-      for (let item of socket.rooms){
+      for (let item of socket.rooms) {
         rooms[item] = rooms[item] ? [...rooms[item], labelStr] : [labelStr];
       }
     }
@@ -76,6 +78,10 @@ const initiate = (http) => {
 
     socket.on("join_room", (label) => {
       socket.join(label);
+    });
+
+    socket.on("canvas_changed", ({ roomId, paths }) => {
+      socket.to(roomId).emit("canvas_updated", paths)
     });
   });
 

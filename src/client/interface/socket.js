@@ -1,7 +1,9 @@
 import { io } from "socket.io-client";
 
-let connectionCallback = () => {};
-let eventCallback = () => {};
+let connectionCallback = () => {
+};
+let eventCallback = () => {
+};
 
 export const Socket = io(undefined, { autoConnect: false });
 
@@ -22,7 +24,8 @@ export const initiateConnection = (userInfo, callback, evCallback) => {
 };
 
 export const initiateDisconnection = () => {
-  connectionCallback = () => {};
+  connectionCallback = () => {
+  };
   Socket.disconnect();
   return true;
 };
@@ -37,6 +40,10 @@ export const joinRoom = (label) => {
 
 export const leaveRoom = (label) => {
   Socket.emit("leave_room", label);
+};
+
+export const canvasChanged = (room, paths) => {
+  Socket.emit("canvas_changed", { roomId: room, paths });
 };
 
 Socket.on("connect", () => {

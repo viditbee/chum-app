@@ -462,6 +462,10 @@ Mongoose.connect(url, async function () {
     };
   };
 
+  MongoApis.getInterestRelMap = async (userId) => {
+
+  };
+
   /*
     MongoApis.getAllAvailableEmployees = async () => {
       const UserModel = Mongoose.model("employees", empSchema);

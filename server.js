@@ -182,6 +182,14 @@ app.post("/service/createEvent", (req, res) => {
   });
 });
 
+app.get("/service/interestRelationMap/:userId", (req, res) => {
+  MongoApis.getInterestRelMap(req.params.userId).then((op) => {
+    res.status(200);
+    res.send(op);
+  });
+});
+
+
 
 /********************** DEVLOPERS ***********************/
 

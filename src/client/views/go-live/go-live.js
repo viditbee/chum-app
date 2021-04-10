@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './go-live.scss';
+import { ReactSketchCanvas } from "react-sketch-canvas";
 import UserMiniList from './user-mini-list';
 import RoomList from './room-list';
 import {
@@ -7,8 +8,11 @@ import {
   initiateDisconnection,
   createRoom,
   joinRoom,
-  leaveRoom
+  leaveRoom,
+  canvasChanged
 } from "../../interface/socket";
+import { debounce } from "../../utils/utils";
+import Button from "../misc/button";
 
 const SPLITTER = "%@%";
 
@@ -22,6 +26,8 @@ function GoLive({ userInfo, goLiveClosed }) {
   const [socketConnected, setSocketConnected] = useState(false);
   const onSocketConnectCb = useRef();
   const onSocketEventCb = useRef();
+  const reactSketchCanvas = useRef();
+  let latestPaths = [];
 
   useEffect(() => {
     initiateConnection(userInfo, onSocketConnectCb, onSocketEventCb);
@@ -141,6 +147,13 @@ function GoLive({ userInfo, goLiveClosed }) {
     }
   };
 
+  const updateCanvas = (paths) => {
+    if (reactSketchCanvas && reactSketchCanvas.current && paths.length !== latestPaths.length) {
+      reactSketchCanvas.current.clearCanvas();
+      reactSketchCanvas.current.loadPaths(paths);
+    }
+  };
+
   onSocketEventCb.current = (event, args) => {
     console.log(event, args);
 
@@ -168,6 +181,9 @@ function GoLive({ userInfo, goLiveClosed }) {
         break;
       case "user_disconnected":
         removeOnlineUser(args[0]);
+        break;
+      case "canvas_updated":
+        updateCanvas(args[0]);
         break;
       default:
       //do nothing
@@ -227,9 +243,63 @@ function GoLive({ userInfo, goLiveClosed }) {
     </div>
   };
 
-  const getRightPanel = () => {
-    return <div className="gl-right-panel">
+  const onCanvasUpdate = async (...args) => {
+    // console.log(args);
+    const paths = await reactSketchCanvas.current.exportPaths();
+    latestPaths = paths;
+    canvasChanged(joinedRoom, paths);
+    // console.log("paths", paths);
+  };
 
+  const handleCanvasToolClicked = async (action) => {
+    if (reactSketchCanvas && reactSketchCanvas.current) {
+      switch (action) {
+        case "undo":
+          reactSketchCanvas.current.undo();
+          break;
+        case "clear":
+          reactSketchCanvas.current.clearCanvas();
+          break;
+        case "export":
+          const img = await reactSketchCanvas.current.exportImage("png");
+          let a = document.createElement("a");
+          a.href = img;
+          a.download = "art-from-chum.png";
+          a.click();
+          break;
+        default:
+          return null;
+      }
+    }
+  };
+
+  const getCanvasToolbar = () => {
+    if (joinedRoom) {
+      return <div className="canvas-toolbar">
+        <Button text="Undo" onClick={() => {
+          handleCanvasToolClicked("undo")
+        }} />
+        <Button text="Clear All" onClick={() => {
+          handleCanvasToolClicked("clear")
+        }} />
+        <Button text="Export" onClick={() => {
+          handleCanvasToolClicked("export")
+        }} />
+      </div>
+    }
+    return null;
+  };
+
+  const getRightPanel = () => {
+    return <div className={`gl-right-panel ${joinedRoom ? "room-joined" : ""}`}>
+      {getCanvasToolbar()}
+      {joinedRoom ? <ReactSketchCanvas
+          ref={reactSketchCanvas}
+          strokeWidth={5}
+          strokeColor="black"
+          onUpdate={debounce(onCanvasUpdate, 1000)}
+        /> :
+        <div className="rp-room-not-joined">Join a room to start the magic ;)</div>}
     </div>
   };
 
