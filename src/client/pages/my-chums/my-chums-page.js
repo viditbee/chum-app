@@ -18,7 +18,7 @@ function MyChumsPage({ userInfo, resetFollowStaler }) {
   const [userList, setUserList] = useState([]);
   const [interestsLabelMap, setInterestsLabelMap] = useState({});
   const [dataLoaded, setDataLoaded] = useState(false);
-  const [viewMode, setViewMode] = useState("list");
+  const [viewMode, setViewMode] = useState("map");
   const [userBasicInfo, setUserBasicInfo] = useState({});
 
   useEffect(() => {
@@ -135,7 +135,7 @@ function MyChumsPage({ userInfo, resetFollowStaler }) {
   const getView = () => {
     if (viewMode === "list") {
       return getListView();
-    } else {
+    } else if(dataLoaded) {
       return getMapView();
     }
   };

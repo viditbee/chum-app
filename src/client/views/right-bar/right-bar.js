@@ -1,11 +1,19 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import './right-bar.scss';
 import Button from "../misc/button";
 
 function RightBar({ goLiveClicked }) {
 
+  const history = useHistory();
+
+  const handleBackClicked = () => {
+    history.goBack();
+  };
+
   return <div className="right-bar-cont">
-    <Button text="GoLive" onClick={() => {
+    <div className="back-button" onClick={() => {handleBackClicked()}} />
+    <Button className="go-live" text="GoLive" onClick={() => {
       goLiveClicked()
     }} />
   </div>;

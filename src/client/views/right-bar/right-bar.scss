@@ -2,6 +2,18 @@
   height: 70px;
   background: #fff;
 
+  .back-button{
+    background-image: url("./../../assets/images/icons8-left.svg");
+    height: 40px;
+    width: 40px;
+    background-repeat: no-repeat;
+    background-size: 24px;
+    background-position: center;
+    float: left;
+    margin: 15px;
+    cursor: pointer;
+  }
+
   .button{
     margin: 15px 20px;
     float: right;
