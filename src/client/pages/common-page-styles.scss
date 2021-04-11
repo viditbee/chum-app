@@ -57,4 +57,17 @@
     overflow: auto;
     height: calc(100% - 57px);
   }
+
+  &.user-profile-page{
+    .gen-page-body{
+      height: 100%;
+    }
+
+    .up-feed-header{
+      font-family: Dosis;
+      font-size: 20px;
+      font-weight: 500;
+      margin-top: 60px;
+    }
+  }
 }

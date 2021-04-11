@@ -142,6 +142,14 @@ app.post("/service/getFeeds", (req, res) => {
   });
 });
 
+app.post("/service/getActivity", (req, res) => {
+  const { userId } = req.body;
+  MongoApis.getActivity(userId).then((op) => {
+    res.status(200);
+    res.send(op);
+  });
+});
+
 app.post("/service/likeFeed", (req, res) => {
   const { userId, feedId } = req.body;
   MongoApis.likeFeed(userId, feedId).then((op) => {
@@ -184,6 +192,28 @@ app.post("/service/createEvent", (req, res) => {
 
 app.get("/service/interestRelationMap/:userId", (req, res) => {
   MongoApis.getInterestRelMap(req.params.userId).then((op) => {
+    res.status(200);
+    res.send(op);
+  });
+});
+
+app.get("/service/userProfileInfo/:userId", (req, res) => {
+  MongoApis.getUserProfileInfo(req.params.userId).then((op) => {
+    res.status(200);
+    res.send(op);
+  });
+});
+
+app.get("/service/upcomingEvents", (req, res) => {
+  MongoApis.getUpcomingEvents().then((op) => {
+    res.status(200);
+    res.send(op);
+  });
+});
+
+app.post("/service/usersWithBasicInfo", (req, res) => {
+  const { userId } = req.body;
+  MongoApis.getAllUsersWithBasicInfo(userId).then((op) => {
     res.status(200);
     res.send(op);
   });

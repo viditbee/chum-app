@@ -1,0 +1,14 @@
+.user-profile-page {
+  .feed-wrapper{
+    margin: 20px 0;
+
+    .nothing-found{
+      height: 300px;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 200px;
+      background-image: url("../../assets/images/icons8-sad-ghost.svg");
+    }
+  }
+}

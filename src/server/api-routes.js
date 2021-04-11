@@ -5,24 +5,7 @@ const jsonParser = bodyParser.json();
 
 const HTTP_PROXY_CODE = 222;
 
-const {
-  GetProducts, GetUser,
-} = require('./lib/mock-data-generator');
-
-const withDelay = (func, delay = 2000) => {
-  setTimeout(func, delay);
-};
-
 module.exports = (app) => {
-  app.get('/user', (req, res) => {
-    res.status(HTTP_PROXY_CODE);
-    res.send(GetUser());
-  });
-
-  app.post('/data-discovery/bundles/search', jsonParser, (req, res) => {
-    res.status(HTTP_PROXY_CODE);
-    withDelay(() => { res.send(GetProducts(null, 'Bundle', req.body.searchText)); });
-  });
 
   app.use(
     ['/service', '/secret', '/socket.io'],

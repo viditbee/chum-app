@@ -5,12 +5,9 @@ import './home.scss';
 import Button from "../../views/misc/button";
 import Paths from "./../../../facts/paths";
 
-import { Socket } from "../../interface/socket";
-
 function Home({ userInfo }) {
   const className = `home-container`;
   const clouds = useRef(null);
-  // const history = useHistory();
 
   const getAboutView = () => {
     const res = [];
@@ -43,13 +40,6 @@ function Home({ userInfo }) {
   const handleScroll = (el) => {
     clouds.current.style.top = -el.target.scrollTop / 3 + "px";
   };
-/*
-
-  const handleGetStartedClicked = () => {
-    history.push(Paths.signUp)
-    // Socket.emit("hello", { a: "b", c: [] });
-  };
-*/
 
   const getButtonView = () => {
     const text = userInfo ? "Take me home" : "Get started";
@@ -57,18 +47,10 @@ function Home({ userInfo }) {
     return <Link to={link}><Button onClick={() => {}} className="get-started-button" text={text} /></Link>
   };
 
-  const onSockClicked = () => {
-    if(userInfo && userInfo.firstName) {
-      Socket.auth = { username: userInfo.firstName };
-      Socket.connect();
-    }
-  };
-
   return <div className={className} onScroll={(e) => {
     handleScroll(e)
   }}>
     {getClouds()}
-    <Button text="Socket" className={"sock"} onClick={() => {onSockClicked()}}/>
     <div className="banner" />
     <div className="chum-logo" />
     <div className="chum-desc">Have you ever thought how awesome your world would be had you known

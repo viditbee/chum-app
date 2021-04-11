@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import './list-items.scss';
-import { followUser } from "../../interface/interface";
+import { followUser, unFollowUser } from "../../interface/interface";
+import URLs from "../../../facts/paths";
+import Button from "../misc/button";
 
-function UserItem({ resetFollowStaler, loggedInUserInfo, userInfo, following, interestLabels }) {
+function UserItem({ resetFollowStaler, loggedInUserInfo, userInfo, following, interestLabels, showBig }) {
   const className = 'user-item-cont list-item-cont';
   const { userId, firstName, lastName } = userInfo;
 
@@ -14,6 +16,16 @@ function UserItem({ resetFollowStaler, loggedInUserInfo, userInfo, following, in
       const res = await followUser(userId, loggedInUserInfo.id);
       if (res.status === "success") {
         setIsFollowing(true);
+        resetFollowStaler();
+      }
+    }
+  };
+
+  const handleUnFollowClicked = async () => {
+    if (isFollowing) {
+      const res = await unFollowUser(userId, loggedInUserInfo.id);
+      if (res.status === "success") {
+        setIsFollowing(false);
         resetFollowStaler();
       }
     }
@@ -39,30 +51,45 @@ function UserItem({ resetFollowStaler, loggedInUserInfo, userInfo, following, in
     return intViews;
   };
 
+  const getFollowButton = () => {
+    if(!showBig){
+      return  <div className={"uii-follow-button " + (isFollowing ? "following" : "")}
+                   title={isFollowing ? "Following" : "Follow"} onClick={() => {
+        handleFollowClicked()
+      }} />
+    } else {
+      if (!isFollowing) {
+        return <div className="follow-button not-following">
+          <Button text={"Follow " + firstName} onClick={() => {handleFollowClicked()}}/>
+        </div>;
+      } else {
+        return <div className="follow-button following">
+          <Button text={"Unfollow " + firstName} onClick={() => {handleUnFollowClicked()}}/>
+          <div className="following-text">Following ✓</div>
+        </div>
+      }
+    }
+  };
+
   return <div className={className}>
-    <div className="list-item-image">{(firstName[0] || "").toLocaleUpperCase()+(lastName[0] || "").toLocaleUpperCase()}</div>
-    <div className="list-item-text-section">
-      <div className="list-item-title">{firstName} {lastName}</div>
-      <div className="list-item-sub-item-cont">
-        {getInterestsView()}
+    <Link to={URLs.aboutChum + "/" + userId}>
+      <div
+        className="list-item-image">{(firstName[0] || "").toLocaleUpperCase() + (lastName[0] || "").toLocaleUpperCase()}</div>
+      <div className="list-item-text-section">
+        <div className="list-item-title">{firstName} {lastName}</div>
+        <div className="list-item-sub-item-cont">
+          {getInterestsView()}
+        </div>
       </div>
-    </div>
-    <div className={"uii-follow-button " + (isFollowing ? "following" : "")} title={isFollowing ? "Following" : "Follow"} onClick={() => {
-      handleFollowClicked()
-    }} />
+    </Link>
+    {getFollowButton()}
   </div>;
 }
 
-UserItem.propTypes = {
-  userInfo: PropTypes.object,
-  interests: PropTypes.array,
-  following: PropTypes.bool,
-};
+UserItem.propTypes = {};
 
 UserItem.defaultProps = {
   userInfo: {},
-  interests: [],
-  following: false,
 };
 
 export default UserItem;

@@ -3,7 +3,8 @@
   border-radius: 10px;
   margin: 20px;
   text-align: left;
-  height: calc(50% - 50px);
+  height: calc(50% - 30px);
+  overflow: hidden;
 
   .widget-header {
     font-size: 20px;
@@ -13,5 +14,6 @@
 
   .widget-body {
     overflow: auto;
+    height: calc(100% - 53px);
   }
 }

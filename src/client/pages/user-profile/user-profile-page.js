@@ -1,38 +1,34 @@
 import React, { useEffect, useState } from 'react';
-import './lend-a-hand-page.scss';
-import AddAFeed from "../../views/add-a-feed/add-a-feed";
+import { useParams } from "react-router-dom";
+import './user-profile-page.scss';
 import FeedItem from "../../views/feed-item/feed-item";
-import { getFeeds } from "../../interface/interface";
-import DefChannels from "../../../facts/def-channels";
+import { getActivity } from "../../interface/interface";
+import UserProfile from "../../views/user-profile/user-profile";
 
-function LendAHandPage({ userInfo, userMasterData, channelMasterData }) {
+function UserProfilePage({ userInfo, userMasterData, channelMasterData, resetFollowStaler }) {
 
   const [feeds, setFeeds] = useState({});
   const [dataLoaded, setDataLoaded] = useState(false);
+  const { userId } = useParams();
 
   useEffect(() => {
     async function fetchData() {
-      const userId = userInfo.id;
-      let { status: bSt, response: bRs } = await getFeeds(userId, DefChannels.lend);
+      let { status: bSt, response: bRs } = await getActivity(userId);
 
       if (bSt === "success") {
         setFeeds(bRs);
       }
       setDataLoaded(true);
     }
-
+    setDataLoaded(false);
     userInfo && fetchData();
-  }, []);
-
-  const handleOnFeedAdded = (feed) => {
-    setFeeds([feed, ...feeds]);
-  };
+  }, [userInfo, userId]);
 
   const getFeedViews = () => {
     const feedViews = [];
     for (let i = 0; i < feeds.length; i += 1) {
       feedViews.push(<FeedItem
-        key={feeds[i].id}
+        showWherePosted={true}
         userInfo={userInfo}
         feedInfo={feeds[i]}
         channelLabels={channelMasterData.channelLabels}
@@ -40,25 +36,26 @@ function LendAHandPage({ userInfo, userMasterData, channelMasterData }) {
       />)
     }
 
+    if(!feedViews.length){
+      feedViews.push(<div key="nothing-found" className="nothing-found"/>)
+    }
+
     return <div className="feed-wrapper">{feedViews}</div>
   };
 
   return <div className="page-specific-view-cont">
     {(!dataLoaded) ? <div className="page-loading">Loading...</div> : null}
-    <div className="gen-page-header">Postings</div>
     <div className="gen-page-body">
-      {dataLoaded ?
-        <AddAFeed userInfo={userInfo} channelId={DefChannels.lend} onFeedAdded={(feed) => {
-          handleOnFeedAdded(feed)
-        }} /> : null}
+      <UserProfile userId={userId} userInfo={userInfo} resetFollowStaler={resetFollowStaler} />
+      <div className="up-feed-header">Timeline</div>
       {getFeedViews()}
     </div>
   </div>;
 }
 
-LendAHandPage.propTypes = {};
+UserProfilePage.propTypes = {};
 
-LendAHandPage.defaultProps = {};
+UserProfilePage.defaultProps = {};
 
-export default LendAHandPage;
+export default UserProfilePage;
 

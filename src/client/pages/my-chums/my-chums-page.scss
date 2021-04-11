@@ -1,0 +1,80 @@
+.my-chums-page {
+  font-family: Dosis;
+  .list-item-cont {
+    margin: 20px 0;
+
+    a {
+      text-decoration: none;
+      color: unset;
+    }
+  }
+
+  .follow-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    &.not-following {
+
+    }
+
+    &.following {
+      &:hover {
+        .button {
+          display: block;
+        }
+
+        .following-text {
+          display: none;
+        }
+      }
+
+      .button {
+        display: none;
+      }
+    }
+
+    .following-text {
+      line-height: 40px;
+      margin: 0 20px;
+    }
+  }
+
+  .list-item-text-section {
+    width: calc(100% - 190px);
+  }
+
+  .list-opt, .map-opt{
+    float: right;
+    font-size: 14px;
+    margin: 5px 0 0 20px;
+    opacity: .5;
+    cursor: pointer;
+
+    &.selected{
+      opacity: 1;
+    }
+  }
+
+  .mcp-g-users {
+    background: #ff286c;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .mcp-g-self {
+    background: #1f4594;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .mcp-g-interest {
+    background: #d2ed4c;
+    color: #1c1b1a;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+}

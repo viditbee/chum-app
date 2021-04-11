@@ -9,5 +9,6 @@ module.exports = {
   lendAHand: "/lend-a-hand",
   channels: "/channels",
   events: "/events",
+  aboutChum: "/about-chum",
   dev: "/dev",
 };

@@ -22,6 +22,8 @@ import RightPanel from "./client/views/right-panel/right-panel";
 import EventsPage from "./client/pages/events/events-page";
 import RightBar from "./client/views/right-bar/right-bar";
 import GoLive from "./client/views/go-live/go-live";
+import UserProfilePage from "./client/pages/user-profile/user-profile-page";
+import MyChumsPage from "./client/pages/my-chums/my-chums-page";
 
 
 class DebugRouter extends Router {
@@ -226,11 +228,12 @@ function App() {
                            logoutSetter={setLoggedOutIndirect} channelIdSetter={channelIdSetter} />
                 <div className="app-right-wrapper">
                   <RightBar goLiveClicked={goLiveClicked} />
-                  <div className="app-right-con-wrapper"><ChannelsPage userInfo={userInfo}
-                                                                       userMasterData={userMasterData}
-                                                                       channelMasterData={channelMasterData}
-                                                                       selectedChannelId={selectedChannelId}
-                                                                       channelIdSetter={channelIdSetter} />
+                  <div className="app-right-con-wrapper">
+                    <ChannelsPage userInfo={userInfo}
+                                  userMasterData={userMasterData}
+                                  channelMasterData={channelMasterData}
+                                  selectedChannelId={selectedChannelId}
+                                  channelIdSetter={channelIdSetter} />
                     <RightPanel resetFollowStaler={resetFollowStaler} userInfo={userInfo} />
                   </div>
                 </div>
@@ -242,7 +245,8 @@ function App() {
                            logoutSetter={setLoggedOutIndirect} channelIdSetter={channelIdSetter} />
                 <div className="app-right-wrapper">
                   <RightBar goLiveClicked={goLiveClicked} />
-                  <div className="app-right-con-wrapper"><AboutMePage userInfo={userInfo} />
+                  <div className="app-right-con-wrapper">
+                    <AboutMePage userInfo={userInfo} />
                     <RightPanel resetFollowStaler={resetFollowStaler} userInfo={userInfo} />
                   </div>
                 </div>
@@ -254,8 +258,39 @@ function App() {
                            logoutSetter={setLoggedOutIndirect} channelIdSetter={channelIdSetter} />
                 <div className="app-right-wrapper">
                   <RightBar goLiveClicked={goLiveClicked} />
-                  <div className="app-right-con-wrapper"><EventsPage userInfo={userInfo}
-                                                                     userMasterData={userMasterData} />
+                  <div className="app-right-con-wrapper">
+                    <EventsPage userInfo={userInfo}
+                                userMasterData={userMasterData} />
+                    <RightPanel resetFollowStaler={resetFollowStaler} userInfo={userInfo} />
+                  </div>
+                </div>
+              </div>
+            </Route>
+            <Route exact path={Paths.myChums}>
+              <div className={`gen-page events-page ${goLiveActive ? "blurred" : ""}`}>
+                <LeftPanel followStaler={followStaler} userInfo={userInfo}
+                           logoutSetter={setLoggedOutIndirect} channelIdSetter={channelIdSetter} />
+                <div className="app-right-wrapper">
+                  <RightBar goLiveClicked={goLiveClicked} />
+                  <div className="app-right-con-wrapper">
+                    <MyChumsPage userInfo={userInfo} resetFollowStaler={resetFollowStaler} />
+                    <RightPanel resetFollowStaler={resetFollowStaler} userInfo={userInfo} />
+                  </div>
+                </div>
+              </div>
+            </Route>
+            <Route path={Paths.aboutChum + "/:userId"}>
+              <div className={`gen-page user-profile-page ${goLiveActive ? "blurred" : ""}`}>
+                <LeftPanel followStaler={followStaler} userInfo={userInfo}
+                           logoutSetter={setLoggedOutIndirect} channelIdSetter={channelIdSetter} />
+                <div className="app-right-wrapper">
+                  <RightBar goLiveClicked={goLiveClicked} />
+                  <div className="app-right-con-wrapper">
+                    <UserProfilePage
+                      resetFollowStaler={resetFollowStaler}
+                      userInfo={userInfo}
+                      userMasterData={userMasterData}
+                      channelMasterData={channelMasterData} />
                     <RightPanel resetFollowStaler={resetFollowStaler} userInfo={userInfo} />
                   </div>
                 </div>

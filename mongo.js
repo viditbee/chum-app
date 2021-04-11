@@ -281,6 +281,43 @@ Mongoose.connect(url, async function () {
     }
   };
 
+  MongoApis.getAllUsersWithBasicInfo = async (uId) => {
+    const BasicInfoModel = Mongoose.model("userbasicinfos", basicInfoSchema);
+    const UserModel = Mongoose.model("users", userSchema);
+    const FollowInfoModel = Mongoose.model("followinfos", followInfoSchema);
+
+    try {
+      let res = [];
+      const usersBasicInfo = await BasicInfoModel.find({}).select(['userId', 'location', 'interests']);
+      const followerOfInfo = await FollowInfoModel.find({ followedBy: uId }).select('userId');
+      const followerOfIds = followerOfInfo.reduce((acc, item) => [...acc, item.userId], []);
+
+      for (let i = 0; i < usersBasicInfo.length; i += 1) {
+        const { userId, interests, location } = usersBasicInfo[i];
+        let userOb = await UserModel.findOne({ id: userId });
+
+        res.push({
+          userId,
+          interests,
+          location,
+          firstName: userOb.firstName,
+          lastName: userOb.lastName,
+          following: followerOfIds.indexOf(userId) !== -1
+        });
+      }
+
+      return {
+        status: "success",
+        response: res
+      }
+    } catch (e) {
+      console.log(e);
+      return {
+        status: "failure"
+      }
+    }
+  };
+
   MongoApis.addFeed = async (userId, post, channelId) => {
     const PostModel = Mongoose.model("posts", postsSchema);
     const postRep = new PostModel({
@@ -350,6 +387,20 @@ Mongoose.connect(url, async function () {
 
     const posts = await PostModel
       .find({ $or: [{ createdBy: { $in: folOfRes } }, { channelId: { $in: folChanRes } }] })
+      .sort({ createdOn: 'desc' })
+      .select(['id', 'createdOn', 'createdBy', 'channelId', 'text', 'comments', 'likedBy']);
+
+    return {
+      status: "success",
+      response: posts
+    }
+  };
+
+  MongoApis.getActivity = async (userId) => {
+    const PostModel = Mongoose.model("posts", postsSchema);
+
+    const posts = await PostModel
+      .find({ createdBy: userId })
       .sort({ createdOn: 'desc' })
       .select(['id', 'createdOn', 'createdBy', 'channelId', 'text', 'comments', 'likedBy']);
 
@@ -462,8 +513,44 @@ Mongoose.connect(url, async function () {
     };
   };
 
-  MongoApis.getInterestRelMap = async (userId) => {
+  MongoApis.getUserProfileInfo = async (userId) => {
+    const BasicInfoModel = Mongoose.model("userbasicinfos", basicInfoSchema);
+    const UserModel = Mongoose.model("users", userSchema);
 
+    const userMainInfo = await UserModel.findOne({ id: userId });
+    const userBasicInfo = await BasicInfoModel.findOne({ userId: userId });
+
+    const res = {
+      userId: userId,
+      firstName: userMainInfo.firstName,
+      lastName: userMainInfo.lastName,
+    };
+
+    if (userBasicInfo) {
+      res.location = userBasicInfo.location;
+      res.languages = userBasicInfo.languages;
+      res.aboutYou = userBasicInfo.aboutYou;
+      res.department = userBasicInfo.department;
+      res.interests = userBasicInfo.interests;
+    }
+
+    return {
+      status: "success",
+      response: res
+    }
+  };
+
+  MongoApis.getUpcomingEvents = async () => {
+    const EventModel = Mongoose.model("eventinfos", eventInfoSchema);
+    const currentDate = new Date();
+    const events = await EventModel.find({ $or: [{ from: { $gt: currentDate } }, { to: { $gt: currentDate } }] })
+      .sort({ from: 'asc' })
+      .select(['id', 'createdBy', 'createdOn', 'label', 'description', 'followedBy', 'from', 'to']);
+
+    return {
+      status: "success",
+      response: events
+    }
   };
 
   /*

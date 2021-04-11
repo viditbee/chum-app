@@ -1,0 +1,228 @@
+.user-profile-cont {
+  position: relative;
+
+  .follow-button{
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    &.not-following{
+
+    }
+
+    &.following{
+      &:hover{
+        .button{
+          display: block;
+        }
+
+        .following-text{
+          display: none;
+        }
+      }
+
+      .button{
+        display: none;
+      }
+    }
+
+    .following-text{
+      line-height: 40px;
+      margin: 0 20px;
+    }
+  }
+
+  .loading{
+    text-align: center;
+    font-size: 18px;
+    margin: 220px 0;
+  }
+
+  .up-basic-section {
+    font-family: 'Dosis';
+    display: flex;
+
+    .up-image {
+      height: 140px;
+      width: 140px;
+      border-radius: 100px;
+      float: left;
+      background: #d8f0ff;
+      color: #1f4594;
+      text-align: center;
+      font-size: 55px;
+      font-weight: 500;
+      line-height: 140px;
+    }
+    .up-info-cont {
+      margin-left: 22px;
+      flex: auto;
+
+      .upi-name {
+        font-size: 30px;
+        font-weight: 600;
+        line-height: 60px;
+      }
+
+      .upi-other-cont {
+        font-size: 16px;
+        display: flex;
+        opacity: .6;
+
+        .upi-other-left, .upi-other-right {
+          width: 50%;
+
+          .upi-info-item {
+            overflow: hidden;
+            margin: 4px 0;
+
+            &.location {
+              .upi-info-item-icon {
+                background-image: url("../../assets/images/icons8-user-location.svg");
+              }
+            }
+
+            &.department {
+              .upi-info-item-icon {
+                background-image: url("../../assets/images/icons8-people.svg");
+              }
+            }
+
+            &.language {
+              .upi-info-item-icon {
+                background-image: url("../../assets/images/icons8-language.svg");
+              }
+            }
+
+            .upi-info-item-icon {
+              height: 20px;
+              width: 20px;
+              background-size: 18px;
+              background-repeat: no-repeat;
+              background-position: center;
+              float: left;
+            }
+
+            .upi-info-item-text {
+              float: left;
+              margin-left: 5px;
+            }
+          }
+        }
+      }
+
+      .about-you-cont {
+        font-style: italic;
+        background: #f6f8ff;
+        padding: 10px;
+        border-radius: 4px;
+        margin: 10px 0;
+        position: relative;
+        font-size: 16px;
+      }
+    }
+  }
+
+  .up-interests-section {
+
+    .sel-int-cont {
+      margin: 30px 0;
+
+      .sel-int-abt {
+        font-family: Dosis;
+        font-size: 20px;
+        font-weight: 500;
+      }
+
+      .sel-int-otm {
+        font-family: Dosis;
+        font-size: 13px;
+        margin-bottom: 20px;
+      }
+
+      .sel-int-header {
+        overflow: hidden;
+        font-size: 13px;
+
+        .sel-int-emp {
+          width: calc(100% - 260px);
+          float: left;
+          height: 1px;
+        }
+        .sel-int-amateur {
+          width: 70px;
+          float: left;
+        }
+        .sel-int-pro {
+          width: 70px;
+          float: left;
+          text-align: right;
+        }
+        .sel-int-otm {
+          width: 120px;
+          float: left;
+          text-align: right;
+        }
+      }
+      .sel-int-body {
+
+        .sel-int-item-cont {
+          overflow: hidden;
+
+          .sel-int-label {
+            float: left;
+            line-height: 40px;
+            width: calc(100% - 260px);
+          }
+
+          .int-level-cont {
+            float: left;
+            width: 140px;
+            display: flex;
+            justify-content: space-between;
+            height: 40px;
+            align-items: center;
+
+            .int-level-circle {
+              height: 20px;
+              width: 20px;
+              border-radius: 20px;
+              border: 1px solid #c2c5cc;
+              cursor: pointer;
+
+              &.selected {
+                border-color: #1f4594;
+                background: #1f4594;
+              }
+            }
+          }
+
+          .int-otm-cont {
+            width: 120px;
+            float: left;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 1px;
+
+            .int-otm-circle {
+              height: 20px;
+              width: 20px;
+              border-radius: 20px;
+              border: 1px solid #c2c5cc;
+              cursor: pointer;
+            }
+            &.selected {
+
+              .int-otm-circle {
+                border-color: #1f4594;
+                background: #1f4594;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

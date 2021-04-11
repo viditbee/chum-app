@@ -85,6 +85,10 @@ export const getFeeds = (userId, channelId) => {
   return postCall('/service/getFeeds', { userId, channelId });
 };
 
+export const getActivity = (userId) => {
+  return postCall('/service/getActivity', { userId });
+};
+
 export const likeFeed = (userId, feedId) => {
   return postCall('/service/likeFeed', { userId, feedId });
 };
@@ -101,11 +105,23 @@ export const followEvent = (userId, eventId) => {
   return postCall('/service/followEvent', { userId, eventId });
 };
 
+export const getUpcomingEvents = () => {
+  return getCall('/service/upcomingEvents');
+};
+
 export const createEvent = (userId, label, description, from, to) => {
   return postCall('/service/createEvent', { userId, label, description, from, to });
 };
 
 export const getAllEvents = () => {
   return getCall('/service/allEvents');
+};
+
+export const getUserProfileInfo = (userId) => {
+  return getCall('/service/userProfileInfo/' + userId);
+};
+
+export const getUsersWithBasicInfo = (userId) => {
+  return postCall('/service/usersWithBasicInfo', { userId });
 };
 

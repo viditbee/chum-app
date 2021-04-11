@@ -64,7 +64,7 @@ function LeftPanel({ userInfo, logoutSetter, channelIdSetter, followStaler }) {
     const { interests } = basicInfo;
 
     return (<div className="user-profile-cont">
-      <div className="user-profile-image" />
+      <div className="user-profile-image">{firstName[0] + lastName[0]}</div>
       <div className="user-name">{firstName + " " + lastName}</div>
       <div className="user-profile-stats">
         <div className="stat-item">
