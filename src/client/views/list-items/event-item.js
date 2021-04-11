@@ -54,7 +54,7 @@ function EventItem({ userInfo, eventInfo }) {
   return <div className={className}>
     <div className="list-item-image">{label[0] + label[1]}</div>
     <div className="list-item-text-section">
-      <div className="list-item-title">{label}</div>
+      <div className="list-item-title" title={label}>{label}</div>
       {getInfoView()}
     </div>
     {getAttendButton()}

@@ -31,7 +31,7 @@ function FeedItem({ userInfo, feedInfo, channelLabels, userLabels, showWherePost
     if (channelId === DefChannels.lend) {
       headerText += " is lending a hand"
     } else {
-      headerText += " has posted in " + channelLabels[channelId];
+      headerText += " has posted in " + (channelLabels ? channelLabels[channelId] : "");
     }
   }
 

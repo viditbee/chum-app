@@ -4,7 +4,7 @@ import { getAllEvents } from "../../interface/interface";
 import EventTile from "../../views/event-tile/event-tile";
 import SearchEvent from "../../views/search-event/search-event";
 
-function EventsPage({ userInfo, userMasterData }) {
+function EventsPage({ userInfo, userMasterData, resetEventsStaler }) {
 
   const [events, setEvents] = useState([]);
   const [dataLoaded, setDataLoaded] = useState(false);
@@ -27,6 +27,7 @@ function EventsPage({ userInfo, userMasterData }) {
   const handleEventAdded = (event) => {
     setSearchText("");
     setEvents([event, ...events]);
+    resetEventsStaler();
   };
 
   const getEventTiles = () => {

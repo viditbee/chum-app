@@ -24,7 +24,11 @@
     .list-item-title {
       font-size: 18px;
       font-weight: 600;
+      width: 160px;
       line-height: 28px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
 
     .list-item-sub-item-cont {

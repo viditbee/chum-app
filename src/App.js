@@ -48,6 +48,7 @@ function App() {
   const [channelMasterData, setChannelMasterData] = useState({});
   const [selectedChannelId, setSelectedChannelId] = useState("");
   const [followStaler, setFollowStaler] = useState(Math.random());
+  const [eventsStaler, setEventsStaler] = useState(Math.random());
   const [goLiveActive, setGoLiveActive] = useState(false);
 
   useEffect(() => {
@@ -80,6 +81,10 @@ function App() {
     setFollowStaler(Math.random());
   };
 
+  const resetEventsStaler = () => {
+    setEventsStaler(Math.random());
+  };
+
   const channelIdSetter = (id) => {
     setSelectedChannelId(id);
   };
@@ -110,7 +115,7 @@ function App() {
     if (status === "success") {
       setChannelMasterData({
         channels: response,
-        channelLabels: getChannelLabelMap(response)
+        channelLabels: getChannelLabelMap(response) || {}
       });
     }
   };
@@ -203,7 +208,7 @@ function App() {
                   <div className="app-right-con-wrapper">
                     <UserHomePage userInfo={userInfo} userMasterData={userMasterData}
                                   channelMasterData={channelMasterData} />
-                    <RightPanel resetFollowStaler={resetFollowStaler} userInfo={userInfo} />
+                    <RightPanel eventStaler={eventsStaler} resetFollowStaler={resetFollowStaler} userInfo={userInfo} />
                   </div>
                 </div>
               </div>
@@ -217,7 +222,7 @@ function App() {
                   <div className="app-right-con-wrapper">
                     <LendAHandPage userInfo={userInfo} userMasterData={userMasterData}
                                    channelMasterData={channelMasterData} />
-                    <RightPanel resetFollowStaler={resetFollowStaler} userInfo={userInfo} />
+                    <RightPanel eventStaler={eventsStaler} resetFollowStaler={resetFollowStaler} userInfo={userInfo} />
                   </div>
                 </div>
               </div>
@@ -234,7 +239,7 @@ function App() {
                                   channelMasterData={channelMasterData}
                                   selectedChannelId={selectedChannelId}
                                   channelIdSetter={channelIdSetter} />
-                    <RightPanel resetFollowStaler={resetFollowStaler} userInfo={userInfo} />
+                    <RightPanel eventStaler={eventsStaler} resetFollowStaler={resetFollowStaler} userInfo={userInfo} />
                   </div>
                 </div>
               </div>
@@ -247,7 +252,7 @@ function App() {
                   <RightBar goLiveClicked={goLiveClicked} />
                   <div className="app-right-con-wrapper">
                     <AboutMePage userInfo={userInfo} />
-                    <RightPanel resetFollowStaler={resetFollowStaler} userInfo={userInfo} />
+                    <RightPanel eventStaler={eventsStaler} resetFollowStaler={resetFollowStaler} userInfo={userInfo} />
                   </div>
                 </div>
               </div>
@@ -260,8 +265,9 @@ function App() {
                   <RightBar goLiveClicked={goLiveClicked} />
                   <div className="app-right-con-wrapper">
                     <EventsPage userInfo={userInfo}
-                                userMasterData={userMasterData} />
-                    <RightPanel resetFollowStaler={resetFollowStaler} userInfo={userInfo} />
+                                userMasterData={userMasterData}
+                                resetEventsStaler={resetEventsStaler}/>
+                    <RightPanel eventStaler={eventsStaler} resetFollowStaler={resetFollowStaler} userInfo={userInfo} />
                   </div>
                 </div>
               </div>
@@ -274,7 +280,7 @@ function App() {
                   <RightBar goLiveClicked={goLiveClicked} />
                   <div className="app-right-con-wrapper">
                     <MyChumsPage userInfo={userInfo} resetFollowStaler={resetFollowStaler} />
-                    <RightPanel resetFollowStaler={resetFollowStaler} userInfo={userInfo} />
+                    <RightPanel eventStaler={eventsStaler} resetFollowStaler={resetFollowStaler} userInfo={userInfo} />
                   </div>
                 </div>
               </div>
@@ -291,7 +297,7 @@ function App() {
                       userInfo={userInfo}
                       userMasterData={userMasterData}
                       channelMasterData={channelMasterData} />
-                    <RightPanel resetFollowStaler={resetFollowStaler} userInfo={userInfo} />
+                    <RightPanel eventStaler={eventsStaler} resetFollowStaler={resetFollowStaler} userInfo={userInfo} />
                   </div>
                 </div>
               </div>

@@ -4,7 +4,7 @@ import './user-list.scss';
 import { getUpcomingEvents } from "../../interface/interface";
 import EventItem from "../list-items/event-item";
 
-function EventList({ userInfo }) {
+function EventList({ userInfo, eventStaler }) {
 
   const [eventList, setEventList] = useState([]);
 
@@ -17,7 +17,7 @@ function EventList({ userInfo }) {
     }
 
     userInfo && fetchData();
-  }, [userInfo]);
+  }, [userInfo, eventStaler]);
 
   const getListView = () => {
     const listView = [];

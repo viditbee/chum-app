@@ -137,5 +137,5 @@ module.exports = [
   }, { "id": "def_movies", "label": "Movies" }, {
     "id": "def_gymnastics",
     "label": "Gymnastics"
-  }, { "id": "def_karate", "label": "Karate" }, { "id": "def_cooking", "label": "Cooking" }
+  }, { "id": "def_karate", "label": "Karate" }
 ];

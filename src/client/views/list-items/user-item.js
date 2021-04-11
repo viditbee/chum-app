@@ -76,7 +76,7 @@ function UserItem({ resetFollowStaler, loggedInUserInfo, userInfo, following, in
       <div
         className="list-item-image">{(firstName[0] || "").toLocaleUpperCase() + (lastName[0] || "").toLocaleUpperCase()}</div>
       <div className="list-item-text-section">
-        <div className="list-item-title">{firstName} {lastName}</div>
+        <div className="list-item-title" title={`${firstName} ${lastName}`}>{firstName} {lastName}</div>
         <div className="list-item-sub-item-cont">
           {getInterestsView()}
         </div>

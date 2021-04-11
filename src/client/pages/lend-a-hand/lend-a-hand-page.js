@@ -48,7 +48,7 @@ function LendAHandPage({ userInfo, userMasterData, channelMasterData }) {
     <div className="gen-page-header">Postings</div>
     <div className="gen-page-body">
       {dataLoaded ?
-        <AddAFeed userInfo={userInfo} channelId={DefChannels.lend} onFeedAdded={(feed) => {
+        <AddAFeed placeholder="Want help or want to help? This is the right place :)" userInfo={userInfo} channelId={DefChannels.lend} onFeedAdded={(feed) => {
           handleOnFeedAdded(feed)
         }} /> : null}
       {getFeedViews()}

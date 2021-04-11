@@ -4,9 +4,10 @@ import Button from "../misc/button";
 import { addFeed } from "../../interface/interface";
 import DefChannels from '../../../facts/def-channels';
 
-function AddAFeed({ userInfo, channelId, onFeedAdded }) {
+function AddAFeed({ userInfo, channelId, onFeedAdded, placeholder }) {
 
   const [text, setText] = useState("");
+  const ph = placeholder || `What's on your mind, ${userInfo.firstName}?`;
 
   const handleButtonClicked = async () => {
     const {status, response} = await addFeed(userInfo.id, text, channelId);
@@ -28,7 +29,7 @@ function AddAFeed({ userInfo, channelId, onFeedAdded }) {
   };
 
   return <div className="aaf-cont">
-     <textarea placeholder={`What's on your mind, ${userInfo.firstName}?`} value={text} autoComplete="chrome-off"
+     <textarea placeholder={ph} value={text} autoComplete="chrome-off"
                onChange={(e) => textChanged(e)} />
     {getButtonView()}
   </div>;
