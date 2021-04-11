@@ -2,7 +2,7 @@ const { getTransporter, sendMail } = require("./mailer");
 const { cipher } = require('./encrypt');
 const { getHTMLforSignUpSuccess } = require('./mail-htmls');
 const USERNAME = "hackathon.contentserv@gmail.com";
-const PASSWORD = "aurkyamazey1";
+const PASSWORD = "aurkyamaze1";
 const SECRET_SALT_FOR_PASSWORD = "BEE";
 
 const checkConnectivity = (successCallback) => {
