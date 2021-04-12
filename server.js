@@ -16,6 +16,22 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'build')));
 
+const authenticateReq = (userId, headers) => {
+  const token = headers.securetoken;
+  return decipherFunc(token) === userId;
+};
+
+const withSecurity = (cb, req, res) => {
+  const userId = (req.body && req.body.userId) || req.params.userId || "";
+  if (authenticateReq(userId, req.headers)) {
+    cb(req, res);
+  } else {
+    res.status(401);
+    res.send("Hackers are taken care of :P");
+  }
+};
+
+
 app.post("/service/signin", (req, res) => {
   const { username, password } = req.body;
   const decryptedUsername = decipherFunc(username || "temp");
@@ -51,67 +67,67 @@ app.post("/service/interests/add", (req, res) => {
 });
 
 
-app.post("/service/userBasicInfo", (req, res) => {
+app.post("/service/userBasicInfo", withSecurity.bind(this, (req, res) => {
   const { basicInfo } = req.body;
   MongoApis.updateUserBasicInfo(basicInfo).then((op) => {
     res.status(200);
     res.send(op);
   });
-});
+}));
 
-app.post("/service/followUser", (req, res) => {
+app.post("/service/followUser", withSecurity.bind(this, (req, res) => {
   const { userId, followedBy } = req.body;
   MongoApis.followUser(userId, followedBy).then((op) => {
     res.status(200);
     res.send(op);
   });
-});
+}));
 
-app.post("/service/unFollowUser", (req, res) => {
+app.post("/service/unFollowUser", withSecurity.bind(this, (req, res) => {
   const { userId, followedBy } = req.body;
   MongoApis.unFollowUser(userId, followedBy).then((op) => {
     res.status(200);
     res.send(op);
   });
-});
+}));
 
-app.post("/service/addFeed", (req, res) => {
+app.post("/service/addFeed", withSecurity.bind(this, (req, res) => {
   const { userId, post, channelId } = req.body;
   MongoApis.addFeed(userId, post, channelId).then((op) => {
     res.status(200);
     res.send(op);
   });
-});
+}));
 
-app.get("/service/followInfo/:userId", (req, res) => {
+app.get("/service/followInfo/:userId", withSecurity.bind(this, (req, res) => {
   MongoApis.getFollowInfo(req.params.userId).then((op) => {
     res.status(200);
     res.send(op);
   });
-});
+}));
 
 
-app.get("/service/userBasicInfo/:userId", (req, res) => {
+app.get("/service/userBasicInfo/:userId", withSecurity.bind(this, (req, res) => {
   MongoApis.getUserBasicInfo(req.params.userId).then((op) => {
     res.status(200);
     res.send(op);
   });
-});
+}));
 
 
-app.get("/service/subscribedChannels/:userId", (req, res) => {
+app.get("/service/subscribedChannels/:userId", withSecurity.bind(this, (req, res) => {
   MongoApis.getSubscribedChannels(req.params.userId).then((op) => {
     res.status(200);
     res.send(op);
   });
-});
+}));
 
-app.get("/service/usersToFollow/:userId", (req, res) => {
+app.get("/service/usersToFollow/:userId", withSecurity.bind(this, (req, res) => {
   MongoApis.getUsersToFollow(req.params.userId).then((op) => {
     res.status(200);
     res.send(op);
   });
-});
+}));
 
 app.get("/service/allUsers", (req, res) => {
   MongoApis.getAllUsers().then((op) => {
@@ -134,75 +150,75 @@ app.get("/service/allEvents", (req, res) => {
   });
 });
 
-app.post("/service/getFeeds", (req, res) => {
+app.post("/service/getFeeds", withSecurity.bind(this, (req, res) => {
   const { userId, channelId } = req.body;
   MongoApis.getFeeds(userId, channelId).then((op) => {
     res.status(200);
     res.send(op);
   });
-});
+}));
 
-app.post("/service/getActivity", (req, res) => {
+app.post("/service/getActivity", withSecurity.bind(this, (req, res) => {
   const { userId } = req.body;
   MongoApis.getActivity(userId).then((op) => {
     res.status(200);
     res.send(op);
   });
-});
+}));
 
-app.post("/service/likeFeed", (req, res) => {
+app.post("/service/likeFeed", withSecurity.bind(this, (req, res) => {
   const { userId, feedId } = req.body;
   MongoApis.likeFeed(userId, feedId).then((op) => {
     res.status(200);
     res.send(op);
   });
-});
+}));
 
-app.post("/service/followChannel", (req, res) => {
+app.post("/service/followChannel", withSecurity.bind(this, (req, res) => {
   const { userId, channelId } = req.body;
   MongoApis.followChannel(userId, channelId).then((op) => {
     res.status(200);
     res.send(op);
   });
-});
+}));
 
-app.post("/service/createChannel", (req, res) => {
+app.post("/service/createChannel", withSecurity.bind(this, (req, res) => {
   const { userId, label, description } = req.body;
   MongoApis.createChannel(userId, label, description).then((op) => {
     res.status(200);
     res.send(op);
   });
-});
+}));
 
-app.post("/service/followEvent", (req, res) => {
+app.post("/service/followEvent", withSecurity.bind(this, (req, res) => {
   const { userId, eventId } = req.body;
   MongoApis.followEvent(userId, eventId).then((op) => {
     res.status(200);
     res.send(op);
   });
-});
+}));
 
-app.post("/service/createEvent", (req, res) => {
+app.post("/service/createEvent", withSecurity.bind(this, (req, res) => {
   const { userId, label, description, from, to } = req.body;
   MongoApis.createEvent(userId, label, description, from, to).then((op) => {
     res.status(200);
     res.send(op);
   });
-});
+}));
 
-app.get("/service/interestRelationMap/:userId", (req, res) => {
+app.get("/service/interestRelationMap/:userId", withSecurity.bind(this, (req, res) => {
   MongoApis.getInterestRelMap(req.params.userId).then((op) => {
     res.status(200);
     res.send(op);
   });
-});
+}));
 
-app.get("/service/userProfileInfo/:userId", (req, res) => {
+app.get("/service/userProfileInfo/:userId", withSecurity.bind(this, (req, res) => {
   MongoApis.getUserProfileInfo(req.params.userId).then((op) => {
     res.status(200);
     res.send(op);
   });
-});
+}));
 
 app.get("/service/upcomingEvents", (req, res) => {
   MongoApis.getUpcomingEvents().then((op) => {
@@ -211,14 +227,13 @@ app.get("/service/upcomingEvents", (req, res) => {
   });
 });
 
-app.post("/service/usersWithBasicInfo", (req, res) => {
+app.post("/service/usersWithBasicInfo", withSecurity.bind(this, (req, res) => {
   const { userId } = req.body;
   MongoApis.getAllUsersWithBasicInfo(userId).then((op) => {
     res.status(200);
     res.send(op);
   });
-});
-
+}));
 
 
 /********************** DEVLOPERS ***********************/

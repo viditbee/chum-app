@@ -22,7 +22,7 @@ function AboutYouPage({ userInfo, gotStartedSetter }) {
       setActiveStep("2");
     } else {
       setLoading(true);
-      await updateUserBasicInfo({ ...stepOneData, interests: stepTwoData, userId: userInfo.id });
+      await updateUserBasicInfo(userInfo.id, { ...stepOneData, interests: stepTwoData, userId: userInfo.id });
       setLoading(false);
       gotStartedSetter(true);
       history.replace(Paths.home);

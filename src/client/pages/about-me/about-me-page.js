@@ -32,7 +32,7 @@ function AboutMePage({ userInfo }) {
 
   const handleButtonClicked = async () => {
     setLoading(true);
-    await updateUserBasicInfo(basicInfo);
+    await updateUserBasicInfo(userInfo.id, basicInfo);
     setLoading(false);
     setDataChanged(false);
   };

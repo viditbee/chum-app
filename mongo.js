@@ -41,7 +41,7 @@ Mongoose.connect(url, async function () {
   };
 
   MongoApis.registerUser = async (username, firstName, lastName) => {
-    if (validateEmail(username)/* && username.indexOf("@contentserv.com") !== -1*/) {
+    if (validateEmail(username) && username.indexOf("@contentserv.com") !== -1) {
       const UserModel = Mongoose.model("users", userSchema);
       const user = await UserModel.findOne({ 'emailId': username });
       if (!user) {
