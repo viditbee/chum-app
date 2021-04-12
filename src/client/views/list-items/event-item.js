@@ -17,14 +17,17 @@ function EventItem({ userInfo, eventInfo }) {
 
   const getAttendButton = () => {
     let className = "attend-button ";
+    let title = "";
     if (!isFollowing) {
+      title = "Attend";
       className += "not-attending ";
     } else {
+      title = "Leave";
       className += "attending ";
     }
 
     return <div className={className}>
-      <div className="at-icon" onClick={() => {
+      <div className="at-icon" title={title} onClick={() => {
         handleAttendClicked()
       }}/>
       <div className="attending-text">Attending ✓</div>

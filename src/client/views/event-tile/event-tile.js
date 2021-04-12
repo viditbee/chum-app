@@ -38,7 +38,7 @@ function EventTile({ userInfo, eventInfo, userLabels }) {
 
   const getFollowedByText = () => {
     const labels = followedBy.map((it) => userLabels[it] || "");
-    return labels.join(", ");
+    return labels.join("\n");
   };
 
   const getScheduleString = () => {

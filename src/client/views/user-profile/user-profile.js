@@ -47,8 +47,8 @@ function UserProfile({ userInfo, userId, resetFollowStaler, userMasterData }) {
       const { followedBy, followerOf } = followInfo;
       const followedByArr = followedBy.reduce((acc, itm) => [...acc, labels[itm]], []);
       const followerOfArr = followerOf.reduce((acc, itm) => [...acc, labels[itm]], []);
-      setFollowedByString(followedByArr.join(", "));
-      setFollowerOfString(followerOfArr.join(", "));
+      setFollowedByString(followedByArr.join("\n"));
+      setFollowerOfString(followerOfArr.join("\n"));
     }
 
   }, [followInfo]);

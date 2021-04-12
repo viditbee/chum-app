@@ -25,7 +25,7 @@ function FeedItem({ userInfo, feedInfo, channelLabels, userLabels, showWherePost
   useEffect(() => {
     if(feedInfo.likedBy && feedInfo.likedBy.length) {
       const likedByAr = feedInfo.likedBy.reduce((acc, itm) => [...acc, userLabels[itm]], []);
-      setLikedByString(likedByAr.join(", "));
+      setLikedByString(likedByAr.join("\n"));
     }
   }, [feedInfo.likedBy]);
 

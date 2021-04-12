@@ -3,14 +3,12 @@
   <component name="ChangeListManager">
     <list default="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" id="9ca07a7c-e49e-43a2-858a-bb157cca794e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/pages/channels/channel-open-page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/pages/channels/channel-open-page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/pages/user-profile/user-profile-page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/pages/user-profile/user-profile-page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/views/channel-tile/channel-tile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/views/channel-tile/channel-tile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/views/event-tile/event-tile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/views/event-tile/event-tile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/views/feed-item/feed-item.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/views/feed-item/feed-item.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/views/left-panel/left-panel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/views/left-panel/left-panel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/views/list-items/event-item.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/views/list-items/event-item.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/views/user-profile/user-profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/views/user-profile/user-profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/views/user-profile/user-profile.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/views/user-profile/user-profile.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/facts/languages.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/facts/languages.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,60 +22,12 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/pages/user-profile/user-profile-page.js">
+        <entry file="file://$PROJECT_DIR$/src/client/views/list-items/event-item.js">
           <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
-            <state relative-caret-position="1281">
-              <caret line="61" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="61" selection-end-line="61" />
+            <state relative-caret-position="445">
+              <caret line="26" column="5" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
               <folding>
-                <element signature="e#0#51#0" expanded="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/views/user-profile/user-profile.js">
-          <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="31" column="36" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="31" selection-start-column="36" selection-end-line="31" selection-end-column="36" />
-              <folding>
-                <element signature="e#0#51#0" expanded="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/views/left-panel/left-panel.js">
-          <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
-            <state relative-caret-position="707">
-              <caret line="50" column="52" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="49" selection-start-column="5" selection-end-line="50" selection-end-column="52" />
-              <folding>
-                <element signature="e#0#51#0" expanded="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/views/user-profile/user-profile.scss">
-          <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
-            <state relative-caret-position="461">
-              <caret line="63" column="25" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="63" selection-start-column="25" selection-end-line="63" selection-end-column="25" />
-              <folding>
-                <element signature="e#60#427#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/App.js">
-          <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
-            <state relative-caret-position="1092">
-              <caret line="52" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="52" selection-end-line="52" />
-              <folding>
-                <element signature="e#0#51#0" expanded="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" />
+                <element signature="e#0#40#0" expanded="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" />
               </folding>
             </state>
           </provider>
@@ -86,8 +36,8 @@
       <file pinned="false" current-in-tab="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$">
         <entry file="file://$PROJECT_DIR$/src/client/views/feed-item/feed-item.js">
           <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
-            <state relative-caret-position="599">
-              <caret line="72" column="1" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="72" selection-start-column="1" selection-end-line="72" selection-end-column="1" />
+            <state relative-caret-position="798">
+              <caret line="38" column="41" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
               <folding>
                 <element signature="e#0#51#0" expanded="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" />
               </folding>
@@ -107,8 +57,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>allUsers</find>
-      <find>/lib/mock-data-generator</find>
       <find>dataLoaded</find>
       <find>getSelectedInterests</find>
       <find>nothing</find>
@@ -137,6 +85,8 @@
       <find>setUserMasterData</find>
       <find>followInfo</find>
       <find>userMasterData</find>
+      <find>013</find>
+      <find>.join</find>
     </findStrings>
     <replaceStrings>
       <replace>languages</replace>
@@ -162,7 +112,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/client/views/about-you/about-you-1.js" />
         <option value="$PROJECT_DIR$/src/client/views/event-tile/event-tile.js" />
-        <option value="$PROJECT_DIR$/src/client/views/channel-tile/channel-tile.js" />
         <option value="$PROJECT_DIR$/src/client/views/about-you/about-you-2.js" />
         <option value="$PROJECT_DIR$/src/client/views/widgets/user-list.js" />
         <option value="$PROJECT_DIR$/public/index.html" />
@@ -196,7 +145,6 @@
         <option value="$PROJECT_DIR$/src/client/pages/lend-a-hand/lend-a-hand-page.js" />
         <option value="$PROJECT_DIR$/src/client/views/add-a-feed/add-a-feed.scss" />
         <option value="$PROJECT_DIR$/src/client/views/list-items/list-items.scss" />
-        <option value="$PROJECT_DIR$/src/client/views/list-items/event-item.js" />
         <option value="$PROJECT_DIR$/src/client/views/list-items/user-item.js" />
         <option value="$PROJECT_DIR$/src/client/views/right-panel/right-panel.js" />
         <option value="$PROJECT_DIR$/src/client/views/widgets/event-list.js" />
@@ -211,6 +159,8 @@
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/client/views/left-panel/left-panel.js" />
         <option value="$PROJECT_DIR$/src/client/views/feed-item/feed-item.js" />
+        <option value="$PROJECT_DIR$/src/client/views/channel-tile/channel-tile.js" />
+        <option value="$PROJECT_DIR$/src/client/views/list-items/event-item.js" />
       </list>
     </option>
   </component>
@@ -362,7 +312,7 @@
       <workItem from="1617081425787" duration="368000" />
       <workItem from="1617108093115" duration="37524000" />
       <workItem from="1617268093148" duration="171589000" />
-      <workItem from="1618212439457" duration="3486000" />
+      <workItem from="1618212439457" duration="4825000" />
     </task>
     <task id="LOCAL-00001" summary="WIP">
       <created>1617131557788</created>
@@ -497,11 +447,18 @@
       <option name="project" value="LOCAL" />
       <updated>1618167213159</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="WIP (Bug fixes)">
+      <created>1618223365650</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1618223365650</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="234116000" />
+    <option name="totallyTimeSpent" value="235455000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -530,7 +487,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" />
-      <window_info active="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" anchor="bottom" id="Terminal" order="10" visible="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" weight="0.22485769" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.22485769" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -552,15 +509,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="WIP (Bug fixes)" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/client/pages/about-you/about-you-page.js">
-      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
-        <state relative-caret-position="-1778">
-          <folding>
-            <element signature="e#0#40#0" expanded="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/facts/locations.js">
       <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor" />
     </entry>
@@ -831,16 +779,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/views/list-items/event-item.js">
-      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
-        <state relative-caret-position="1134">
-          <caret line="56" column="22" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#40#0" expanded="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/facts/interests.js">
       <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
         <state relative-caret-position="608">
@@ -925,10 +863,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/views/channel-tile/channel-tile.js">
+      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
+        <state relative-caret-position="684">
+          <caret line="60" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="60" selection-end-line="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/views/list-items/event-item.js">
+      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="26" column="5" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#40#0" expanded="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/views/feed-item/feed-item.js">
       <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
-        <state relative-caret-position="599">
-          <caret line="72" column="1" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="72" selection-start-column="1" selection-end-line="72" selection-end-column="1" />
+        <state relative-caret-position="798">
+          <caret line="38" column="41" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
           <folding>
             <element signature="e#0#51#0" expanded="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" />
           </folding>

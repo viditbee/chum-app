@@ -38,7 +38,7 @@ function ChannelTile({ userInfo, channelInfo, userLabels, channelIdSetter }) {
 
   const getFollowedByText = () => {
     const labels = followedBy.map((it) => userLabels[it] || "");
-    return labels.join("&#013;");
+    return labels.join("\n");
   };
 
   const handleTileClicked = () => {
