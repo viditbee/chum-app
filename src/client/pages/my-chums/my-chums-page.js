@@ -80,9 +80,11 @@ function MyChumsPage({ userInfo, resetFollowStaler }) {
       for (let j = 0; j < interests.length; j += 1) {
         let { id } = interests[j];
         if (loggedUserInterests.indexOf(id) !== -1) {
-          addedInterests.push(id);
+          if (addedInterests.indexOf(id) === -1) {
+            addedInterests.push(id);
+          }
 
-          if(!userNodeAdded) {
+          if (!userNodeAdded) {
             elements.push({
               id: userId,
               data: { label: firstName + " " + lastName },
@@ -104,6 +106,7 @@ function MyChumsPage({ userInfo, resetFollowStaler }) {
         }
       }
     }
+    console.log(addedInterests);
 
     for (let q = 0; q < addedInterests.length; q += 1) {
       let id = addedInterests[q];
@@ -124,6 +127,8 @@ function MyChumsPage({ userInfo, resetFollowStaler }) {
       })
     }
 
+    console.log(elements);
+
     return elements;
   };
 
@@ -135,7 +140,7 @@ function MyChumsPage({ userInfo, resetFollowStaler }) {
   const getView = () => {
     if (viewMode === "list") {
       return getListView();
-    } else if(dataLoaded) {
+    } else if (dataLoaded) {
       return getMapView();
     }
   };
