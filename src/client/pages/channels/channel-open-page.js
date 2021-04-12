@@ -8,6 +8,7 @@ function ChannelOpenPage({ userInfo, userMasterData, channelMasterData, channelI
 
   const [feeds, setFeeds] = useState({});
   const [dataLoaded, setDataLoaded] = useState(false);
+  const channelLabels = channelMasterData.channelLabels;
 
   useEffect(() => {
     async function fetchData() {
@@ -34,7 +35,7 @@ function ChannelOpenPage({ userInfo, userMasterData, channelMasterData, channelI
       feedViews.push(<FeedItem
         userInfo={userInfo}
         feedInfo={feeds[i]}
-        channelLabels={channelMasterData.channelLabels}
+        channelLabels={channelLabels || {}}
         userLabels={userMasterData.userLabels}
       />)
     }
@@ -44,7 +45,7 @@ function ChannelOpenPage({ userInfo, userMasterData, channelMasterData, channelI
 
   return <div className="page-specific-view-cont channel-open-page">
     {(!dataLoaded) ? <div className="page-loading">Loading...</div> : null}
-    <div className="gen-page-header">Channel: {channelMasterData.channelLabels[channelId]}</div>
+    <div className="gen-page-header">Channel: {channelLabels ? channelLabels[channelId] : ""}</div>
     <div className="gen-page-body">
       {dataLoaded ? <AddAFeed userInfo={userInfo} channelId={channelId} onFeedAdded={(feed) => {
         handleOnFeedAdded(feed)

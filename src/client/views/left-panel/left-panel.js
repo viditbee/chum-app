@@ -10,13 +10,15 @@ import {
 import Paths from './../../../facts/paths';
 import { manageSuccessfulLogout } from "../../utils/utils";
 
-function LeftPanel({ userInfo, logoutSetter, channelIdSetter, followStaler }) {
+function LeftPanel({ userInfo, logoutSetter, channelIdSetter, followStaler, userMasterData }) {
 
   const selectedItemURL = useLocation().pathname;
   const [dataLoaded, setDataLoaded] = useState(false);
   const [followInfo, setFollowInfo] = useState(null);
   const [basicInfo, setBasicInfo] = useState({});
   const [channels, setChannels] = useState([]);
+  const [followedByString, setFollowedByString] = useState("");
+  const [followerOfString, setFollowerOfString] = useState("");
 
   useEffect(() => {
     async function fetchData() {
@@ -39,6 +41,18 @@ function LeftPanel({ userInfo, logoutSetter, channelIdSetter, followStaler }) {
 
     userInfo && fetchData();
   }, [userInfo]);
+
+  useEffect(() => {
+    if (followInfo) {
+      const labels = userMasterData.userLabels || {};
+      const { followedBy, followerOf } = followInfo;
+      const followedByArr = followedBy.reduce((acc, itm) => [...acc, labels[itm]], []);
+      const followerOfArr = followerOf.reduce((acc, itm) => [...acc, labels[itm]], []);
+      setFollowedByString(followedByArr.join(", "));
+      setFollowerOfString(followerOfArr.join(", "));
+    }
+
+  }, [followInfo]);
 
   useEffect(() => {
     async function fetchData() {
@@ -71,11 +85,11 @@ function LeftPanel({ userInfo, logoutSetter, channelIdSetter, followStaler }) {
           <div className="stat-number">{interests.length}</div>
           <div className="stat-label">Interests</div>
         </div>
-        <div className="stat-item">
+        <div className="stat-item" title={followedByString}>
           <div className="stat-number">{followedBy.length}</div>
           <div className="stat-label">Followers</div>
         </div>
-        <div className="stat-item">
+        <div className="stat-item" title={followerOfString}>
           <div className="stat-number">{followerOf.length}</div>
           <div className="stat-label">Following</div>
         </div>

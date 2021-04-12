@@ -201,7 +201,7 @@ function App() {
             </Route>
             <Route exact path={Paths.home}>
               <div className={`gen-page user-home-page ${goLiveActive ? "blurred" : ""}`}>
-                <LeftPanel followStaler={followStaler} userInfo={userInfo}
+                <LeftPanel followStaler={followStaler} userInfo={userInfo} userMasterData={userMasterData}
                            logoutSetter={setLoggedOutIndirect} channelIdSetter={channelIdSetter} />
                 <div className="app-right-wrapper">
                   <RightBar goLiveClicked={goLiveClicked} />
@@ -215,7 +215,7 @@ function App() {
             </Route>
             <Route exact path={Paths.lendAHand}>
               <div className={`gen-page lend-a-hand-page ${goLiveActive ? "blurred" : ""}`}>
-                <LeftPanel followStaler={followStaler} userInfo={userInfo}
+                <LeftPanel followStaler={followStaler} userInfo={userInfo} userMasterData={userMasterData}
                            logoutSetter={setLoggedOutIndirect} channelIdSetter={channelIdSetter} />
                 <div className="app-right-wrapper">
                   <RightBar goLiveClicked={goLiveClicked} />
@@ -229,7 +229,7 @@ function App() {
             </Route>
             <Route exact path={Paths.channels}>
               <div className={`gen-page channels-page ${goLiveActive ? "blurred" : ""}`}>
-                <LeftPanel followStaler={followStaler} userInfo={userInfo}
+                <LeftPanel followStaler={followStaler} userInfo={userInfo} userMasterData={userMasterData}
                            logoutSetter={setLoggedOutIndirect} channelIdSetter={channelIdSetter} />
                 <div className="app-right-wrapper">
                   <RightBar goLiveClicked={goLiveClicked} />
@@ -246,7 +246,7 @@ function App() {
             </Route>
             <Route exact path={Paths.aboutMe}>
               <div className={`gen-page about-me-page ${goLiveActive ? "blurred" : ""}`}>
-                <LeftPanel followStaler={followStaler} userInfo={userInfo}
+                <LeftPanel followStaler={followStaler} userInfo={userInfo} userMasterData={userMasterData}
                            logoutSetter={setLoggedOutIndirect} channelIdSetter={channelIdSetter} />
                 <div className="app-right-wrapper">
                   <RightBar goLiveClicked={goLiveClicked} />
@@ -259,7 +259,7 @@ function App() {
             </Route>
             <Route exact path={Paths.events}>
               <div className={`gen-page events-page ${goLiveActive ? "blurred" : ""}`}>
-                <LeftPanel followStaler={followStaler} userInfo={userInfo}
+                <LeftPanel followStaler={followStaler} userInfo={userInfo} userMasterData={userMasterData}
                            logoutSetter={setLoggedOutIndirect} channelIdSetter={channelIdSetter} />
                 <div className="app-right-wrapper">
                   <RightBar goLiveClicked={goLiveClicked} />
@@ -274,7 +274,7 @@ function App() {
             </Route>
             <Route exact path={Paths.myChums}>
               <div className={`gen-page events-page ${goLiveActive ? "blurred" : ""}`}>
-                <LeftPanel followStaler={followStaler} userInfo={userInfo}
+                <LeftPanel followStaler={followStaler} userInfo={userInfo} userMasterData={userMasterData}
                            logoutSetter={setLoggedOutIndirect} channelIdSetter={channelIdSetter} />
                 <div className="app-right-wrapper">
                   <RightBar goLiveClicked={goLiveClicked} />
@@ -287,7 +287,7 @@ function App() {
             </Route>
             <Route path={Paths.aboutChum + "/:userId"}>
               <div className={`gen-page user-profile-page ${goLiveActive ? "blurred" : ""}`}>
-                <LeftPanel followStaler={followStaler} userInfo={userInfo}
+                <LeftPanel followStaler={followStaler} userInfo={userInfo} userMasterData={userMasterData}
                            logoutSetter={setLoggedOutIndirect} channelIdSetter={channelIdSetter} />
                 <div className="app-right-wrapper">
                   <RightBar goLiveClicked={goLiveClicked} />

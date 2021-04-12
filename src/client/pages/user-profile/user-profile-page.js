@@ -46,7 +46,7 @@ function UserProfilePage({ userInfo, userMasterData, channelMasterData, resetFol
   return <div className="page-specific-view-cont">
     {(!dataLoaded) ? <div className="page-loading">Loading...</div> : null}
     <div className="gen-page-body">
-      <UserProfile userId={userId} userInfo={userInfo} resetFollowStaler={resetFollowStaler} />
+      <UserProfile userId={userId} userInfo={userInfo} userMasterData={userMasterData} resetFollowStaler={resetFollowStaler} />
       <div className="up-feed-header">Timeline</div>
       {getFeedViews()}
     </div>

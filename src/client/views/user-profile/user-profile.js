@@ -11,13 +11,15 @@ import {
 } from "../../interface/interface";
 import Button from "../misc/button";
 
-function UserProfile({ userInfo, userId, resetFollowStaler }) {
+function UserProfile({ userInfo, userId, resetFollowStaler, userMasterData }) {
 
   const [dataLoaded, setDataLoaded] = useState(false);
   const [followInfo, setFollowInfo] = useState(null);
   const [profileInfo, setProfileInfo] = useState({});
   const [interestsLabelMap, setInterestsLabelMap] = useState({});
   const [isFollowing, setIsFollowing] = useState(false);
+  const [followedByString, setFollowedByString] = useState("");
+  const [followerOfString, setFollowerOfString] = useState("");
 
   useEffect(() => {
     async function fetchData() {
@@ -38,6 +40,18 @@ function UserProfile({ userInfo, userId, resetFollowStaler }) {
 
     userId && fetchData();
   }, [userId]);
+
+  useEffect(() => {
+    if (followInfo) {
+      const labels = userMasterData.userLabels || {};
+      const { followedBy, followerOf } = followInfo;
+      const followedByArr = followedBy.reduce((acc, itm) => [...acc, labels[itm]], []);
+      const followerOfArr = followerOf.reduce((acc, itm) => [...acc, labels[itm]], []);
+      setFollowedByString(followedByArr.join(", "));
+      setFollowerOfString(followerOfArr.join(", "));
+    }
+
+  }, [followInfo]);
 
   useEffect(() => {
     async function getInfo() {
@@ -124,11 +138,15 @@ function UserProfile({ userInfo, userId, resetFollowStaler }) {
 
     if (!isFollowing) {
       return <div className="follow-button not-following">
-        <Button text={"Follow " + firstName} onClick={() => {handleFollowClicked()}}/>
+        <Button text={"Follow " + firstName} onClick={() => {
+          handleFollowClicked()
+        }} />
       </div>;
     } else {
       return <div className="follow-button following">
-        <Button text={"Unfollow " + firstName} onClick={() => {handleUnFollowClicked()}}/>
+        <Button text={"Unfollow " + firstName} onClick={() => {
+          handleUnFollowClicked()
+        }} />
         <div className="following-text">Following ✓</div>
       </div>
     }
@@ -163,10 +181,10 @@ function UserProfile({ userInfo, userId, resetFollowStaler }) {
               </div>
             </div>
             <div className="upi-other-right">
-              <div className="upi-info-item followed-by">
+              <div className="upi-info-item followed-by" title={followedByString}>
                 <div className="upi-info-item-text">{followedBy.length + " Followers"}</div>
               </div>
-              <div className="upi-info-item follower-of">
+              <div className="upi-info-item follower-of" title={followerOfString}>
                 <div className="upi-info-item-text">{followerOf.length + " Following"}</div>
               </div>
             </div>

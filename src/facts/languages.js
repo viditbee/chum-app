@@ -15,6 +15,9 @@ module.exports = [
     id: "hn",
     label: "Hindi"
   },{
+    id: "mr",
+    label: "Marathi"
+  },{
     id: "ch",
     label: "Chinese"
   },{

@@ -12,6 +12,7 @@ function FeedItem({ userInfo, feedInfo, channelLabels, userLabels, showWherePost
   const [liked, setLiked] = useState(false);
   const [likedByCount, setLikedByCount] = useState(feedInfo.likedBy ? feedInfo.likedBy.length : 0);
   const timeAgo = new TimeAgo('en-US');
+  const [likedByString, setLikedByString] = useState("");
 
   useEffect(() => {
     if (feedInfo && feedInfo.likedBy) {
@@ -20,6 +21,13 @@ function FeedItem({ userInfo, feedInfo, channelLabels, userLabels, showWherePost
       }
     }
   }, [feedInfo]);
+
+  useEffect(() => {
+    if(feedInfo.likedBy && feedInfo.likedBy.length) {
+      const likedByAr = feedInfo.likedBy.reduce((acc, itm) => [...acc, userLabels[itm]], []);
+      setLikedByString(likedByAr.join(", "));
+    }
+  }, [feedInfo.likedBy]);
 
   const { id, channelId, createdOn, text } = feedInfo;
 
@@ -59,7 +67,7 @@ function FeedItem({ userInfo, feedInfo, channelLabels, userLabels, showWherePost
       <div title={liked ? "Unlike" : "Like"} className={`feed-like-button ${liked ? "liked" : ""}`}
            onClick={() => {
              handleLikeClicked()
-           }}>{likedByCount}</div>
+           }}><span title={likedByString}>{likedByCount}</span></div>
     </div>
   </div>;
 }
