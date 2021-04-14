@@ -1,5 +1,5 @@
 const Mongoose = require("mongoose");
-const database = "chumtest";
+const database = "chum";
 const url = `mongodb+srv://vidit:newPass4atlas@cluster0.ts0zq.mongodb.net/${database}?retryWrites=true&w=majority`;
 const { userSchema, interestSchema, basicInfoSchema, followInfoSchema, channelInfoSchema, postsSchema, eventInfoSchema } = require("./schemas");
 const MongoApis = {};
