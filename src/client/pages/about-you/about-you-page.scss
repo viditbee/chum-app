@@ -1,11 +1,19 @@
 .about-you-page-cont {
   height: 100%;
 
-  .chum-logo{
-
+  .chum-logo {
+    background-image: url("./../../assets/images/chum-logo.png");
+    height: 150px;
+    background-size: 180px;
+    background-position: 30px;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 400px;
   }
 
-  .about-you-scroller{
+  .about-you-scroller {
     position: relative;
     height: 100%;
     z-index: 2;
@@ -14,22 +22,22 @@
     padding: 150px 240px;
   }
 
-  .about-you-stepper{
+  .about-you-stepper {
     height: fit-content;
     align-self: center;
 
-    .getting-started{
+    .getting-started {
       font-size: 36px;
       font-family: Dosis;
     }
 
-    .step-info{
+    .step-info {
       font-size: 20px;
       margin: 10px 0 30px 0;
       font-family: Dosis;
     }
 
-    .float-paper{
+    .float-paper {
       width: 600px;
       padding: 40px;
       z-index: 2;
@@ -40,24 +48,24 @@
       text-align: left;
       margin: 0 auto;
 
-      .loading{
+      .loading {
         text-align: center;
         font-size: 18px;
         margin: 220px 0;
       }
 
-      .header-text{
+      .header-text {
         font-family: Dosis;
         font-size: 20px;
         font-weight: 500;
         margin-bottom: 30px;
       }
 
-      .button-cont{
+      .button-cont {
         text-align: right;
       }
 
-      .prev-button{
+      .prev-button {
         height: 40px;
         width: 40px;
         background-position: left;
@@ -68,7 +76,7 @@
         cursor: pointer;
       }
 
-      .button{
+      .button {
 
       }
     }

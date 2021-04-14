@@ -4,7 +4,7 @@ import AddAFeed from "../../views/add-a-feed/add-a-feed";
 import FeedItem from "../../views/feed-item/feed-item";
 import { getFeeds } from "../../interface/interface";
 
-function UserHomePage({ userInfo, userMasterData, channelMasterData }) {
+function UserHomePage({ userInfo, userMasterData, channelMasterData, followStaler }) {
 
   const [feeds, setFeeds] = useState({});
   const [dataLoaded, setDataLoaded] = useState(false);
@@ -21,7 +21,7 @@ function UserHomePage({ userInfo, userMasterData, channelMasterData }) {
     }
 
     userInfo && fetchData();
-  }, [userInfo]);
+  }, [userInfo, followStaler]);
 
   const handleOnFeedAdded = (feed) => {
     setFeeds([feed, ...feeds]);

@@ -9,7 +9,11 @@
   }
 
   .chum-logo {
-    height: 100px;
+    height: 120px;
+    background-size: 130px;
+    background-position: 10px;
+    background-repeat: no-repeat;
+    background-image: url("./../../assets/images/chum-logo.png");
   }
 
   .user-profile-cont {

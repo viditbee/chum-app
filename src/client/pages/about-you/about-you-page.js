@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import './about-you-page.scss';
 import DecoFooter from "../../views/deco-footer/deco-footer";
 import AboutYouOne from "../../views/about-you/about-you-1";
@@ -97,7 +97,7 @@ function AboutYouPage({ userInfo, gotStartedSetter }) {
   };
 
   return <div className="about-you-page-cont">
-    <div className="chum-logo" />
+    <Link to={"/"}><div className="chum-logo" /></Link>
     {getView()}
     <DecoFooter />
   </div>;

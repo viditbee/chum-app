@@ -3,4 +3,16 @@
   height: 100%;
   align-items: center;
   justify-content: center;
+
+  .chum-logo{
+    background-image: url("./../../assets/images/chum-logo.png");
+    height: 150px;
+    background-size: 180px;
+    background-position: 30px;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 400px;
+  }
 }

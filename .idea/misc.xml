@@ -3,6 +3,9 @@
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="JSX" />
   </component>
+  <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/swagger-gen.js" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" />
     <option name="showExcludedFiles" value="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" />

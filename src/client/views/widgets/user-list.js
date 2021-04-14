@@ -4,7 +4,7 @@ import './user-list.scss';
 import { getInterestsList, getUsersToFollow } from "../../interface/interface";
 import UserItem from "../list-items/user-item";
 
-function UserList({ loggedInUserInfo, resetFollowStaler }) {
+function UserList({ loggedInUserInfo, resetFollowStaler, followStaler }) {
 
   const [userList, setUserList] = useState([]);
   // const [interestsMasterList, setInterestsMasterList] = useState([]);
@@ -24,7 +24,7 @@ function UserList({ loggedInUserInfo, resetFollowStaler }) {
     }
 
     loggedInUserInfo && fetchData();
-  }, [loggedInUserInfo]);
+  }, [loggedInUserInfo, followStaler]);
 
   const setLabelsMap = (list) => {
     setInterestsLabelMap(list.reduce((acc, item) => ({ ...acc, [item.id]: item.label }), {}));
