@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" id="9ca07a7c-e49e-43a2-858a-bb157cca794e" name="Default Changelist" comment="Missing Link">
+    <list default="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" id="9ca07a7c-e49e-43a2-858a-bb157cca794e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/pages/signup/sign-up-page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/pages/signup/sign-up-page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/pages/signup/sign-up-page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/pages/signup/sign-up-page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/views/go-live/go-live.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/views/go-live/go-live.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/views/go-live/room-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/views/go-live/room-list.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -33,7 +33,7 @@
         <entry file="file://$PROJECT_DIR$/src/client/pages/signin/sign-in-page.scss">
           <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
             <state relative-caret-position="105">
-              <caret line="5" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="5" selection-end-line="16" selection-end-column="3" />
+              <caret line="5" selection-start-line="5" selection-end-line="16" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -50,11 +50,59 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/client/pages/signup/sign-up-page.scss">
           <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
             <state relative-caret-position="378">
-              <caret line="18" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="18" selection-end-line="18" />
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server.js">
+          <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
+            <state relative-caret-position="644">
+              <caret line="1006" column="24" selection-start-line="1006" selection-start-column="24" selection-end-line="1006" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/views/go-live/go-live.js">
+          <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
+            <state relative-caret-position="307">
+              <caret line="234" column="10" selection-start-line="234" selection-start-column="10" selection-end-line="234" selection-end-column="10" />
+              <folding>
+                <element signature="e#0#59#0" expanded="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$">
+        <entry file="file://$PROJECT_DIR$/src/client/views/go-live/room-list.js">
+          <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
+            <state relative-caret-position="546">
+              <caret line="27" column="41" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/views/go-live/user-mini-list.js">
+          <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
+            <state relative-caret-position="42">
+              <caret line="3" column="28" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/socket.js">
+          <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
+            <state relative-caret-position="461">
+              <caret line="41" column="30" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -71,10 +119,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>uii-follow-button</find>
-      <find>widge</find>
-      <find>user-profile-image</find>
-      <find>chum-desc</find>
       <find>history</find>
       <find>ChannelOpenPage</find>
       <find>list-item-ti</find>
@@ -101,6 +145,10 @@
       <find>resetFollowStaler</find>
       <find>resetMainFollowStaler</find>
       <find>chum-logo</find>
+      <find>onlineUsers</find>
+      <find>setOnlineUsers</find>
+      <find>users</find>
+      <find>filterAndSetUniqueUsers</find>
     </findStrings>
     <replaceStrings>
       <replace>languages</replace>
@@ -126,8 +174,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/server/api-routes.js" />
-        <option value="$PROJECT_DIR$/src/facts/paths.js" />
         <option value="$PROJECT_DIR$/src/client/pages/common-page-styles.scss" />
         <option value="$PROJECT_DIR$/src/client/pages/user-profile/user-profile-page.scss" />
         <option value="$PROJECT_DIR$/src/client/views/widgets/gen-widget.scss" />
@@ -177,6 +223,8 @@
         <option value="$PROJECT_DIR$/mongo.js" />
         <option value="$PROJECT_DIR$/src/client/pages/signup/sign-up-page.js" />
         <option value="$PROJECT_DIR$/src/client/pages/signup/sign-up-page.scss" />
+        <option value="$PROJECT_DIR$/src/client/views/go-live/go-live.js" />
+        <option value="$PROJECT_DIR$/src/client/views/go-live/room-list.js" />
       </list>
     </option>
   </component>
@@ -193,6 +241,9 @@
   <component name="JsGulpfileManager">
     <detection-done>$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths>
@@ -489,11 +540,18 @@
       <option name="project" value="LOCAL" />
       <updated>1618388112889</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Missing Link">
+      <created>1618389456291</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1618389456291</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="253711000" />
+    <option name="totallyTimeSpent" value="254717000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -508,7 +566,7 @@
     <frame x="0" y="25" width="1920" height="1175" extended-state="6" />
     <editor active="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" />
     <layout>
-      <window_info active="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" content_ui="combo" id="Project" order="0" visible="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" weight="0.24960506" />
+      <window_info content_ui="combo" id="Project" order="0" visible="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" weight="0.24960506" />
       <window_info id="Structure" order="1" side_tool="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" weight="0.25" />
       <window_info id="npm" order="2" side_tool="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" />
       <window_info id="Favorites" order="3" side_tool="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" />
@@ -523,7 +581,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.14990513" />
+      <window_info active="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" anchor="bottom" id="Terminal" order="10" visible="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" weight="0.26850095" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -543,39 +601,10 @@
     <MESSAGE value="WIP (Cleanup)" />
     <MESSAGE value="WIP (Bug fixes)" />
     <MESSAGE value="Change db" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change db" />
+    <MESSAGE value="Missing Link" />
+    <option name="LAST_COMMIT_MESSAGE" value="Missing Link" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Procfile">
-      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/pages/lend-a-hand/lend-a-hand-page.js">
-      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="50" column="10" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="50" selection-start-column="10" selection-end-line="50" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#51#0" expanded="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/views/add-a-feed/add-a-feed.js">
-      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="30" column="28" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#40#0" expanded="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/views/add-a-feed/add-a-feed.scss">
-      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/pages/events/events-page.js">
       <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
         <state relative-caret-position="1512">
@@ -903,13 +932,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
-        <state relative-caret-position="6195">
-          <caret line="1007" column="2" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="1007" selection-start-column="2" selection-end-line="1007" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mongo.js">
       <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
         <state relative-caret-position="735">
@@ -927,6 +949,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/pages/signin/sign-in-page.scss">
+      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" selection-start-line="5" selection-end-line="16" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/pages/signup/sign-up-page.scss">
+      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
+        <state relative-caret-position="644">
+          <caret line="1006" column="24" selection-start-line="1006" selection-start-column="24" selection-end-line="1006" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/socket.js">
+      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
+        <state relative-caret-position="461">
+          <caret line="41" column="30" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/pages/signin/sign-in-page.js">
       <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -937,17 +987,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/pages/signin/sign-in-page.scss">
+    <entry file="file://$PROJECT_DIR$/src/client/views/go-live/user-mini-list.js">
       <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="5" selection-end-line="16" selection-end-column="3" />
+        <state relative-caret-position="42">
+          <caret line="3" column="28" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/pages/signup/sign-up-page.scss">
+    <entry file="file://$PROJECT_DIR$/src/client/views/go-live/go-live.js">
       <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="18" selection-end-line="18" />
+        <state relative-caret-position="307">
+          <caret line="234" column="10" selection-start-line="234" selection-start-column="10" selection-end-line="234" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#59#0" expanded="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/views/go-live/room-list.js">
+      <provider selected="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="27" column="41" lean-forward="$_JB_INTELLIJ_JASMINE_REPORTER_DISABLED$" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
         </state>
       </provider>
     </entry>

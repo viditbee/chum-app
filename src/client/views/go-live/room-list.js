@@ -10,11 +10,12 @@ function RoomList({ list, roomUserMap, onJoinClicked, onRoomCreateRequest, joine
       let { label, id } = list[i];
       let joinView = joinedRoom === id ? <div className="item-joined" /> :
         <div className="item-join" onClick={() => onJoinClicked(id)} />;
+        let usersTitle = (roomUserMap[id] || []).join("\n");
 
-      itemViews.push(<div key={id} className="rl-item-cont">
+          itemViews.push(<div key={id} className="rl-item-cont">
         <div className="item-image">{label[0] + (label[1] || "")}</div>
         <div className="item-text">{label}</div>
-        <div className="item-cnt">{roomUserMap[id] ? roomUserMap[id].length : 0}</div>
+        <div className="item-cnt" title={usersTitle}>{roomUserMap[id] ? roomUserMap[id].length : 0}</div>
         {joinView}
       </div>)
     }
