@@ -5,7 +5,7 @@ import SearchChannel from "../../views/search-channel/search-channel";
 import ChannelTile from "../../views/channel-tile/channel-tile";
 import ChannelOpenPage from "./channel-open-page";
 
-function ChannelsPage({ userInfo, channelMasterData, userMasterData, selectedChannelId, channelIdSetter }) {
+function ChannelsPage({ userInfo, channelMasterData, userMasterData, selectedChannelId, channelIdSetter, resetChannelFollowStaler }) {
 
   const [channels, setChannels] = useState([]);
   const [dataLoaded, setDataLoaded] = useState(false);
@@ -30,6 +30,7 @@ function ChannelsPage({ userInfo, channelMasterData, userMasterData, selectedCha
   const handleChannelAdded = (channel) => {
     setSearchText("");
     setChannels([channel, ...channels]);
+    resetChannelFollowStaler();
   };
 
   const getChannelTiles = () => {
@@ -44,6 +45,7 @@ function ChannelsPage({ userInfo, channelMasterData, userMasterData, selectedCha
           channelInfo={channels[i]}
           userLabels={userMasterData.userLabels}
           channelIdSetter={channelIdSetter}
+          resetChannelFollowStaler={resetChannelFollowStaler}
         />)
       }
     }

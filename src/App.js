@@ -50,6 +50,7 @@ function App() {
   const [followStaler, setFollowStaler] = useState(Math.random());
   const [mainFollowStaler, setMainFollowStaler] = useState(Math.random());
   const [eventsStaler, setEventsStaler] = useState(Math.random());
+  const [channelFollowStaler, setChannelFollowStaler] = useState(Math.random());
   const [goLiveActive, setGoLiveActive] = useState(false);
 
   useEffect(() => {
@@ -88,6 +89,10 @@ function App() {
 
   const resetEventsStaler = () => {
     setEventsStaler(Math.random());
+  };
+
+  const resetChannelFollowStaler = () => {
+    setChannelFollowStaler(Math.random());
   };
 
   const channelIdSetter = (id) => {
@@ -206,7 +211,7 @@ function App() {
             </Route>
             <Route exact path={Paths.home}>
               <div className={`gen-page user-home-page ${goLiveActive ? "blurred" : ""}`}>
-                <LeftPanel followStaler={followStaler+mainFollowStaler} userInfo={userInfo} userMasterData={userMasterData}
+                <LeftPanel followStaler={followStaler+mainFollowStaler} channelFollowStaler={channelFollowStaler} userInfo={userInfo} userMasterData={userMasterData}
                            logoutSetter={setLoggedOutIndirect} channelIdSetter={channelIdSetter} />
                 <div className="app-right-wrapper">
                   <RightBar goLiveClicked={goLiveClicked} />
@@ -220,7 +225,7 @@ function App() {
             </Route>
             <Route exact path={Paths.lendAHand}>
               <div className={`gen-page lend-a-hand-page ${goLiveActive ? "blurred" : ""}`}>
-                <LeftPanel followStaler={followStaler+mainFollowStaler} userInfo={userInfo} userMasterData={userMasterData}
+                <LeftPanel followStaler={followStaler+mainFollowStaler} channelFollowStaler={channelFollowStaler} userInfo={userInfo} userMasterData={userMasterData}
                            logoutSetter={setLoggedOutIndirect} channelIdSetter={channelIdSetter} />
                 <div className="app-right-wrapper">
                   <RightBar goLiveClicked={goLiveClicked} />
@@ -234,7 +239,7 @@ function App() {
             </Route>
             <Route exact path={Paths.channels}>
               <div className={`gen-page channels-page ${goLiveActive ? "blurred" : ""}`}>
-                <LeftPanel followStaler={followStaler+mainFollowStaler} userInfo={userInfo} userMasterData={userMasterData}
+                <LeftPanel followStaler={followStaler+mainFollowStaler} channelFollowStaler={channelFollowStaler} userInfo={userInfo} userMasterData={userMasterData}
                            logoutSetter={setLoggedOutIndirect} channelIdSetter={channelIdSetter} />
                 <div className="app-right-wrapper">
                   <RightBar goLiveClicked={goLiveClicked} />
@@ -243,6 +248,7 @@ function App() {
                                   userMasterData={userMasterData}
                                   channelMasterData={channelMasterData}
                                   selectedChannelId={selectedChannelId}
+                                  resetChannelFollowStaler={resetChannelFollowStaler}
                                   channelIdSetter={channelIdSetter} />
                     <RightPanel eventStaler={eventsStaler} followStaler={mainFollowStaler} resetFollowStaler={resetFollowStaler} userInfo={userInfo} />
                   </div>
@@ -251,7 +257,7 @@ function App() {
             </Route>
             <Route exact path={Paths.aboutMe}>
               <div className={`gen-page about-me-page ${goLiveActive ? "blurred" : ""}`}>
-                <LeftPanel followStaler={followStaler+mainFollowStaler} userInfo={userInfo} userMasterData={userMasterData}
+                <LeftPanel followStaler={followStaler+mainFollowStaler} channelFollowStaler={channelFollowStaler} userInfo={userInfo} userMasterData={userMasterData}
                            logoutSetter={setLoggedOutIndirect} channelIdSetter={channelIdSetter} />
                 <div className="app-right-wrapper">
                   <RightBar goLiveClicked={goLiveClicked} />
@@ -264,7 +270,7 @@ function App() {
             </Route>
             <Route exact path={Paths.events}>
               <div className={`gen-page events-page ${goLiveActive ? "blurred" : ""}`}>
-                <LeftPanel followStaler={followStaler+mainFollowStaler} userInfo={userInfo} userMasterData={userMasterData}
+                <LeftPanel followStaler={followStaler+mainFollowStaler} channelFollowStaler={channelFollowStaler} userInfo={userInfo} userMasterData={userMasterData}
                            logoutSetter={setLoggedOutIndirect} channelIdSetter={channelIdSetter} />
                 <div className="app-right-wrapper">
                   <RightBar goLiveClicked={goLiveClicked} />
@@ -279,7 +285,7 @@ function App() {
             </Route>
             <Route exact path={Paths.myChums}>
               <div className={`gen-page events-page ${goLiveActive ? "blurred" : ""}`}>
-                <LeftPanel followStaler={followStaler+mainFollowStaler} userInfo={userInfo} userMasterData={userMasterData}
+                <LeftPanel followStaler={followStaler+mainFollowStaler} channelFollowStaler={channelFollowStaler} userInfo={userInfo} userMasterData={userMasterData}
                            logoutSetter={setLoggedOutIndirect} channelIdSetter={channelIdSetter} />
                 <div className="app-right-wrapper">
                   <RightBar goLiveClicked={goLiveClicked} />
@@ -292,7 +298,7 @@ function App() {
             </Route>
             <Route path={Paths.aboutChum + "/:userId"}>
               <div className={`gen-page user-profile-page ${goLiveActive ? "blurred" : ""}`}>
-                <LeftPanel followStaler={followStaler+mainFollowStaler} userInfo={userInfo} userMasterData={userMasterData}
+                <LeftPanel followStaler={followStaler+mainFollowStaler} channelFollowStaler={channelFollowStaler} userInfo={userInfo} userMasterData={userMasterData}
                            logoutSetter={setLoggedOutIndirect} channelIdSetter={channelIdSetter} />
                 <div className="app-right-wrapper">
                   <RightBar goLiveClicked={goLiveClicked} />

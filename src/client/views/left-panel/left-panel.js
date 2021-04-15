@@ -10,7 +10,7 @@ import {
 import Paths from './../../../facts/paths';
 import { manageSuccessfulLogout } from "../../utils/utils";
 
-function LeftPanel({ userInfo, logoutSetter, channelIdSetter, followStaler, userMasterData }) {
+function LeftPanel({ userInfo, logoutSetter, channelIdSetter, followStaler, userMasterData, channelFollowStaler }) {
 
   const selectedItemURL = useLocation().pathname;
   const [dataLoaded, setDataLoaded] = useState(false);
@@ -66,7 +66,20 @@ function LeftPanel({ userInfo, logoutSetter, channelIdSetter, followStaler, user
     }
 
     userInfo && followInfo && fetchData();
-  }, [followStaler]);
+  }, [userInfo, followStaler]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const userId = userInfo.id;
+      let { status: cSt, response: cRs } = await getSubscribedChannels(userId);
+
+      if (cSt === "success") {
+        setChannels(cRs);
+      }
+    }
+
+    userInfo && dataLoaded && fetchData();
+  }, [userInfo, channelFollowStaler]);
 
   const handleChannelItemClicked = (id) => {
     channelIdSetter(id);

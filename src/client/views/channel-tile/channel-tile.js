@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './channel-tile.scss';
 import { followChannel } from "../../interface/interface";
 
-function ChannelTile({ userInfo, channelInfo, userLabels, channelIdSetter }) {
+function ChannelTile({ userInfo, channelInfo, userLabels, channelIdSetter, resetChannelFollowStaler }) {
 
   const [followed, setFollowed] = useState(false);
   const [channel, setChannel] = useState(channelInfo);
@@ -33,6 +33,7 @@ function ChannelTile({ userInfo, channelInfo, userLabels, channelIdSetter }) {
           setChannel({ ...channel, followedBy: fb });
         }
       }
+      resetChannelFollowStaler();
     }
   };
 

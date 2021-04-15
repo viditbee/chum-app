@@ -33,6 +33,7 @@ function ChannelOpenPage({ userInfo, userMasterData, channelMasterData, channelI
     const feedViews = [];
     for (let i = 0; i < feeds.length; i += 1) {
       feedViews.push(<FeedItem
+        key={feeds[i].id}
         userInfo={userInfo}
         feedInfo={feeds[i]}
         channelLabels={channelLabels || {}}

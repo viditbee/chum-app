@@ -7,6 +7,7 @@ import {
 } from "../../interface/interface";
 import UserItem from "../../views/list-items/user-item";
 import RCFlowGraph from "./../../views/rc-flow-graph/rc-flow-graph";
+import SearchChum from "../../views/search-chum/search-chum";
 
 const POSITION = { x: 0, y: 0 };
 const EDGE_TYPE = 'default';
@@ -20,6 +21,7 @@ function MyChumsPage({ userInfo, resetFollowStaler }) {
   const [dataLoaded, setDataLoaded] = useState(false);
   const [viewMode, setViewMode] = useState("map");
   const [userBasicInfo, setUserBasicInfo] = useState({});
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     async function fetchData() {
@@ -41,6 +43,10 @@ function MyChumsPage({ userInfo, resetFollowStaler }) {
     userInfo && fetchData();
   }, [userInfo]);
 
+  const handleSearchTextChanged = (txt) => {
+    setSearchText(txt && txt.toLocaleLowerCase());
+  };
+
   const setLabelsMap = (list) => {
     setInterestsLabelMap(list.reduce((acc, item) => ({ ...acc, [item.id]: item.label }), {}));
   };
@@ -49,16 +55,25 @@ function MyChumsPage({ userInfo, resetFollowStaler }) {
     const listView = [];
     for (let i = 0; i < userList.length; i += 1) {
       const user = userList[i];
-      listView.push(<UserItem resetFollowStaler={resetFollowStaler}
-                              key={user.userId}
-                              loggedInUserInfo={userInfo}
-                              userInfo={user}
-                              following={user.following}
-                              showBig={true}
-                              interestLabels={interestsLabelMap} />)
+      const { firstName, lastName } = user;
+      const fullName = firstName.toLocaleLowerCase() + " " + lastName.toLocaleLowerCase();
+      if (!searchText || (fullName.indexOf(searchText) !== -1)) {
+        listView.push(<UserItem resetFollowStaler={resetFollowStaler}
+                                key={user.userId}
+                                loggedInUserInfo={userInfo}
+                                userInfo={user}
+                                following={user.following}
+                                showBig={true}
+                                interestLabels={interestsLabelMap} />)
+      }
     }
 
-    return listView;
+    return <>
+      <SearchChum onTextChanged={(txt) => {
+        handleSearchTextChanged(txt)
+      }} />
+      {listView}
+    </>;
   };
 
   const prepareDataForMap = () => {
