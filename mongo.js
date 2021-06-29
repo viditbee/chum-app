@@ -8,6 +8,7 @@ const SECRET_SALT_FOR_PASSWORD = "BEE";
 const { sendSignupSuccessMail } = require('./mail-manager');
 const { validateEmail } = require('./utils');
 const DefChannels = require('./src/facts/def-channels');
+const CS_RESTRICTED = false;
 
 Mongoose.connect(url, async function () {
 
@@ -41,28 +42,30 @@ Mongoose.connect(url, async function () {
   };
 
   MongoApis.registerUser = async (username, firstName, lastName) => {
-    if (validateEmail(username) && username.indexOf("@contentserv.com") !== -1) {
-      const UserModel = Mongoose.model("users", userSchema);
-      const user = await UserModel.findOne({ 'emailId': username });
-      if (!user) {
-        let userRep = new UserModel({
-          id: Math.floor(Math.random() * 100000000) + "",
-          createdOn: new Date().getTime() + "",
-          emailId: username,
-          firstName: firstName,
-          lastName: lastName,
-        });
-        const userFromDB = await userRep.save();
-        sendSignupSuccessMail(userFromDB);
-        return {
-          status: "success"
-        }
-      } else {
-        return {
-          status: "user_already_registered"
+    if(!CS_RESTRICTED || username.indexOf("@contentserv.com") !== -1) {
+      if (validateEmail(username)) {
+        const UserModel = Mongoose.model("users", userSchema);
+        const user = await UserModel.findOne({ 'emailId': username });
+        if (!user) {
+          let userRep = new UserModel({
+            id: Math.floor(Math.random() * 100000000) + "",
+            createdOn: new Date().getTime() + "",
+            emailId: username,
+            firstName: firstName,
+            lastName: lastName,
+          });
+          const userFromDB = await userRep.save();
+          sendSignupSuccessMail(userFromDB);
+          return {
+            status: "success"
+          }
+        } else {
+          return {
+            status: "user_already_registered"
+          }
         }
       }
-    } else {
+    }else {
       return {
         status: "invalid_email_id"
       }
